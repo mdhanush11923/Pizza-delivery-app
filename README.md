@@ -1,4 +1,4 @@
-# **PIZzA Delivery App**
+>  **PIZZA Delivery App**
 
 ![Screenshot 2024-09-26 033520](https://github.com/user-attachments/assets/03e875fb-beab-4c79-bab5-04c5349a368a)
 
