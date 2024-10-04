@@ -14,10 +14,10 @@ export default function StartPage() {
   const router = useRouter();
   return (
     <div>
-      <section className="flex flex-wrap items-center justify-center gap-10 px-10 py-8 md:py-20">
+      <section className="flex flex-wrap items-center justify-center gap-10 px-10 py-8 md:py-20 select-none">
         <div className="max-w-lg gap-4">
           <div className="flex gap-10">
-            <div className="flex ">
+            <div className="flex select-none">
               <p className="font-black text-inherit text-2xl">PIZzA</p>
               <p className="font-regular text-inherit">Delivery</p>
             </div>
@@ -87,7 +87,7 @@ export default function StartPage() {
             >
               Login
               <BorderBeam
-              size={400}
+                size={400}
                 borderWidth={2}
                 colorFrom="#ffffff"
                 colorTo="#000000"
@@ -98,7 +98,7 @@ export default function StartPage() {
             </RainbowButton>
           </div>
         </div>
-        <div className={`max-md:w-full`}>
+        <div className={`max-md:w-full pointer-events-none`}>
           <Image isBlurred src="/Images/circlePizza.png" width={650} />
         </div>
       </section>
