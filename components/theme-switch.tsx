@@ -40,9 +40,12 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({ className }) => {
           "bg-content2 hover:bg-content2 cursor-pointer rounded-lg gap-2 p-2 border-transparent",
           className, // Allow for custom classes
         ),
-        wrapper: cn("p-0 h-3 overflow-visible bg-[black]","group-data-[selected=true]:bg-success"),
+        wrapper: cn(
+          "p-0 h-3 overflow-visible bg-[black]",
+          "group-data-[selected=true]:bg-success",
+        ),
         thumb: cn(
-          "w-6 h-6 border- shadow-lg",
+          "w-6 h-6 shadow-lg text-[black]",
           "group-data-[hover=true]:bg-success",
           "group-data-[selected=true]:ml-6",
           "group-data-[selected=true]:-success",
@@ -51,6 +54,7 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({ className }) => {
       }}
       isSelected={isDark}
       onChange={onChange}
+      thumbIcon={(isDark)? <p>L</p> : <p>D</p>}
     />
   );
 };
