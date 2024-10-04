@@ -1,57 +1,66 @@
-<<<<<<< HEAD
-# Next.js & NextUI Template
+# **PIZzA Delivery App**
 
-This is a template for creating applications using Next.js 14 (app directory) and NextUI (v2).
+![Screenshot 2024-09-26 033520](https://github.com/user-attachments/assets/03e875fb-beab-4c79-bab5-04c5349a368a)
 
-[Try it on CodeSandbox](https://githubbox.com/nextui-org/next-app-template)
+🚀 𝗟𝗲𝘃𝗲𝗹 𝟯 𝗖𝗵𝗮𝗹𝗹𝗲𝗻𝗴𝗲 𝗖𝗼𝗺𝗽𝗹𝗲𝘁𝗲𝗱: 𝗣𝗶𝘇𝘇𝗮 𝗗𝗲𝗹𝗶𝘃𝗲𝗿𝘆 𝗪𝗲𝗯 𝗔𝗽𝗽 𝗳𝗼𝗿 𝗢𝗮𝘀𝗶𝘀 𝗜𝗻𝗳𝗼𝗯𝘆𝘁𝗲 𝗜𝗻𝘁𝗲𝗿𝗻𝘀𝗵𝗶𝗽! 🍕🎉
 
-## Technologies Used
 
-- [Next.js 14](https://nextjs.org/docs/getting-started)
-- [NextUI v2](https://nextui.org/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Tailwind Variants](https://tailwind-variants.org)
-- [TypeScript](https://www.typescriptlang.org/)
-- [Framer Motion](https://www.framer.com/motion/)
-- [next-themes](https://github.com/pacocoursey/next-themes)
 
-## How to Use
+I am thrilled to announce that I have successfully completed a 𝗟𝗲𝘃𝗲𝗹 𝟯 𝗧𝗮𝘀𝗸 (the hardest level) during my internship at 𝐎𝐚𝐬𝐢𝐬 𝐈𝐧𝐟𝐨𝐛𝐲𝐭𝐞! 💼
 
-### Use the template with create-next-app
 
-To create a new project based on this template using `create-next-app`, run the following command:
 
-```bash
-npx create-next-app -e https://github.com/nextui-org/next-app-template
-```
+This project is a 𝗳𝘂𝗹𝗹-𝘀𝘁𝗮𝗰𝗸 𝗣𝗶𝘇𝘇𝗮 𝗗𝗲𝗹𝗶𝘃𝗲𝗿𝘆 𝗪𝗲𝗯 𝗔𝗽𝗽 that I built entirely on my own, using 𝗠𝗼𝗻𝗴𝗼𝗗𝗕, 𝗥𝗲𝗮𝗰𝘁, 𝗘𝘅𝗽𝗿𝗲𝘀𝘀.𝗷𝘀, and 𝗡𝗼𝗱𝗲.𝗷𝘀, with additional tech and UI highlights:
 
-### Install dependencies
 
-You can use one of them `npm`, `yarn`, `pnpm`, `bun`, Example using `npm`:
 
-```bash
-npm install
-```
+🔑 𝗪𝗲𝗯𝘀𝗶𝘁𝗲 𝗙𝗲𝗮𝘁𝘂𝗿𝗲𝘀:
 
-### Run the development server
+- Stunning UI built using 𝗡𝗲𝘅𝘁𝗨𝗜 and 𝗠𝗮𝘁𝗲𝗿𝗶𝗮𝗹 𝗨𝗜 components.
 
-```bash
-npm run dev
-```
+- 𝗗𝗮𝗿𝗸 𝗺𝗼𝗱𝗲 𝗮𝗻𝗱 𝗟𝗶𝗴𝗵𝘁 𝗺𝗼𝗱𝗲 switch for the entire website. 🌙☀️
 
-### Setup pnpm (optional)
+- 𝗔𝗜-𝗴𝗲𝗻𝗲𝗿𝗮𝘁𝗲𝗱 𝗶𝗺𝗮𝗴𝗲𝘀 using ChatGPT prompts for high-quality visuals.
 
-If you are using `pnpm`, you need to add the following code to your `.npmrc` file:
+- 𝗟𝗼𝗴𝗶𝗻/𝘀𝗶𝗴𝗻𝘂𝗽 𝘀𝗰𝗿𝗲𝗲𝗻𝘀 with error detection, password visibility icons, and clear buttons for input fields.
 
-```bash
-public-hoist-pattern[]=*@nextui-org/*
-```
+- Fully responsive 𝗻𝗮𝘃𝗯𝗮𝗿 with a toggle switch for smaller screens.
 
-After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
+- The 𝗵𝗼𝗺𝗲 𝗽𝗮𝗴𝗲 includes:
 
-## License
+ - A detailed 𝗺𝗲𝗻𝘂 with 30+ pizzas (veg and non-veg categories).
 
-Licensed under the [MIT license](https://github.com/nextui-org/next-app-template/blob/main/LICENSE).
-=======
-# pizza-delivery-app
->>>>>>> 49fa953c382c0d428ae75430696c301708295840
+ - Pizza sizes (small, medium, large) with different prices.
+
+ - Visible stock and detailed descriptions.
+
+ - Option to 𝗰𝘂𝘀𝘁𝗼𝗺𝗶𝘇𝗲 𝘆𝗼𝘂𝗿 𝗼𝘄𝗻 𝗽𝗶𝘇𝘇𝗮.
+
+ - 𝗔𝗱𝗱 𝘁𝗼 𝗰𝗮𝗿𝘁 feature, with data stored and visible in a 𝗺𝗼𝗱𝗮𝗹.
+
+ - 𝗥𝗲𝗺𝗼𝘃𝗲 𝗶𝘁𝗲𝗺𝘀 from the cart, and checkout via 𝗥𝗮𝘇𝗼𝗿𝗽𝗮𝘆 in test mode.
+
+- The app is fully 𝗿𝗲𝘀𝗽𝗼𝗻𝘀𝗶𝘃𝗲 with theme-switching capability.
+
+- An 𝗔𝗱𝗺𝗶𝗻 𝗗𝗮𝘀𝗵𝗯𝗼𝗮𝗿𝗱 for 𝗖𝗥𝗨𝗗 𝗼𝗽𝗲𝗿𝗮𝘁𝗶𝗼𝗻𝘀 on pizza stocks like base, cheese, sauce, and veggies.
+
+- 𝗗𝗲𝗽𝗹𝗼𝘆𝗲𝗱 𝗼𝗻 𝗚𝗶𝘁𝗛𝘂𝗯 and built using the 𝗠𝗘𝗥𝗡 𝘀𝘁𝗮𝗰𝗸 with 𝗩𝗶𝘁𝗲+𝗥𝗲𝗮𝗰𝘁 for enhanced performance.
+
+- Styled with 𝗧𝗮𝗶𝗹𝘄𝗶𝗻𝗱 𝗖𝗦𝗦, including a navbar that transforms into a menu with a toggle switch.
+
+
+
+This has been an incredible journey, and I'm proud (and maybe a little sleep-deprived) to share my 𝗳𝗶𝗿𝘀𝘁-𝗽𝗿𝗼𝗷𝗲𝗰𝘁 pizza delivery website—designed, developed, and deployed by a single person—me! 🙌 Building it solo definitely felt like a wild ride, but totally worth it!
+
+
+
+Check out the website and video demo here: 
+
+[𝗪𝗲𝗯𝘀𝗶𝘁𝗲 𝗹𝗶𝗻𝗸: https://mdhanush11923.github.io/pizza-delivery/]
+
+<video width="640" height="480" controls>
+  <source src="https://drive.google.com/file/d/1rZnHarXSBTvI2pNgjpBFCTPPVRMOFv_N/view?usp=sharing" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+#Internship #WebDevelopment #FullStackDeveloper #NextUI #MaterialUI #React #MongoDB #NodeJS #Razorpay #PizzaDeliveryApp #OasisInfobyte #TechJourney #UIUX #SingleHandedProject #Level3Task #Vite #TailwindCSS
