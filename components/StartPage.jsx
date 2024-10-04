@@ -89,7 +89,7 @@ export default function StartPage() {
               <BorderBeam
                 borderWidth={2}
                 colorFrom="#4379F2"
-                colorTo="#C3FF93"
+                colorTo="#ffffff"
               />
             </Button>
             <RainbowButton onClick={() => router.push("/signup")}>
