@@ -4,10 +4,13 @@ import { Button, Image, Link } from "@nextui-org/react";
 import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
 import { ThemeSwitch } from "@/components/theme-switch";
-
+import WordRotate from "@/components/ui/word-rotate";
+import { RainbowButton } from "@/components/ui/rainbow-button";
 import Footer from "@/components/Footer";
+import { useRouter } from "next/navigation";
 
 export default function StartPage() {
+  const router = useRouter();
   return (
     <div>
       <section className="flex flex-wrap items-center justify-center gap-10 px-10 py-8 md:py-20">
@@ -33,17 +36,49 @@ export default function StartPage() {
             <span className={`${title({ color: "green", size: "vs" })}`}>
               🍃fresh&nbsp;
             </span>
-            {" and "} 
+            {" and "}
             <span className={`${title({ color: "blue", size: "vs" })}`}>
               ⚡delivered&nbsp;
             </span>
             fast!
           </h2>
+          {/* <WordRotate
+            className="text-4xl font-bold text-black dark:text-white"
+            words={[
+              <span
+                key={1}
+                className={`${title({ color: "yellow", size: "vs" })}`}
+              >
+                🔥Hot&nbsp;{", "}
+              </span>,
+              <span
+                key={2}
+                className={`${title({ color: "green", size: "vs" })}`}
+              >
+                🍃fresh&nbsp;{" and "}
+              </span>,
+              <span
+                key={3}
+                className={`${title({ color: "blue", size: "vs" })}`}
+              >
+                ⚡delivered&nbsp; fast!
+              </span>,
+            ]}
+          /> */}
           <div className="flex flex-wrap gap-3 mt-14">
-            <Button
+            {/* <Button
               className="h-16 w-full sm:w-44"
               color="primary"
               radius="sm"
+              size="lg"
+              href="/login"
+              as={Link}
+            >
+              Login
+            </Button> */}
+            <Button
+              className="h-16 w-full sm:w-44 font-medium border-foreground text-foreground rounded-lg hover:font-bold"
+              color=""
               size="lg"
               href="/login"
               as={Link}
@@ -51,16 +86,9 @@ export default function StartPage() {
             >
               Login
             </Button>
-            <Button
-              className="h-16 w-full sm:w-44 hover:bg-[#0000a1]"
-              color="primary"
-              radius="sm"
-              size="lg"
-              href="/signup"
-              as={Link}
-            >
-              Sign up
-            </Button>
+            <RainbowButton onClick={() => router.push("/signup")}>
+              <p className=" text-background">Sign up</p>
+            </RainbowButton>
           </div>
         </div>
         <div className={`max-md:w-full`}>
