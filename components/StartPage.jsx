@@ -14,7 +14,7 @@ export default function StartPage() {
         <div className="max-w-lg gap-4">
           <div className="flex gap-10">
             <div className="flex ">
-              <p className="font-black text-inherit text-2xl">PIZzA</p>
+              <p className="font-black text-inherit text-2xl">PIZA</p>
               <p className="font-regular text-inherit">Delivery</p>
             </div>
             <div className="">
