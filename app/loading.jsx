@@ -10,8 +10,8 @@ export default function LoadingPage() {
       <Spinner
         className="font-bold text-xl"
         label="Loading..."
-        color="success"
-        labelColor="success"
+        color="primary"
+        labelColor="primary"
       />
       If only we could hurry up the oven!
     </div>
