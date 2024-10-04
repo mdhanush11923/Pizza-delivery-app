@@ -33,7 +33,7 @@ export default function Entry(props) {
     }));
   };
 
-  const buttonClass = "bg-[#4C5D65] hover:bg-[#F27F14] text-white h-14";
+  const buttonClass = "bg-[#4C5D65] hover:font-bold hover:bg-[#F27F14] text-white h-14";
 
   const [isSignedUp, setIsSignedUp] = React.useState(false);
 
