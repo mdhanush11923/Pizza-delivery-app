@@ -5,7 +5,7 @@ import { Image } from "@nextui-org/image";
 
 export default function NotFoundPage() {
   return (
-    <div className="min-h-screen flex flex-wrap-reverse items-center justify-center text-center gap-20 p-10">
+    <div className="min-h-screen flex flex-wrap-reverse items-center justify-center text-center gap-10 p-10">
       <div className="flex flex-col items-end text-right w-64">
         <h1 className="text-4xl font-bold mb-4">
           404 - Oops! There&apos;s no pizza here!

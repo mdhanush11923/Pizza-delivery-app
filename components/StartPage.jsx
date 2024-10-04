@@ -8,6 +8,7 @@ import WordRotate from "@/components/ui/word-rotate";
 import { RainbowButton } from "@/components/ui/rainbow-button";
 import Footer from "@/components/Footer";
 import { useRouter } from "next/navigation";
+import { BorderBeam } from "@/components/ui/border-beam";
 
 export default function StartPage() {
   const router = useRouter();
@@ -77,7 +78,7 @@ export default function StartPage() {
               Login
             </Button> */}
             <Button
-              className="h-16 w-full sm:w-44 font-medium border-foreground text-foreground rounded-lg hover:font-bold"
+              className="h-16 w-full sm:w-44 relative  font-medium border-foreground text-foreground rounded-lg hover:font-bold"
               color=""
               size="lg"
               href="/login"
@@ -85,6 +86,11 @@ export default function StartPage() {
               variant="ghost"
             >
               Login
+              <BorderBeam
+                borderWidth={2}
+                colorFrom="#F27F14"
+                colorTo="#C3FF93"
+              />
             </Button>
             <RainbowButton onClick={() => router.push("/signup")}>
               <p className=" text-background">Sign up</p>
