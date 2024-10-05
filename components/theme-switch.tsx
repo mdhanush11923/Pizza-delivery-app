@@ -46,7 +46,7 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({ className }) => {
           "group-data-[selected=true]:bg-success",
         ),
         thumb: cn(
-          "w-6 h-6 shadow-lg text-[black]", 
+          "w-6 h-6 shadow-lg text-[black]",
           "group-data-[hover=true]:bg-success",
           "group-data-[selected=true]:ml-6",
           "group-data-[selected=true]:-success",
@@ -57,9 +57,9 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({ className }) => {
       onChange={onChange}
       thumbIcon={
         isDark ? (
-            <LightModeTwoTone fontSize="md" />
+          <LightModeTwoTone fontSize="small" />
         ) : (
-          <DarkModeTwoTone fontSize="md" />
+          <DarkModeTwoTone fontSize="small" />
         )
       }
     />
