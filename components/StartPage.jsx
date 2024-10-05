@@ -40,9 +40,8 @@ export default function StartPage() {
               className={`${title({ color: "blue", size: "vs" })}  whitespace-nowrap`}
             >
               🍃fresh
-            </span>
-            <span className={`${title({ color: "", size: "vs" })}`}>
-              {" "}
+            </span>{" "}
+            <span className={``}>
               and delivered
             </span>
             <span
@@ -86,7 +85,7 @@ export default function StartPage() {
               Login
             </Button> */}
             <Button
-              className="h-16 w-full sm:w-44 relative  font-medium border-foreground text-foreground rounded-lg hover:font-bold"
+              className="h-16 w-full sm:w-44 relative font-bold border-foreground text-foreground rounded-lg hover:font-extrabold"
               color=""
               size="lg"
               href="/login"
@@ -96,6 +95,7 @@ export default function StartPage() {
               Login
               <BorderBeam
                 size={400}
+                duration={10}
                 borderWidth={2}
                 colorFrom="#ffffff"
                 colorTo="#000000"

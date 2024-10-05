@@ -6,7 +6,8 @@ import { Switch } from "@nextui-org/switch";
 import { useIsSSR } from "@react-aria/ssr";
 import { cn } from "@nextui-org/theme";
 import { MoonFilledIcon, SunFilledIcon } from "./icons";
-
+import LightModeIcon from "@mui/icons-material/LightMode";
+import { DarkMode, DarkModeTwoTone, LightModeTwoTone} from "@mui/icons-material";
 export interface ThemeSwitchProps {
   className?: string;
 }
@@ -45,16 +46,22 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({ className }) => {
           "group-data-[selected=true]:bg-success",
         ),
         thumb: cn(
-          "w-6 h-6 shadow-lg text-[black]",
+          "w-6 h-6 shadow-lg text-[black]", 
           "group-data-[hover=true]:bg-success",
           "group-data-[selected=true]:ml-6",
           "group-data-[selected=true]:-success",
-          "group-data-[pressed=true]:w-7 group-data-[selected]:group-data-[pressed]:ml-4", // Pressed state with slight expansion
+          "group-data-[pressed=true]:w-10 group-data-[selected]:group-data-[pressed]:ml-0", // Pressed state with slight expansion
         ),
       }}
       isSelected={isDark}
       onChange={onChange}
-      thumbIcon={(isDark)? <p>L</p> : <p>D</p>}
+      thumbIcon={
+        isDark ? (
+            <LightModeTwoTone fontSize="md" />
+        ) : (
+          <DarkModeTwoTone fontSize="md" />
+        )
+      }
     />
   );
 };

@@ -12,6 +12,7 @@ export default function Loading() {
         label="Loading..."
         color="primary"
         labelColor="primary"
+        size="lg"
       />
       If only we could hurry up the oven!
     </div>

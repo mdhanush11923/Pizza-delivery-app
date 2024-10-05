@@ -1,7 +1,7 @@
-import { title } from "@/components/primitives";
+import Loading from "@/components/Loading";
 
 export default function PricingPage() {
   return (
-    <div></div>
+    <Loading/>
   );
 }
