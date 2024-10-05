@@ -160,7 +160,7 @@ export default function Entry(props) {
   }
 
   return (
-    <div className="flex flex-wrap min-h-screen flex-row-reverse items-center justify-around p-4 sm:p-10 bg-[#3A5565]">
+    <div className="flex flex-wrap min-h-screen flex-row-reverse items-center justify-around p-4 sm:p-10 bg-[#3A5565] select-none">
       <Card className="px-6 py-6 rounded-[20px] w-[440px]">
         <CardHeader className="justify-center">
           <div className="flex gap-2">
