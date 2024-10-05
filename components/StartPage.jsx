@@ -96,7 +96,7 @@ export default function StartPage() {
               <BorderBeam
                 size={400}
                 duration={10}
-                borderWidth={2}
+                borderWidth={2.5}
                 colorFrom="#ffffff"
                 colorTo="#000000"
               />

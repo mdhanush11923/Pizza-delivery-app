@@ -40,16 +40,16 @@ export default function Entry(props) {
   const [openSignupAlert, setOpenSignupAlert] = React.useState(false);
 
   const [details, setDetails] = React.useState({
-    email: "",
-    p1: "",
-    p2: "",
-    firstName: "",
-    lastName: "",
+    email: "somename@dmail.com",
+    p1: "P@ssw0rd123",
+    p2: "P@ssw0rd123",
+    firstName: "Halfname",
+    lastName: "Halfname",
   });
 
   const [loginDetails, setLoginDetails] = React.useState({
-    email: "",
-    p1: "",
+    email: "somename@bmail.com",
+    p1: "P@ssw0rd123",
   });
 
   const [errorMessage, setErrorMessage] = React.useState("");
