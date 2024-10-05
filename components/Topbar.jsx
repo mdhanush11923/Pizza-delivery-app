@@ -70,15 +70,6 @@ export default function Topbar(props) {
       </NavbarContent>
 
       <NavbarContent justify="end">
-        <NavbarItem className="hidden md:flex">
-          <Button
-            color="danger"
-            href="/"
-            variant="light"
-          >
-            Logout
-          </Button>
-        </NavbarItem>
         <NavbarItem>
           <IconButton aria-label="cart">
             <Badge
@@ -94,6 +85,17 @@ export default function Topbar(props) {
 
         <NavbarItem>
           <ThemeSwitch />
+        </NavbarItem>
+        <NavbarItem className="hidden md:flex ">
+          <Link href="/">
+            <Button
+              className="text-reddanger"
+              color="danger"
+              variant="light"
+            >
+              Logout
+            </Button>
+          </Link>
         </NavbarItem>
       </NavbarContent>
       <NavbarMenu
