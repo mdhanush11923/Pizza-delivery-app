@@ -1,6 +1,6 @@
 import StartPage from "@/components/StartPage";
 
-export default function HomePage() {
+export default function HeroPage() {
   return (
     <StartPage/>
   );
