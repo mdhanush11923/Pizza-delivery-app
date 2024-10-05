@@ -99,7 +99,7 @@ export default function Topbar(props) {
       <NavbarMenu
         motionProps={{
           initial: { backgroundColor: "#FFFFFF" }, // Initial color (before menu opens)
-          animate: { backgroundColor: props.condition ? "black" : "white" }, // Color after menu opens
+          animate: { backgroundColor: "background" }, // Color after menu opens
           exit: { backgroundColor: "#FFFFFF" }, // Color when menu closes
           transition: { duration: 0.5 }, // Optional: transition duration
         }}

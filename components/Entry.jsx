@@ -33,7 +33,7 @@ export default function Entry(props) {
     }));
   };
 
-  const buttonClass = "bg-[#4C5D65] hover:font-bold hover:bg-[#F27F14] text-white h-14";
+  const buttonClass = "bg-[#4C5D65] hover:font-bold hover:bg-[#F27F14] text-white h-16";
 
   const [isSignedUp, setIsSignedUp] = React.useState(false);
 
@@ -360,13 +360,15 @@ export default function Entry(props) {
           </Tabs>
         </CardBody>
       </Card>
-      <Card className="bg-transparent sm:flex">
+      <Card className="bg-transparent sm:flex ">
         <CardBody>
-          <Image
-            width={720}
-            src="/Images/windowPizza.png"
-            alt="NextUI Album Cover"
-          />
+          <div className="select-none pointer-events-none">
+            <Image
+              width={720}
+              src="/Images/windowPizza.png"
+              alt="NextUI Album Cover"
+            />
+          </div>
         </CardBody>
       </Card>
     </div>

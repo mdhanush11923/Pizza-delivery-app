@@ -5,7 +5,7 @@ import { Image } from "@nextui-org/image";
 
 export default function NotFoundPage() {
   return (
-    <div className="min-h-screen flex flex-wrap-reverse items-center justify-center text-center gap-10 p-10">
+    <div className="min-h-screen flex flex-wrap-reverse items-center justify-center text-center p-5 sm:gap-10">
       <div className="flex flex-col items-end text-right w-64">
         <h1 className="text-4xl font-bold mb-4">
           404 - Oops! There&apos;s no pizza here!
@@ -16,7 +16,7 @@ export default function NotFoundPage() {
         </p>
         <BackButton />
       </div>
-      <div>
+      <div className="select-none pointer-events-none">
         <Image isBlurred={true} width={300} src="/Images/404.png" />
       </div>
     </div>
