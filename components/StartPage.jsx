@@ -9,9 +9,13 @@ import { RainbowButton } from "@/components/ui/rainbow-button";
 import Footer from "@/components/Footer";
 import { useRouter } from "next/navigation";
 import { BorderBeam } from "@/components/ui/border-beam";
+import { useTheme } from "next-themes";
+
 
 export default function StartPage() {
   const router = useRouter();
+  const { theme } = useTheme();
+  console.log(theme);
   return (
     <div>
       <section className="flex flex-wrap items-center justify-center gap-10 px-10 py-8 md:py-20 select-none">
@@ -41,9 +45,7 @@ export default function StartPage() {
             >
               🍃fresh
             </span>{" "}
-            <span className={``}>
-              and delivered
-            </span>
+            <span className={``}>and delivered</span>
             <span
               className={`${title({ color: "green", size: "vs" })} whitespace-nowrap`}
             >
@@ -84,23 +86,25 @@ export default function StartPage() {
             >
               Login
             </Button> */}
-            <Button
-              className="h-16 w-full sm:w-44 relative font-bold border-foreground text-foreground rounded-lg hover:font-extrabold"
-              color=""
-              size="lg"
-              href="/login"
-              as={Link}
-              variant="ghost"
-            >
-              Login
+            <div className="relative rounded-lg">
+              <Button
+                className="h-16 w-full sm:w-44 font-bold border-foreground text-foreground rounded-lg hover:font-extrabold"
+                color=""
+                size="lg"
+                href="/login"
+                as={Link}
+                variant="ghost"
+              >
+                Login
+              </Button>
               <BorderBeam
                 size={400}
                 duration={10}
                 borderWidth={2.5}
-                colorFrom="#ffffff"
-                colorTo="#000000"
+                // colorFrom={theme === "dark" ? "#ffffff" : "#000000"}
+                // colorTo={theme === "dark" ? "#000000" : "#ffffff"}
               />
-            </Button>
+            </div>
             <RainbowButton onClick={() => router.push("/signup")}>
               <p className=" text-background">Sign up</p>
             </RainbowButton>
