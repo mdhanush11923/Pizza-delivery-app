@@ -1,9 +1,13 @@
 import dynamic from "next/dynamic";
 import Loading from "@/components/Loading";
+import Footer from "@/components/Footer";
 // Dynamically import the Entry component with a loading fallback
 const Topbar = dynamic(() => import("@/components/Topbar"), {
   loading: () => <Loading />,
 });
+// const Footer = dynamic(() => import("@/components/Footer"), {
+//   loading: () => <Footer />,
+// })
 
 export default function PricingLayout({
   children,
@@ -16,6 +20,7 @@ export default function PricingLayout({
       <div className="">
         {children}
       </div>
+      <Footer />
     </section>
   );
 }
