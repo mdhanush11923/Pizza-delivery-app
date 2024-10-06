@@ -8,7 +8,7 @@ import { Button } from "@nextui-org/react";
 
 export default function Home() {
   return (
-    <div className="flex flex-col gap-10">
+    <div className="flex flex-col gap-10 pt-5">
       <div>
         <div
           className={`items-center justify-center h-2/6 flex max-md:flex-wrap px-16 gap-8 lg:px-24`}
@@ -47,11 +47,11 @@ export default function Home() {
               </Button>
             </div>
           </div>
-          <div className={`max-w-[600px]`}>
+          <div className={`max-w-[650px]`}>
             <Image isBlurred src="/Images/circlePizza.png" />
           </div>
         </div>
-        <Divider className="my-8" />
+        <Divider className="my-16" />
       </div>
       <h1 className="scroll-m-20 text-4xl font-poppins font-extrabold tracking-tight text-center lg:text-4xl">
         Featured Pizzas

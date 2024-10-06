@@ -7,7 +7,7 @@ import { useIsSSR } from "@react-aria/ssr";
 import { cn } from "@nextui-org/theme";
 import { MoonFilledIcon, SunFilledIcon } from "./icons";
 import LightModeIcon from "@mui/icons-material/LightMode";
-import { DarkMode, DarkModeTwoTone, LightModeTwoTone} from "@mui/icons-material";
+import { DarkMode, DarkModeOutlined, DarkModeRounded, DarkModeTwoTone, LightModeOutlined, LightModeRounded, LightModeTwoTone} from "@mui/icons-material";
 export interface ThemeSwitchProps {
   className?: string;
 }
@@ -57,9 +57,9 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({ className }) => {
       onChange={onChange}
       thumbIcon={
         isDark ? (
-          <LightModeTwoTone fontSize="small" />
+          <LightModeRounded fontSize="small" />
         ) : (
-          <DarkModeTwoTone fontSize="small" />
+          <DarkModeRounded fontSize="small" />
         )
       }
     />
