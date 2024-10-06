@@ -1,14 +1,14 @@
+'use client'
+
 import React from "react";
 import { Link } from "@nextui-org/react";
-import Menu from "./Menu";
-import PizzaImg from "../Images/circlePizza.png";
 import { Divider, Image } from "@nextui-org/react";
 import { Button } from "@nextui-org/react";
-import PizzaItem from "./PizzaItem";
+// import PizzaItem from "./PizzaItem";
 
 export default function Home() {
   return (
-    <div className="flex flex-col gap-10 py-10 sm:p-16">
+    <div className="flex flex-col gap-10">
       <div>
         <div
           className={`items-center justify-center h-2/6 flex max-md:flex-wrap px-16 gap-8 lg:px-24`}
@@ -22,36 +22,14 @@ export default function Home() {
               ⏩delivered fast!
             </h2>
             <div className="flex flex-col gap-4 mt-10">
-              {/* <Button
-                className="h-14 w-32"
-                color="primary"
-                radius="sm"
-                size="lg"
-                href="/pizza-delivery/login"
-                as={Link}
-                variant="ghost"
-              >
-                Login
-              </Button>
-              <Button
-                className="h-14 w-32 hover:bg-[#0000a1]"
-                color="primary"
-                radius="sm"
-                size="lg"
-                href="/pizza-delivery/signup"
-                as={Link}
-              >
-                Sign up
-              </Button> */}
-
               <Button
                 fullWidth
                 className="h-14 w-72 bg-foreground text-background"
                 color="success"
                 radius="sm"
                 size="lg"
-                href="/pizza-delivery/dashboard/menu"
-                as={Link}
+                // href="/pizza-delivery/dashboard/menu"
+                // as={Link}
               >
                 Explore Menu
               </Button>
@@ -62,15 +40,15 @@ export default function Home() {
                 variant="ghost"
                 radius="sm"
                 size="lg"
-                href="/pizza-delivery/dashboard/custom"
-                as={Link}
+                // href="/pizza-delivery/dashboard/custom"
+                // as={Link}
               >
                 Custom Pizza
               </Button>
             </div>
           </div>
-          <div className={`max-md:w-full`}>
-            <Image isBlurred src={PizzaImg} />
+          <div className={`max-w-[600px]`}>
+            <Image isBlurred src="/Images/circlePizza.png" />
           </div>
         </div>
         <Divider className="my-8" />
@@ -78,11 +56,11 @@ export default function Home() {
       <h1 className="scroll-m-20 text-4xl font-poppins font-extrabold tracking-tight text-center lg:text-4xl">
         Featured Pizzas
       </h1>
-      <div className="flex flex-wrap gap-20 justify-center items-center">
+      {/* <div className="flex flex-wrap gap-20 justify-center items-center">
         <PizzaItem color="bg-limefrost" id={0} />
         <PizzaItem color="bg-lemonburst" id={11} />
         <PizzaItem color="bg-limefrost" id={20} />
-      </div>
+      </div> */}
     </div>
   );
 }

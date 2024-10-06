@@ -13,7 +13,7 @@ export default function PricingLayout({
   return (
     <section className="flex flex-col items-center justify-center gap-4">
       <Topbar />
-      <div className="inline-block text-center justify-center">
+      <div className="">
         {children}
       </div>
     </section>

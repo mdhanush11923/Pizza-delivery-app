@@ -1,3 +1,4 @@
+'use client'
 import React from "react";
 import {
   Button,
@@ -20,24 +21,23 @@ import { Link } from "@nextui-org/react";
 import AddIcon from "@mui/icons-material/Add";
 import ArrowDropDownCircleSharpIcon from "@mui/icons-material/ArrowDropDownCircleSharp";
 import pizzas from "./pizzaData";
-import { useCart } from "./Cart";
+// import { useCart } from "./Cart";
 
 export default function PizzaItem({ id, color }) {
   const [selectedSize, setSelectedSize] = React.useState("medium"); // Default size
   const pizza = pizzas[id];
 
-  const { addItemToCart } = useCart();  // Access the function to add items to the cart from the CartContext
+  // const { addItemToCart } = useCart();  // Access the function to add items to the cart from the CartContext
 
-  const addToCart = () => {
-    // Add the pizza with selected size and its details to the cart
-    addItemToCart({
-      itemId: id,
-      itemName: pizza.name,
-      itemPrice: pizza.prices[selectedSize],
-      itemSize: selectedSize,
-    });
+  // const addToCart = () => {
+  //   addItemToCart({
+  //     itemId: id,
+  //     itemName: pizza.name,
+  //     itemPrice: pizza.prices[selectedSize],
+  //     itemSize: selectedSize,
+  //   });
 
-  };
+  // };
 
   function DemoDropDown() {
     return (
@@ -98,7 +98,7 @@ export default function PizzaItem({ id, color }) {
               className="rounded-[20px] bg-[#41B3A2]"
               color="primary"
               size="lg"
-              onClick={addToCart}
+              // onClick={addToCart}
             >
               <AddIcon />
             </Button>

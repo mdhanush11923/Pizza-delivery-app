@@ -1,12 +1,13 @@
-import Pepperoni from "../Images/Pepperoni.png";
-import Margherita from "../Images/Margherita.png";
-import VeggieDelight from "../Images/VeggieDelight.png";
-import BBQChicken from "../Images/BBQChicken.png";
-import fourCheese from "../Images/FourCheese.png";
-import hawaiian from "../Images/Hawaiian.png";
-import buffaloChicken from "../Images/BuffaloChicken.png";
-import meatLovers from "../Images/MeatLovers.png";
-import pestoVeggie from "../Images/PestoVeggie.png";
+// import Pepperoni from "/Images/Pepperoni.png";
+// import Margherita from "/Images/Margherita.png";
+// import VeggieDelight from "/Images/VeggieDelight.png";
+// import BBQChicken from "/Images/BBQChicken.png";
+// import fourCheese from "/Images/FourCheese.png";
+// import hawaiian from "/Images/Hawaiian.png";
+// import buffaloChicken from "/Images/BuffaloChicken.png";
+// import meatLovers from "/Images/MeatLovers.png";
+// import pestoVeggie from "/Images/PestoVeggie.png";
+'use client'
 
 const createPizza = (
   id,
@@ -46,7 +47,7 @@ const pizzas = [
     cheese: "Mozzarella",
     veggies: "Bell Peppers",
     category: "Vegetarian",
-    image: Margherita,
+    image: "/Images/Margherita.png",
     availableQuantity: 10,
   },
   {
@@ -60,7 +61,7 @@ const pizzas = [
     cheese: "Mozzarella",
     veggies: "Olives",
     category: "Vegetarian",
-    image: Margherita,
+    image: "/Images/Margherita.png",
     availableQuantity: 10,
   },
   {
@@ -74,7 +75,7 @@ const pizzas = [
     cheese: "Mozzarella",
     veggies: "Bell Peppers",
     category: "Vegetarian",
-    image: Margherita,
+    image: "/Images/Margherita.png",
     availableQuantity: 10,
   },
   {
@@ -88,7 +89,7 @@ const pizzas = [
     cheese: "Mozzarella",
     veggies: "Olives",
     category: "Vegetarian",
-    image: Margherita,
+    image: "/Images/Margherita.png",
     availableQuantity: 10,
   },
   {
@@ -102,7 +103,7 @@ const pizzas = [
     cheese: "Mozzarella",
     veggies: "Onions",
     category: "Non-Vegetarian",
-    image: Pepperoni,
+    image: "/Images/Pepperoni.png",
     availableQuantity: 10,
   },
   {
@@ -116,7 +117,7 @@ const pizzas = [
     cheese: "Mozzarella",
     veggies: "Mushrooms",
     category: "Non-Vegetarian",
-    image: Pepperoni,
+    image: "/Images/Pepperoni.png",
     availableQuantity: 10,
   },
   {
@@ -130,7 +131,7 @@ const pizzas = [
     cheese: "Cheddar",
     veggies: "Onions",
     category: "Non-Vegetarian",
-    image: Pepperoni,
+    image: "/Images/Pepperoni.png",
     availableQuantity: 10,
   },
   {
@@ -144,7 +145,7 @@ const pizzas = [
     cheese: "Cheddar",
     veggies: "Mushrooms",
     category: "Non-Vegetarian",
-    image: Pepperoni,
+    image: "/Images/Pepperoni.png",
     availableQuantity: 10,
   },
   {
@@ -158,426 +159,7 @@ const pizzas = [
     cheese: "Mozzarella",
     veggies: "Onions",
     category: "Non-Vegetarian",
-    image: Pepperoni,
-    availableQuantity: 10,
-  },
-  {
-    id: 9,
-    name: "Mushroom Thick Crust",
-    description:
-      "A favorite with spicy pepperoni, mozzarella, and signature tomato sauce.",
-    prices: { small: 259, medium: 409, large: 509 },
-    base: "Thick Crust",
-    sauce: "Tomato Basil",
-    cheese: "Mozzarella",
-    veggies: "Mushrooms",
-    category: "Non-Vegetarian",
-    image: Pepperoni,
-    availableQuantity: 10,
-  },
-  {
-    id: 10,
-    name: "BBQ Thick Crust",
-    description:
-      "A favorite with spicy pepperoni, cheddar cheese, and BBQ sauce.",
-    prices: { small: 279, medium: 429, large: 529 },
-    base: "Thick Crust",
-    sauce: "Barbeque",
-    cheese: "Cheddar",
-    veggies: "Onions",
-    category: "Non-Vegetarian",
-    image: Pepperoni,
-    availableQuantity: 10,
-  },
-  {
-    id: 11,
-    name: "Mushroom BBQ Crust",
-    description:
-      "A favorite with spicy pepperoni, cheddar cheese, and BBQ sauce.",
-    prices: { small: 279, medium: 429, large: 529 },
-    base: "Thick Crust",
-    sauce: "Barbeque",
-    cheese: "Cheddar",
-    veggies: "Mushrooms",
-    category: "Non-Vegetarian",
-    image: Pepperoni,
-    availableQuantity: 10,
-  },
-  {
-    id: 12,
-    name: "Gluten-Free Delight",
-    description:
-      "Loaded with fresh veggies including bell peppers, onions, olives, and spinach.",
-    prices: { small: 299, medium: 449, large: 599 },
-    base: "Gluten Free",
-    sauce: "White Garlic",
-    cheese: "Feta",
-    veggies: "Bell Peppers",
-    category: "Vegetarian",
-    image: VeggieDelight,
-    availableQuantity: 10,
-  },
-  {
-    id: 13,
-    name: "Olive Gluten-Free",
-    description:
-      "Loaded with fresh veggies including bell peppers, onions, olives, and spinach.",
-    prices: { small: 299, medium: 449, large: 599 },
-    base: "Gluten Free",
-    sauce: "White Garlic",
-    cheese: "Feta",
-    veggies: "Olives",
-    category: "Vegetarian",
-    image: VeggieDelight,
-    availableQuantity: 10,
-  },
-  {
-    id: 14,
-    name: "Spinach Gluten-Free",
-    description:
-      "Loaded with fresh veggies including bell peppers, onions, olives, and spinach.",
-    prices: { small: 299, medium: 449, large: 599 },
-    base: "Gluten Free",
-    sauce: "White Garlic",
-    cheese: "Feta",
-    veggies: "Spinach",
-    category: "Vegetarian",
-    image: VeggieDelight,
-    availableQuantity: 10,
-  },
-  {
-    id: 15,
-    name: "Pesto Delight",
-    description:
-      "Loaded with fresh veggies including bell peppers, onions, olives, and spinach.",
-    prices: { small: 319, medium: 469, large: 619 },
-    base: "Whole Wheat",
-    sauce: "Pesto",
-    cheese: "Gouda",
-    veggies: "Bell Peppers",
-    category: "Vegetarian",
-    image: VeggieDelight,
-    availableQuantity: 10,
-  },
-
-  {
-    id: 16,
-    name: "Pesto Bell",
-    description:
-      "Loaded with fresh veggies including bell peppers, onions, olives, and spinach.",
-    prices: {
-      small: 319,
-      medium: 469,
-      large: 619,
-    },
-    base: "Whole Wheat",
-    sauce: "Pesto",
-    cheese: "Gouda",
-    veggies: "Olives",
-    category: "Vegetarian",
-    image: VeggieDelight,
-    availableQuantity: 10,
-  },
-  {
-    id: 17,
-    name: "Pesto Leaf",
-    description:
-      "Loaded with fresh veggies including bell peppers, onions, olives, and spinach.",
-    prices: {
-      small: 319,
-      medium: 469,
-      large: 619,
-    },
-    base: "Whole Wheat",
-    sauce: "Pesto",
-    cheese: "Gouda",
-    veggies: "Spinach",
-    category: "Vegetarian",
-    image: VeggieDelight,
-    availableQuantity: 10,
-  },
-  {
-    id: 18,
-    name: "BBQ Onyx",
-    description:
-      "Grilled chicken with BBQ sauce, onions, and melted cheddar cheese.",
-    prices: {
-      small: 349,
-      medium: 499,
-      large: 649,
-    },
-    base: "Thin Crust",
-    sauce: "Barbeque",
-    cheese: "Cheddar",
-    veggies: "Onions",
-    category: "Non-Vegetarian",
-    image: BBQChicken,
-    availableQuantity: 10,
-  },
-  {
-    id: 19,
-    name: "BBQ Shroom",
-    description:
-      "Grilled chicken with BBQ sauce, onions, and melted cheddar cheese.",
-    prices: {
-      small: 349,
-      medium: 499,
-      large: 649,
-    },
-    base: "Thin Crust",
-    sauce: "Barbeque",
-    cheese: "Cheddar",
-    veggies: "Mushrooms",
-    category: "Non-Vegetarian",
-    image: BBQChicken,
-    availableQuantity: 10,
-  },
-  {
-    id: 20,
-    name: "Wheat Onyx",
-    description:
-      "Grilled chicken with BBQ sauce, onions, and melted cheddar cheese.",
-    prices: {
-      small: 369,
-      medium: 519,
-      large: 669,
-    },
-    base: "Whole Wheat",
-    sauce: "Barbeque",
-    cheese: "Cheddar",
-    veggies: "Onions",
-    category: "Non-Vegetarian",
-    image: BBQChicken,
-    availableQuantity: 10,
-  },
-  {
-    id: 21,
-    name: "Wheat Shroom",
-    description:
-      "Grilled chicken with BBQ sauce, onions, and melted cheddar cheese.",
-    prices: {
-      small: 369,
-      medium: 519,
-      large: 669,
-    },
-    base: "Whole Wheat",
-    sauce: "Barbeque",
-    cheese: "Cheddar",
-    veggies: "Mushrooms",
-    category: "Non-Vegetarian",
-    image: BBQChicken,
-    availableQuantity: 10,
-  },
-  {
-    id: 22,
-    name: "Quad Spin",
-    description: "A blend of mozzarella, cheddar, parmesan, and gouda cheeses.",
-    prices: {
-      small: 399,
-      medium: 549,
-      large: 699,
-    },
-    base: "Thin Crust",
-    sauce: "Tomato Basil",
-    cheese: "Mozzarella",
-    veggies: "Spinach",
-    category: "Vegetarian",
-    image: fourCheese,
-    availableQuantity: 10,
-  },
-  {
-    id: 23,
-    name: "Quad Ring",
-    description: "A blend of mozzarella, cheddar, parmesan, and gouda cheeses.",
-    prices: {
-      small: 399,
-      medium: 549,
-      large: 699,
-    },
-    base: "Thin Crust",
-    sauce: "Tomato Basil",
-    cheese: "Cheddar",
-    veggies: "Onions",
-    category: "Vegetarian",
-    image: fourCheese,
-    availableQuantity: 10,
-  },
-  {
-    id: 24,
-    name: "Burst Spin",
-    description: "A blend of mozzarella, cheddar, parmesan, and gouda cheeses.",
-    prices: {
-      small: 429,
-      medium: 579,
-      large: 729,
-    },
-    base: "Cheese Burst",
-    sauce: "White Garlic",
-    cheese: "Parmesan",
-    veggies: "Spinach",
-    category: "Vegetarian",
-    image: fourCheese,
-    availableQuantity: 10,
-  },
-  {
-    id: 25,
-    name: "Burst Ring",
-    description: "A blend of mozzarella, cheddar, parmesan, and gouda cheeses.",
-    prices: {
-      small: 429,
-      medium: 579,
-      large: 729,
-    },
-    base: "Cheese Burst",
-    sauce: "White Garlic",
-    cheese: "Gouda",
-    veggies: "Onions",
-    category: "Vegetarian",
-    image: fourCheese,
-    availableQuantity: 10,
-  },
-  {
-    id: 26,
-    name: "Hawaiian Thick",
-    description:
-      "Tropical pizza with ham, pineapple, and melted mozzarella cheese.",
-    prices: {
-      small: 299,
-      medium: 449,
-      large: 599,
-    },
-    base: "Thick Crust",
-    sauce: "Tomato Basil",
-    cheese: "Mozzarella",
-    veggies: "Onions",
-    category: "Non-Vegetarian",
-    image: hawaiian,
-    availableQuantity: 10,
-  },
-  {
-    id: 27,
-    name: "Wheat Island",
-    description:
-      "Tropical pizza with ham, pineapple, and melted mozzarella cheese.",
-    prices: {
-      small: 319,
-      medium: 469,
-      large: 619,
-    },
-    base: "Whole Wheat",
-    sauce: "Tomato Basil",
-    cheese: "Mozzarella",
-    veggies: "Onions",
-    category: "Non-Vegetarian",
-    image: hawaiian,
-    availableQuantity: 10,
-  },
-  {
-    id: 28,
-    name: "Buffalo Thin",
-    description:
-      "Spicy buffalo sauce, grilled chicken, and blue cheese dressing.",
-    prices: {
-      small: 349,
-      medium: 499,
-      large: 649,
-    },
-    base: "Thin Crust",
-    sauce: "Spicy Buffalo",
-    cheese: "Mozzarella",
-    veggies: "Onions",
-    category: "Non-Vegetarian",
-    image: buffaloChicken,
-    availableQuantity: 10,
-  },
-  {
-    id: 29,
-    name: "Wheat Buffalo",
-    description:
-      "Spicy buffalo sauce, grilled chicken, and blue cheese dressing.",
-    prices: {
-      small: 369,
-      medium: 519,
-      large: 669,
-    },
-    base: "Whole Wheat",
-    sauce: "Spicy Buffalo",
-    cheese: "Mozzarella",
-    veggies: "Onions",
-    category: "Non-Vegetarian",
-    image: buffaloChicken,
-    availableQuantity: 10,
-  },
-  {
-    id: 30,
-    name: "Meaty Basil",
-    description:
-      "Packed with pepperoni, sausage, bacon, and mozzarella cheese.",
-    prices: {
-      small: 399,
-      medium: 599,
-      large: 799,
-    },
-    base: "Thick Crust",
-    sauce: "Tomato Basil",
-    cheese: "Mozzarella",
-    veggies: "Onions",
-    category: "Non-Vegetarian",
-    image: meatLovers,
-    availableQuantity: 10,
-  },
-  {
-    id: 31,
-    name: "Meaty BBQ",
-    description:
-      "Packed with pepperoni, sausage, bacon, and mozzarella cheese.",
-    prices: {
-      small: 419,
-      medium: 619,
-      large: 819,
-    },
-    base: "Thick Crust",
-    sauce: "Barbeque",
-    cheese: "Mozzarella",
-    veggies: "Bell Peppers",
-    category: "Non-Vegetarian",
-    image: meatLovers,
-    availableQuantity: 10,
-  },
-  {
-    id: 32,
-    name: "Pesto Crisp",
-    description:
-      "A vibrant mix of fresh pesto, mozzarella, and seasonal vegetables.",
-    prices: {
-      small: 299,
-      medium: 399,
-      large: 499,
-    },
-    base: "Thin Crust",
-    sauce: "Pesto",
-    cheese: "Mozzarella",
-    veggies: "Cherry Tomatoes",
-    category: "Vegetarian",
-    image: pestoVeggie,
-    availableQuantity: 10,
-  },
-  {
-    id: 33,
-    name: "Pesto Leaf",
-    description:
-      "A vibrant mix of fresh pesto, mozzarella, and seasonal vegetables.",
-    prices: {
-      small: 299,
-      medium: 399,
-      large: 499,
-    },
-    base: "Thin Crust",
-    sauce: "Pesto",
-    cheese: "Mozzarella",
-    veggies: "Spinach",
-    category: "Vegetarian",
-    image: pestoVeggie,
+    image: "/Images/Pepperoni.png",
     availableQuantity: 10,
   },
 ];

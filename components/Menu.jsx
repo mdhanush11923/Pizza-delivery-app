@@ -11,8 +11,6 @@ import { Button } from "@nextui-org/react";
 import PizzaItem from "./PizzaItem";
 import pizzas from "./pizzaData";
 import { vegetarianPizzas, nonVegetarianPizzas } from "./pizzaData";
-import vegIcon from "../Images/veg.png";
-import nonVegIcon from "../Images/nonVeg.png";
 
 export default function Menu() {
   const colors = [
@@ -60,7 +58,10 @@ export default function Menu() {
               ))}
             </div>
           </Tab>
-          <Tab key="Vegetarian" title={<Image width={30} src={vegIcon} />}>
+          <Tab
+            key="Vegetarian"
+            title={<Image width={30} src="/Images/veg.png" />}
+          >
             <div className="flex flex-wrap  w-full items-center justify-center gap-16">
               {vegetarianPizzas.map((pizza) => (
                 <PizzaItem key={pizza.id} id={pizza.id} color="bg-veggreen" />
@@ -69,7 +70,7 @@ export default function Menu() {
           </Tab>
           <Tab
             key="Non Vegetarian"
-            title={<Image width={30} src={nonVegIcon} />}
+            title={<Image width={30} src="/Images/nonVeg.png" />}
           >
             <div className="flex flex-wrap items-center justify-center gap-16">
               {nonVegetarianPizzas.map((pizza) => (
