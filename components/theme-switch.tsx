@@ -37,20 +37,20 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({ className }) => {
     <Switch
       classNames={{
         base: cn(
-          "inline-flex flex-row-reverse w-full max-w-md items-center justify-between",
+          "inline-flex flex-row-reverse h-10 w-full max-w-md items-center justify-between",
           "bg-content2 hover:bg-content2 cursor-pointer rounded-lg gap-2 p-2 border-transparent",
           className, // Allow for custom classes
         ),
         wrapper: cn(
           "p-0 h-3 overflow-visible bg-[black]",
-          "group-data-[selected=true]:bg-success",
+          "group-data-[selected=true]:bg-warning",
         ),
         thumb: cn(
           "w-6 h-6 shadow-lg text-[black]",
-          "group-data-[hover=true]:bg-success",
+          "group-data-[hover=true]:text-warning",
           "group-data-[selected=true]:ml-6",
-          "group-data-[selected=true]:-success",
-          "group-data-[pressed=true]:w-10 group-data-[selected]:group-data-[pressed]:ml-0", // Pressed state with slight expansion
+          "group-data-[selected=true]:text-warn",
+          "group-data-[pressed=true]:w-7 group-data-[selected]:group-data-[pressed]:ml-5", // Pressed state with slight expansion
         ),
       }}
       isSelected={isDark}

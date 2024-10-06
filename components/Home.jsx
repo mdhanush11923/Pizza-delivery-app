@@ -4,6 +4,7 @@ import React from "react";
 import { Link } from "@nextui-org/react";
 import { Divider, Image } from "@nextui-org/react";
 import { Button } from "@nextui-org/react";
+import { title } from "./primitives";
 // import PizzaItem from "./PizzaItem";
 
 export default function Home() {
@@ -14,12 +15,28 @@ export default function Home() {
           className={`items-center justify-center h-2/6 flex max-md:flex-wrap px-16 gap-8 lg:px-24`}
         >
           <div className="max-w-lg gap-4">
-            <h1 className="scroll-m-20 mb-4 font-black tracking-tight text-3xl lg:text-5xl">
+            <h1 className="scroll-m-20 mb-10 mt-10 font-black tracking-tight text-3xl lg:text-5xl">
               Delicious Pizza Delivered Right to Your Doorstep
             </h1>
-            <h2 className="scroll-m-20 pb-2 text-xl font-medium tracking-tight mt-6">
-              Craving pizza? We’ve got you covered! 🔥Hot, 🍃fresh and
-              ⏩delivered fast!
+            <h2 className="scroll-m-20 pb-2 text-lg tracking-tight mt-6 lg:text-xl">
+              Craving pizza? We&apos;ve got you covered!{" "}
+              <span
+                className={`${title({ color: "yellow", size: "vs" })} whitespace-nowrap`}
+              >
+                🔥Hot
+              </span>
+              {", "}
+              <span
+                className={`${title({ color: "blue", size: "vs" })}  whitespace-nowrap`}
+              >
+                🍃fresh
+              </span>{" "}
+              <span className={``}>and delivered</span>
+              <span
+                className={`${title({ color: "green", size: "vs" })} whitespace-nowrap`}
+              >
+                ⚡fast!
+              </span>
             </h2>
             <div className="flex flex-col gap-4 mt-10">
               <Button
