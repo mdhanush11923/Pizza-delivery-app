@@ -37,17 +37,17 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({ className }) => {
     <Switch
       classNames={{
         base: cn(
-          "inline-flex flex-row-reverse h-10 w-full max-w-md items-center justify-between",
-          "bg-content2 hover:bg-content2 cursor-pointer rounded-lg gap-2 p-2 border-transparent",
+          "inline-flex flex-row-reverse h-8 w-full max-w-md items-center justify-between",
+          "bg-[#cacaca53] hover:bg-content2 cursor-pointer rounded-lg gap-2 p-2 border-transparent",
           className, // Allow for custom classes
         ),
         wrapper: cn(
           "p-0 h-3 overflow-visible bg-[black]",
-          "group-data-[selected=true]:bg-warning",
+          "group-data-[selected=true]:bg-success",
         ),
         thumb: cn(
           "w-6 h-6 shadow-lg text-[black]",
-          "group-data-[hover=true]:text-warning",
+          "group-data-[hover=true]:text-success",
           "group-data-[selected=true]:ml-6",
           "group-data-[selected=true]:text-warn",
           "group-data-[pressed=true]:w-7 group-data-[selected]:group-data-[pressed]:ml-5", // Pressed state with slight expansion
