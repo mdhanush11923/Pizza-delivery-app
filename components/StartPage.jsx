@@ -15,7 +15,6 @@ import { useTheme } from "next-themes";
 export default function StartPage() {
   const router = useRouter();
   const { theme } = useTheme();
-  console.log(theme);
   return (
     <div>
       <section className="flex flex-wrap items-center justify-center gap-10 px-10 py-8 md:py-20 select-none">
@@ -76,35 +75,24 @@ export default function StartPage() {
             ]}
           /> */}
           <div className="flex flex-wrap gap-3 mt-14">
-            {/* <Button
-              className="h-16 w-full sm:w-44"
-              color="primary"
+            <Button
+              className="h-16 w-full sm:w-44 font-bold border-2 border-foreground text-foreground rounded-lg hover:font-extrabold"
+              variant="ghost"
               radius="sm"
               size="lg"
               href="/login"
               as={Link}
             >
               Login
-            </Button> */}
-            <div className="relative rounded-lg">
-              <Button
-                className="h-16 w-full sm:w-44 font-bold border-foreground text-foreground rounded-lg hover:font-extrabold"
-                color=""
-                size="lg"
-                href="/login"
-                as={Link}
-                variant="ghost"
-              >
-                Login
-              </Button>
               <BorderBeam
                 size={400}
                 duration={10}
-                borderWidth={2.5}
-                // colorFrom={theme === "dark" ? "#ffffff" : "#000000"}
-                // colorTo={theme === "dark" ? "#000000" : "#ffffff"}
+                borderWidth={2}
+                colorFrom={theme === "dark" ? "#ffffff" : "#000000"}
+                colorTo={theme === "dark" ? "#000000" : "#ffffff"}
               />
-            </div>
+            </Button>
+
             <RainbowButton onClick={() => router.push("/signup")}>
               <p className=" text-background">Sign up</p>
             </RainbowButton>

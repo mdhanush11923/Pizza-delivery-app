@@ -26,7 +26,7 @@ import pizzas from "./pizzaData";
 export default function PizzaItem({ id, color }) {
   const [selectedSize, setSelectedSize] = React.useState("medium"); // Default size
   const pizza = pizzas[id];
-
+  
   // const { addItemToCart } = useCart();  // Access the function to add items to the cart from the CartContext
 
   // const addToCart = () => {

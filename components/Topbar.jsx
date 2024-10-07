@@ -1,6 +1,6 @@
 "use client"
 
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import React from "react";
 import {
   Navbar,
@@ -24,7 +24,7 @@ export default function Topbar(props) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   // const { cartCount } = useCart();
   const router = useRouter();
-  const { pathname } = router;
+  const pathname = usePathname();
   const menuItems = [
     { title: "Home", path: "/dashboard" },
     { title: "Menu", path: "/dashboard/menu" },
@@ -37,6 +37,10 @@ export default function Topbar(props) {
     setIsMenuOpen(!isMenuOpen); // Close the menu
     router.push(path); // Navigate to the selected path
   };
+
+  const handleTabClick = (path) => {
+    router.push(path);
+  }
 
   return (
     <Navbar

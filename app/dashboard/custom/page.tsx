@@ -1,7 +1,5 @@
 import Loading from "@/components/Loading";
-import Home from "@/components/Hero";
+import Hero from "@/components/Hero";
 export default function PricingPage() {
-  return (
-    <Home/>
-  );
+  return <Hero />;
 }
