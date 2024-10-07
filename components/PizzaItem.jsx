@@ -73,10 +73,11 @@ export default function PizzaItem({ id, color }) {
   }
 
   return (
-    <Card className="w-[275px] flex flex-col justify-evenly bg-charcoalgray  dark:bg-[#f5f5f5] pb-4 gap-2 rounded-b-[10px] shadow-md">
+    <Card className="max-w-[275px] flex flex-col justify-evenly bg-charcoalgray  dark:bg-[#f5f5f5] pb-4 gap-2 rounded-b-[10px] shadow-md">
       <Card
+      fullWidth
         style={{ backgroundColor: color }}
-        className={`w-[275px] justify-center self-start text-center rounded-b-[30px] ${color} p-5 shadow-md`}
+        className={`justify-center self-start text-center rounded-b-[30px] ${color} p-5 shadow-md`}
       >
         <div className="flex gap-4 flex-col items-center p-5">
           <Image

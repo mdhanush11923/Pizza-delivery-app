@@ -5,7 +5,6 @@ import clsx from "clsx";
 import { Providers } from "./providers";
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
-import { MantineProvider } from "@mantine/core";
 
 export const metadata: Metadata = {
   title: "Pizza Delivery", // Static title
@@ -47,13 +46,11 @@ export default function RootLayout({
           fontSans.variable,
         )}
       >
-        <MantineProvider>
           <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
             <div className="relative flex flex-col min-h-screen">
               <main>{children}</main>
             </div>
           </Providers>
-        </MantineProvider>
       </body>
     </html>
   );

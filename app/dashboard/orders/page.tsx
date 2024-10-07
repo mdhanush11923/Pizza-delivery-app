@@ -7,7 +7,7 @@ const child = <Skeleton className="min-w-80" height={140} radius="md" animate={f
 
 export default function GridAsymmetrical() {
   return (
-    <Container fluid px={32} className="bg-[purple]">
+    <Container mx={90} fluid className="bg-[purple]">
       <Grid grow gutter="xl">
         <Grid.Col span={5}>
           <Container className="bg-[red] h-full">

@@ -17,8 +17,8 @@ export default function StartPage() {
   const { theme } = useTheme();
   return (
     <div>
-      <section className="flex flex-wrap items-center justify-center gap-10 px-10 py-8 md:py-20 select-none">
-        <div className="max-w-lg gap-4">
+      <section className="flex flex-wrap bg-[purple] items-center justify-center gap-10 px-10 py-8 md:py-20 select-none">
+        <div className="max-w-lg gap-4 bg-[yellow]">
           <div className="flex gap-10">
             <div className="flex select-none">
               <p className="font-black text-inherit text-2xl">PIZzA</p>
@@ -98,7 +98,7 @@ export default function StartPage() {
             </RainbowButton>
           </div>
         </div>
-        <div className={`max-md:w-full pointer-events-none`}>
+        <div className={`max-md:w-full bg-reddanger pointer-events-none`}>
           <Image isBlurred src="/Images/circlePizza.png" width={650} />
         </div>
       </section>
