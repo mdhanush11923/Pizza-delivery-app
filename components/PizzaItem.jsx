@@ -78,7 +78,7 @@ export default function PizzaItem({ id, color }) {
       <Card
         fullWidth
         style={{ backgroundColor: color }}
-        className={`flex justify-center items-center text-center rounded-b-[50px] shadow-none ${color}`}
+        className={`flex justify-center items-center text-center rounded-b-[80px] shadow-none ${color}`}
       >
         <div className="flex gap-4 flex-col items-center p-10">
           <Image
@@ -96,9 +96,9 @@ export default function PizzaItem({ id, color }) {
           </div>
         </div>
         <Button
-          className="flex font-bold items-center justify-center rounded-b-[28px] border-0 dark:bg-white bg-transparent h-20 w-full"
-          color="danger"
-          variant="ghost"
+          className="flex font-bold items-center justify-center rounded-t-[60px] h-20 w-full"
+          color="warning"
+          variant="solid"
           // bg-[#41B3A2]
           // onClick={addToCart}
         >
