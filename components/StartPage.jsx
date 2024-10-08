@@ -78,7 +78,7 @@ export default function StartPage() {
           <div className="flex flex-wrap gap-3 mt-14">
             <div className="relative overflow-hidden w-full sm:w-44 rounded-lg">
               <Button
-                className="h-16 w-full sm:w-44 font-bold border-foreground text-foreground rounded-lg hover:font-extrabold"
+                className="h-16 w-full sm:w-44 font-bold border-3 border-foreground text-foreground rounded-lg hover:font-extrabold"
                 size="lg"
                 href="/login"
                 as={Link}
@@ -89,9 +89,9 @@ export default function StartPage() {
               <BorderBeam
                 size={400}
                 duration={10}
-                borderWidth={2.5}
-                // colorFrom={theme === "dark" ? "#ffffff" : "#000000"}
-                // colorTo={theme === "dark" ? "#000000" : "#ffffff"}
+                borderWidth={3}
+                // colorFrom="#006BFF"
+                // colorTo="#FF9400"
               />
             </div>
 

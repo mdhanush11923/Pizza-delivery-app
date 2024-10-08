@@ -37,7 +37,7 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({ className }) => {
     <Switch
       classNames={{
         base: cn(
-          "inline-flex flex-row-reverse h-8 w-full max-w-md items-center justify-between",
+          "inline-flex flex-row-reverse h-8 max-w-md items-center justify-between",
           "bg-[#cacaca53] hover:bg-content2 cursor-pointer rounded-lg gap-2 p-2 border-transparent",
           className, // Allow for custom classes
         ),
