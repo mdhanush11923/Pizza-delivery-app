@@ -35,9 +35,9 @@ export default function Menu() {
   const [selectedKey, setSelectedKey] = React.useState("All items");
 
   return (
-    <div className="flex flex-col h-full items-center mx-5 lg:mx-20 p-5 gap-6">
+    <div className="flex flex-col h-full items-center mx-5 lg:mx-16 p-5 gap-6">
       <div className="flex flex-wrap  items-center gap-3 w-full justify-center sm:justify-between">
-        <h1 className="flex gap-2 p-3 text-center justify-center font-poppins items-center font-extrabold tracking-tight text-5xl h-28 w-72 sm:text-5xl">
+        <h1 className="flex gap-2 p-3 text-center sm:text-start justify-center font-poppins items-center font-extrabold tracking-tight text-4xl h-28 w-72 sm:text-5xl">
           {selectedKey}
         </h1>
         <Tabs
@@ -45,7 +45,7 @@ export default function Menu() {
           selectedKey={selectedKey}
           onSelectionChange={setSelectedKey}
           classNames={{
-            tab: "h-14 p-3 font-semibold",
+            tab: "h-12 p-3 font-semibold",
             tabContent: "w-full group-data-[selected=true]:text-background ",
             cursor: "bg-foreground",
             panel: "w-full",
@@ -67,9 +67,9 @@ export default function Menu() {
             key="Vegetarian"
             title={<Image width={40} src="/Images/veg.png" />}
           >
-            <div className="flex flex-wrap  w-full items-baseline justify-start gap-16">
+            <div className="grid justify-items-center place-items-start content-evenly gap-5 md:gap-16 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 w-full">
               {vegetarianPizzas.map((pizza) => (
-                <div key={pizza.id} className="flex justify-center">
+                <div key={pizza.id} className="w-full flex justify-center">
                   <PizzaItem id={pizza.id} color="bg-veggreen" />
                 </div>
               ))}
@@ -79,9 +79,14 @@ export default function Menu() {
             key="Non Vegetarian"
             title={<Image width={40} src="/Images/nonVeg.png" />}
           >
-            <div className="flex flex-wrap items-center justify-start gap-16">
+            <div className="grid justify-items-center place-items-start content-evenly gap-5 md:gap-16 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 w-full">
               {nonVegetarianPizzas.map((pizza) => (
-                <PizzaItem key={pizza.id} id={pizza.id} color="bg-[#A1D6B2]" />
+                <div key={pizza.id} className="w-full flex justify-center">
+                  <PizzaItem
+                    id={pizza.id}
+                    color="bg-[#A1D6B2]"
+                  />
+                </div>
               ))}
             </div>
           </Tab>
