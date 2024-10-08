@@ -1,6 +1,7 @@
 import dynamic from "next/dynamic";
 import Loading from "@/components/Loading";
 import Footer from "@/components/Footer";
+import { Navbar } from "@/components/navbar";
 // Dynamically import the Entry component with a loading fallback
 const Topbar = dynamic(() => import("@/components/Topbar"), {
   loading: () => <Loading />,
@@ -17,6 +18,7 @@ export default function PricingLayout({
   return (
     <section className="flex flex-col items-center justify-center gap-4">
       <Topbar />
+      {/* <Navbar /> */}
       <div className="w-screen">
         {children}
       </div>

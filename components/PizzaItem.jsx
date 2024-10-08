@@ -21,6 +21,7 @@ import { Link } from "@nextui-org/react";
 import AddIcon from "@mui/icons-material/Add";
 import ArrowDropDownCircleSharpIcon from "@mui/icons-material/ArrowDropDownCircleSharp";
 import pizzas from "./pizzaData";
+import { AddCircleOutline, AddRounded, AddSharp } from "@mui/icons-material";
 // import { useCart } from "./Cart";
 
 export default function PizzaItem({ id, color }) {
@@ -44,11 +45,11 @@ export default function PizzaItem({ id, color }) {
       <Dropdown>
         <DropdownTrigger>
           <Button
-            fullWidth
-            className="capitalize border-charcoalgray bg-transparent border-2 font-poppins text-charcoalgray"
+            className="capitalize font-poppins text-white dark:text-charcoalgray"
             radius="sm"
-            color="warning"
+            color=""
             size="sm"
+            variant="solid"
           >
             {selectedSize}
             <ArrowDropDownCircleSharpIcon />
@@ -75,7 +76,7 @@ export default function PizzaItem({ id, color }) {
   return (
     <Card className="max-w-[275px] flex flex-col justify-evenly bg-charcoalgray  dark:bg-[#f5f5f5] pb-4 gap-2 rounded-b-[10px] shadow-md">
       <Card
-      fullWidth
+        fullWidth
         style={{ backgroundColor: color }}
         className={`justify-center self-start text-center rounded-b-[30px] ${color} p-5 shadow-md`}
       >
@@ -92,16 +93,16 @@ export default function PizzaItem({ id, color }) {
               {pizza.name}
             </h1>
           </div>
-          <div className="flex flex-col w-full gap-4 px-5">
-            <DemoDropDown />
-
+          <div className="flex flex-col h-14 w-full gap-4 px-5">
             <Button
-              className="rounded-[20px] bg-[#41B3A2]"
+              className="bg-[#41B3A2] "
               color="primary"
               size="lg"
+              radius="full"
+              // bg-[#41B3A2]
               // onClick={addToCart}
             >
-              <AddIcon />
+              <AddRounded />
             </Button>
           </div>
         </div>
@@ -126,13 +127,11 @@ export default function PizzaItem({ id, color }) {
           </p>
         </AccordionItem>
       </Accordion>
-      <div className="flex px-5 justify-between">
+      <div className="flex pl-5 justify-between">
         <h2 className="scroll-m-20 text-background text-xl font-extrabold tracking-tight first:mt-0">
           ₹ {pizza.prices[selectedSize]}
         </h2>
-        <h2 className="scroll-m-20 ml-4 text-background text-sm opacity-85 tracking-tight first:mt-0">
-          In Stock: {pizza.availableQuantity}
-        </h2>
+        <DemoDropDown />
       </div>
     </Card>
   );

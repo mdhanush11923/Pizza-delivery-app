@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { usePathname, useRouter } from "next/navigation";
 import React from "react";
@@ -10,7 +10,6 @@ import {
   NavbarMenuToggle,
   NavbarMenu,
   NavbarMenuItem,
-  Link,
   Button,
   Tab,
   Tabs,
@@ -19,6 +18,9 @@ import {
 import IconButton from "@mui/material/IconButton";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { ThemeSwitch } from "./theme-switch";
+import Link from "next/link";
+import NextLink from "next/link";
+
 
 export default function Topbar(props) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -39,13 +41,13 @@ export default function Topbar(props) {
   };
 
   const handleTabClick = (path) => {
+    console.log(path);
     router.push(path);
-  }
+  };
 
   return (
     <Navbar
-      maxWidth
-      isBordered
+      maxWidth="xl"
       isMenuOpen={isMenuOpen}
       onMenuOpenChange={setIsMenuOpen}
     >
@@ -59,18 +61,21 @@ export default function Topbar(props) {
           <p className="font-regular text-inherit">Delivery</p>
         </div>
       </NavbarBrand>
-      <NavbarContent className="hidden max-w-full md:flex" justify="center">
-        <Tabs
-          selectedKey={pathname}
-          color="success"
-          size="lg"
-          variant="underlined"
-          aria-label="Navigation tabs"
-        >
-          {menuItems.slice(0, 4).map((item) => (
-            <Tab key={item.path} href={item.path} title={item.title} />
-          ))}
-        </Tabs>
+      <NavbarContent className="hidden max-w-full md:flex" justify="start">
+        {menuItems.slice(0, 4).map((item) => (
+          <NavbarItem
+            className="data-[active=true]:text-success data-[active=true]:font-medium"
+            isActive={item.path === pathname}
+            key={item.path}
+          >
+            <NextLink
+              className="foreground data-[active=true]:font-bold data-[active=true]:text-primary "
+              href={item.path}
+            >
+              {item.title}
+            </NextLink>
+          </NavbarItem>
+        ))}
       </NavbarContent>
 
       <NavbarContent justify="end">
@@ -92,26 +97,13 @@ export default function Topbar(props) {
         </NavbarItem>
         <NavbarItem className="hidden md:flex ">
           <Link href="/">
-            <Button
-              className="text-reddanger"
-              color="danger"
-              variant="light"
-            >
+            <Button className="text-reddanger" color="danger" variant="light">
               Logout
             </Button>
           </Link>
         </NavbarItem>
       </NavbarContent>
-      <NavbarMenu
-        motionProps={{
-          initial: { backgroundColor: "#FFFFFF" }, // Initial color (before menu opens)
-          animate: { backgroundColor: "background" }, // Color after menu opens
-          exit: { backgroundColor: "#FFFFFF" }, // Color when menu closes
-          transition: { duration: 0.5 }, // Optional: transition duration
-        }}
-        className="bg-inherit"
-        isOpen={isMenuOpen}
-      >
+      <NavbarMenu className="bg-background" isOpen={isMenuOpen}>
         <div>
           {menuItems.map((item, index) => (
             <NavbarMenuItem key={`${item.title}-${index}`}>

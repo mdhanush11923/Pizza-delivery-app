@@ -1,62 +1,50 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "Next.js + NextUI",
+  name: "Pizza Delivery",
   description: "Make beautiful websites regardless of your design experience.",
   navItems: [
     {
       label: "Home",
+      href: "/dashboard",
+    },
+    {
+      label: "Menu",
+      href: "/dashboard/menu",
+    },
+    {
+      label: "Custom",
+      href: "/dashboard/custom",
+    },
+    {
+      label: "Orders",
+      href: "/dashboard/orders",
+    },    
+    {
+      label: "Logout",
       href: "/",
-    },
-    {
-      label: "Docs",
-      href: "/docs",
-    },
-    {
-      label: "Pricing",
-      href: "/pricing",
-    },
-    {
-      label: "Blog",
-      href: "/blog",
-    },
-    {
-      label: "About",
-      href: "/about",
     },
   ],
   navMenuItems: [
     {
-      label: "Profile",
-      href: "/profile",
-    },
-    {
-      label: "Dashboard",
+      label: "Home",
       href: "/dashboard",
     },
     {
-      label: "Projects",
-      href: "/projects",
+      label: "Menu",
+      href: "/dashboard/menu",
     },
     {
-      label: "Team",
-      href: "/team",
+      label: "Custom",
+      href: "/dashboard/custom",
     },
     {
-      label: "Calendar",
-      href: "/calendar",
-    },
-    {
-      label: "Settings",
-      href: "/settings",
-    },
-    {
-      label: "Help & Feedback",
-      href: "/help-feedback",
-    },
+      label: "Orders",
+      href: "/dashboard/orders",
+    },    
     {
       label: "Logout",
-      href: "/logout",
+      href: "/",
     },
   ],
   links: {
