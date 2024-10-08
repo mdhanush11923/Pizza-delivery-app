@@ -61,10 +61,10 @@ export default function Topbar(props) {
           <p className="font-regular text-inherit">Delivery</p>
         </div>
       </NavbarBrand>
-      <NavbarContent className="hidden max-w-full md:flex" justify="start">
+      <NavbarContent className="hidden w-full md:flex" justify="start">
         {menuItems.slice(0, 4).map((item) => (
           <NavbarItem
-            className="data-[active=true]:text-success data-[active=true]:font-medium"
+            className="data-[active=true]:font-bold"
             isActive={item.path === pathname}
             key={item.path}
           >

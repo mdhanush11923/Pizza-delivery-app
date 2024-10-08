@@ -74,38 +74,36 @@ export default function PizzaItem({ id, color }) {
   }
 
   return (
-    <Card className="max-w-[275px] flex flex-col justify-evenly bg-charcoalgray  dark:bg-[#f5f5f5] pb-4 gap-2 rounded-b-[10px] shadow-md">
+    <Card className=" flex flex-col justify-evenly bg-charcoalgray dark:bg-[#f5f5f5] pb-4 gap-2 rounded-b-[10px] shadow-none">
       <Card
         fullWidth
         style={{ backgroundColor: color }}
-        className={`justify-center self-start text-center rounded-b-[30px] ${color} p-5 shadow-md`}
+        className={`flex justify-center items-center text-center rounded-b-[50px] shadow-none ${color}`}
       >
-        <div className="flex gap-4 flex-col items-center p-5">
+        <div className="flex gap-4 flex-col items-center p-10">
           <Image
             className="w-full object-cover"
             width="100%"
             radius="full"
             src={pizza.image}
             isBlurred
-          />
-          <div>
-            <h1 className="flex items-center scroll-m-20 text-charcoalgray min-h-16 font-poppins text-2xl font-extrabold tracking-tight">
+            alt="pizza image"
+          /> 
+          <div className="flex flex-col">
+            <h1 className="flex text-center justify-center text-charcoalgray font-poppins text-2xl font-extrabold tracking-tight">
               {pizza.name}
             </h1>
           </div>
-          <div className="flex flex-col h-14 w-full gap-4 px-5">
-            <Button
-              className="bg-[#41B3A2] "
-              color="primary"
-              size="lg"
-              radius="full"
-              // bg-[#41B3A2]
-              // onClick={addToCart}
-            >
-              <AddRounded />
-            </Button>
-          </div>
         </div>
+        <Button
+          className="flex font-bold items-center justify-center rounded-b-[28px] border-0 dark:bg-white bg-transparent h-20 w-full"
+          color="danger"
+          variant="ghost"
+          // bg-[#41B3A2]
+          // onClick={addToCart}
+        >
+          <AddRounded fontSize="large" />
+        </Button>
       </Card>
       <Accordion isCompact variant="splitted">
         <AccordionItem

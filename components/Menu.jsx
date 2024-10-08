@@ -65,7 +65,9 @@ export default function Menu() {
           </Tab>
           <Tab
             key="Vegetarian"
-            title={<Image width={40} src="/Images/veg.png" />}
+            title={
+              <Image width={40} src="/Images/veg.png" alt="veg pizza image" />
+            }
           >
             <div className="grid justify-items-center place-items-start content-evenly gap-5 md:gap-16 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 w-full">
               {vegetarianPizzas.map((pizza) => (
@@ -77,15 +79,18 @@ export default function Menu() {
           </Tab>
           <Tab
             key="Non Vegetarian"
-            title={<Image width={40} src="/Images/nonVeg.png" />}
+            title={
+              <Image
+                width={40}
+                src="/Images/nonVeg.png"
+                alt="veg pizza image"
+              />
+            }
           >
             <div className="grid justify-items-center place-items-start content-evenly gap-5 md:gap-16 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 w-full">
               {nonVegetarianPizzas.map((pizza) => (
                 <div key={pizza.id} className="w-full flex justify-center">
-                  <PizzaItem
-                    id={pizza.id}
-                    color="bg-[#A1D6B2]"
-                  />
+                  <PizzaItem id={pizza.id} color="bg-[#A1D6B2]" />
                 </div>
               ))}
             </div>

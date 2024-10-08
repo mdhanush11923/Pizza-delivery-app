@@ -99,7 +99,7 @@ export default function StartPage() {
           </div>
         </div>
         <div className={`max-md:w-full pointer-events-none`}>
-          <Image isBlurred src="/Images/circlePizza.png" width={650} />
+          <Image isBlurred src="/Images/circlePizza.png" alt="pizza image" width={650} />
         </div>
       </section>
       <Footer />
