@@ -1,6 +1,6 @@
 'use client'
 
-import { Button, Image, Link } from "@nextui-org/react";
+import { Button, Image } from "@nextui-org/react";
 import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
 import { ThemeSwitch } from "@/components/theme-switch";
@@ -10,6 +10,7 @@ import Footer from "@/components/Footer";
 import { useRouter } from "next/navigation";
 import { BorderBeam } from "@/components/ui/border-beam";
 import { useTheme } from "next-themes";
+import Link from "next/link";
 
 
 export default function StartPage() {
@@ -75,23 +76,24 @@ export default function StartPage() {
             ]}
           /> */}
           <div className="flex flex-wrap gap-3 mt-14">
-            <Button
-              className="h-16 w-full sm:w-44 font-bold border-2 border-foreground text-foreground rounded-lg hover:font-extrabold"
-              variant="ghost"
-              radius="sm"
-              size="lg"
-              href="/login"
-              as={Link}
-            >
-              Login
+            <div className="relative overflow-hidden w-full sm:w-44 rounded-lg">
+              <Button
+                className="h-16 w-full sm:w-44 font-bold border-foreground text-foreground rounded-lg hover:font-extrabold"
+                size="lg"
+                href="/login"
+                as={Link}
+                variant="ghost"
+              >
+                Login
+              </Button>
               <BorderBeam
                 size={400}
                 duration={10}
-                borderWidth={2}
-                colorFrom={theme === "dark" ? "#ffffff" : "#000000"}
-                colorTo={theme === "dark" ? "#000000" : "#ffffff"}
+                borderWidth={2.5}
+                // colorFrom={theme === "dark" ? "#ffffff" : "#000000"}
+                // colorTo={theme === "dark" ? "#000000" : "#ffffff"}
               />
-            </Button>
+            </div>
 
             <RainbowButton onClick={() => router.push("/signup")}>
               <p className=" text-background">Sign up</p>
@@ -99,7 +101,12 @@ export default function StartPage() {
           </div>
         </div>
         <div className={`max-md:w-full pointer-events-none`}>
-          <Image isBlurred src="/Images/circlePizza.png" alt="pizza image" width={650} />
+          <Image
+            isBlurred
+            src="/Images/circlePizza.png"
+            alt="pizza image"
+            width={650}
+          />
         </div>
       </section>
       <Footer />
