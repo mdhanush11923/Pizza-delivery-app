@@ -55,13 +55,11 @@ export default function Topbar(props) {
         aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         className="md:hidden"
       />
-      <NavbarBrand>
-        <div className="flex ">
-          <p className="font-black text-inherit text-xl">PIZzA</p>
-          <p className="font-regular text-inherit">Delivery</p>
-        </div>
+      <NavbarBrand className="flex max-w-fit">
+        <p className="font-black text-inherit text-lg">PIZzA</p>
+        <p className="font-regular text-inherit text-sm">Delivery</p>
       </NavbarBrand>
-      <NavbarContent className="hidden w-full md:flex" justify="start">
+      <NavbarContent className="hidden ml-3 w-full md:flex" justify="start">
         {menuItems.slice(0, 4).map((item) => (
           <NavbarItem
             className="data-[active=true]:font-bold"
@@ -76,6 +74,11 @@ export default function Topbar(props) {
             </NextLink>
           </NavbarItem>
         ))}
+        <NavbarItem className="hidden md:flex ">
+          <NextLink className="text-reddanger" href="/">
+              Logout
+          </NextLink>
+        </NavbarItem>
       </NavbarContent>
 
       <NavbarContent justify="end">
@@ -94,13 +97,6 @@ export default function Topbar(props) {
 
         <NavbarItem>
           <ThemeSwitch />
-        </NavbarItem>
-        <NavbarItem className="hidden md:flex ">
-          <Link href="/">
-            <Button className="text-reddanger" color="danger" variant="light">
-              Logout
-            </Button>
-          </Link>
         </NavbarItem>
       </NavbarContent>
       <NavbarMenu className="bg-background" isOpen={isMenuOpen}>

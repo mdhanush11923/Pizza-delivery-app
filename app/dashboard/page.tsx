@@ -1,7 +1,11 @@
 import Loading from "@/components/Loading";
-import Home from "@/components/Hero";
+import dynamic from "next/dynamic";
+const Hero = dynamic(() => import("@/components/Hero"), {
+  loading: () => <Loading />,
+});
+
 export default function PricingPage() {
   return (
-    <Home/>
+    <Hero/>
   );
 }

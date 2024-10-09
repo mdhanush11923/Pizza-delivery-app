@@ -74,7 +74,7 @@ export default function PizzaItem({ id, color }) {
   }
 
   return (
-    <Card className=" flex flex-col justify-evenly bg-charcoalgray dark:bg-[#f5f5f5] pb-4 gap-2 rounded-b-[10px] shadow-none">
+    <Card className="max-w-64 flex flex-col justify-evenly bg-charcoalgray dark:bg-[#f5f5f5] pb-4 gap-2 rounded-b-[10px] shadow-none">
       <Card
         fullWidth
         style={{ backgroundColor: color }}
@@ -96,7 +96,7 @@ export default function PizzaItem({ id, color }) {
           </div>
         </div>
         <Button
-          className="flex font-bold items-center justify-center rounded-t-[60px] h-20 w-full"
+          className="flex font-bold items-center justify-center rounded-t-[20px] h-16 w-full"
           color="warning"
           variant="solid"
           // bg-[#41B3A2]
