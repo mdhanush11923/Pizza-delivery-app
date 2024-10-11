@@ -6,6 +6,8 @@ import { Divider, Image } from "@nextui-org/react";
 import { Button } from "@nextui-org/react";
 import { title } from "./primitives";
 import PizzaItem from "./PizzaItem";
+import TextRevealByWord from "./ui/text-reveal";
+import ShimmerButton from "./ui/shimmer-button";
 
 export default function Hero() {
   return (
@@ -64,18 +66,16 @@ export default function Hero() {
           </div>
         </div>
         <div className={`max-w-[650px]`}>
-          <Image
-            isBlurred
-            src="/Images/circlePizza.png"
-            alt="pizza image"
-          />
+          <Image isBlurred src="/Images/circlePizza.png" alt="pizza image" />
         </div>
       </div>
       <Divider className="my-16" />
-      <h1 className="scroll-m-10 text-4xl font-poppins font-extrabold tracking-tight text-center lg:text-4xl">
+
+      <TextRevealByWord text="Our Featured Pizzas: Handpicked Favorites You’ll Love" />
+      <h1 className="m-8 text-4xl font-poppins font-extrabold tracking-tight text-center lg:text-4xl xl:text-5xl">
         Featured Pizzas
       </h1>
-      <div className="flex flex-wrap gap-20 justify-center items-center">
+      <div className="flex flex-wrap gap-20 justify-center mb-20 items-center">
         <PizzaItem color="bg-limefrost" id={0} />
         <PizzaItem color="bg-lemonburst" id={4} />
         <PizzaItem color="bg-limefrost" id={5} />

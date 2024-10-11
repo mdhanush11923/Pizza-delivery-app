@@ -18,7 +18,7 @@ export default function PricingLayout({
   return (
     <section className="flex flex-col items-center justify-center gap-4">
       <Topbar />
-      <div className="w-screen">
+      <div className="">
         {children}
       </div>
       <Footer />

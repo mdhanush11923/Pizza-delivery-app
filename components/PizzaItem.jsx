@@ -22,6 +22,7 @@ import AddIcon from "@mui/icons-material/Add";
 import ArrowDropDownCircleSharpIcon from "@mui/icons-material/ArrowDropDownCircleSharp";
 import pizzas from "./pizzaData";
 import { AddCircleOutline, AddRounded, AddSharp } from "@mui/icons-material";
+import { ScrollShadow } from "@nextui-org/react";
 // import { useCart } from "./Cart";
 
 export default function PizzaItem({ id, color }) {
@@ -54,6 +55,7 @@ export default function PizzaItem({ id, color }) {
             {selectedSize}
             <ArrowDropDownCircleSharpIcon />
           </Button>
+
         </DropdownTrigger>
         <DropdownMenu
           aria-label="Single selection example"
@@ -74,36 +76,39 @@ export default function PizzaItem({ id, color }) {
   }
 
   return (
-    <Card className="max-w-64 flex flex-col justify-evenly bg-charcoalgray dark:bg-[#f5f5f5] pb-4 gap-2 rounded-b-[10px] shadow-none">
+    <Card className="w-[275px] flex flex-col justify-evenly bg-charcoalgray  dark:bg-[#f5f5f5] pb-4 gap-2 rounded-b-[10px] shadow-md">
       <Card
-        fullWidth
         style={{ backgroundColor: color }}
-        className={`flex justify-center items-center text-center rounded-b-[80px] shadow-none ${color}`}
+        className={`w-[275px] justify-center self-start text-center rounded-b-[30px] ${color} p-5 shadow-md`}
       >
-        <div className="flex gap-4 flex-col items-center p-10">
+        <div className="flex gap-4 flex-col items-center p-5">
           <Image
+            alt="pizza"
             className="w-full object-cover"
             width="100%"
             radius="full"
             src={pizza.image}
             isBlurred
-            alt="pizza image"
-          /> 
-          <div className="flex flex-col">
-            <h1 className="flex text-center justify-center text-charcoalgray font-poppins text-2xl font-extrabold tracking-tight">
+          />
+          <div>
+            <h1 className="flex items-center scroll-m-20 text-charcoalgray min-h-16 font-poppins text-2xl font-extrabold tracking-tight">
               {pizza.name}
             </h1>
           </div>
+          <div className="flex flex-col w-full gap-4 px-5">
+            <h2 className="scroll-m-20 text-[black] text-2xl font-poppins font-extrabold tracking-tight first:mt-0">
+              ₹ {pizza.prices[selectedSize]}
+            </h2>
+
+            <Button
+              className="rounded-[20px] bg-[#41B3A2]"
+              color="primary"
+              size="lg"
+            >
+              <AddIcon />
+            </Button>
+          </div>
         </div>
-        <Button
-          className="flex font-bold items-center justify-center rounded-t-[20px] h-16 w-full"
-          color="warning"
-          variant="solid"
-          // bg-[#41B3A2]
-          // onClick={addToCart}
-        >
-          <AddRounded fontSize="large" />
-        </Button>
       </Card>
       <Accordion isCompact variant="splitted">
         <AccordionItem
@@ -125,11 +130,12 @@ export default function PizzaItem({ id, color }) {
           </p>
         </AccordionItem>
       </Accordion>
-      <div className="flex pl-5 justify-between">
-        <h2 className="scroll-m-20 text-background text-xl font-extrabold tracking-tight first:mt-0">
-          ₹ {pizza.prices[selectedSize]}
-        </h2>
+      <div className="flex px-5 justify-between">
         <DemoDropDown />
+
+        <h2 className="scroll-m-20 ml-4 text-background text-sm opacity-85 tracking-tight first:mt-0">
+          In Stock: {pizza.availableQuantity}
+        </h2>
       </div>
     </Card>
   );

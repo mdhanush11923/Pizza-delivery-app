@@ -47,7 +47,7 @@ export default function Topbar(props) {
 
   return (
     <Navbar
-      maxWidth="xl"
+      maxWidth="lg"
       isMenuOpen={isMenuOpen}
       onMenuOpenChange={setIsMenuOpen}
     >
@@ -55,7 +55,7 @@ export default function Topbar(props) {
         aria-label={isMenuOpen ? "Close menu" : "Open menu"}
         className="md:hidden"
       />
-      <NavbarBrand className="flex max-w-fit">
+      <NavbarBrand className="flex">
         <p className="font-black text-inherit text-lg">PIZzA</p>
         <p className="font-regular text-inherit text-sm">Delivery</p>
       </NavbarBrand>

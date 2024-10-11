@@ -55,9 +55,9 @@ export default function Menu() {
           aria-label="Tabs sizes"
         >
           <Tab key="All items" title="Both">
-            <div className="grid justify-items-center place-items-start content-evenly gap-5 md:gap-16 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 w-full">
+            <div className="grid justify-items-center  place-items-start content-evenly gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 w-full">
               {pizzas.map((pizza, index) => (
-                <div key={pizza.id} className="w-full flex justify-center">
+                <div key={pizza.id} className="w-full flex-grow flex justify-center">
                   <PizzaItem key={index} id={index} color="bg-peachblossom" />
                 </div>
               ))}
