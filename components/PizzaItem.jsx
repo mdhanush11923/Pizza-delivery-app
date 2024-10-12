@@ -10,6 +10,7 @@ import {
   Tooltip,
   AccordionItem,
   Accordion,
+  Divider,
 } from "@nextui-org/react";
 import {
   Dropdown,
@@ -99,14 +100,6 @@ export default function PizzaItem({ id, color }) {
             <h2 className="scroll-m-20 text-[black] text-2xl font-poppins font-extrabold tracking-tight first:mt-0">
               ₹ {pizza.prices[selectedSize]}
             </h2>
-
-            <Button
-              className="rounded-[20px] bg-[#41B3A2]"
-              color="primary"
-              size="lg"
-            >
-              <AddIcon />
-            </Button>
           </div>
         </div>
       </Card>
@@ -123,19 +116,25 @@ export default function PizzaItem({ id, color }) {
           title="Description"
         >
           <p>{pizza.description}</p>
-          <p>-</p>
+          <Divider className="my-2" />
           <p className="text-sm">
             Base: {pizza.base}, Sauce:{pizza.sauce}, Cheese: {pizza.cheese},
             Veggies: {pizza.veggies}, Category: {pizza.category}
           </p>
+          <Divider className="my-2" />
+          <h2 className="scroll-m-20 text-background text-sm opacity-85 tracking-tight first:mt-0">
+            In Stock: {pizza.availableQuantity}
+          </h2>
         </AccordionItem>
       </Accordion>
-      <div className="flex px-5 justify-between">
+      <div className="flex px-5 items-center justify-between">
         <DemoDropDown />
-
-        <h2 className="scroll-m-20 ml-4 text-background text-sm opacity-85 tracking-tight first:mt-0">
-          In Stock: {pizza.availableQuantity}
-        </h2>
+        <Button
+          className="rounded-[20px] bg-[#41B3A2]"
+          color="primary"
+        >
+          <AddIcon />
+        </Button>
       </div>
     </Card>
   );

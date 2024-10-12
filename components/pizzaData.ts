@@ -9,31 +9,28 @@
 // import pestoVeggie from "/Images/PestoVeggie.png";
 'use client'
 
-const createPizza = (
-  id,
-  name,
-  description,
-  price,
-  base,
-  sauce,
-  cheese,
-  veggie,
-  category,
-  image,
-  availableQuantity
-) => ({
-  id,
-  name,
-  description,
-  prices: price,
-  base,
-  sauce,
-  cheese,
-  veggies: veggie,
-  category,
-  image,
-  availableQuantity,
-});
+interface Pizza {
+  name: string;
+  description: string;
+  category: 'Vegetarian' | 'Non-Vegetarian';
+  sizes: {
+    small: number;
+    medium: number;
+    large: number;
+  };
+  base: 'Thin Crust' | 'Thick Crust' | 'Cheese Burst' | 'Gluten Free';
+  cheese: 'Mozzarella' | 'Cheddar' | 'Parmesan' | 'Vegan Cheese';
+  sauce: 'Tomato' | 'Barbeque' | 'Pesto' | 'White Garlic';
+  veggies?: ('Bell Peppers' | 'Onions' | 'Olives' | 'Mushrooms' | 'Jalapenos' | 'Spinach' | 'Tomatoes' | 'Corn')[];
+  stock: number;
+  imageSource: string;
+}
+
+const createPizza = (pizza: Pizza): Pizza => {
+  return pizza;
+};
+
+
 
 const pizzas = [
   {

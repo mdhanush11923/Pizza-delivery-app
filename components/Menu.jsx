@@ -32,7 +32,7 @@ export default function Menu() {
     "#fadfa1", // Light Apricot
   ];
 
-  const [selectedKey, setSelectedKey] = React.useState("All items");
+  const [selectedKey, setSelectedKey] = React.useState("ALL ITEMS");
 
   return (
     <div className="flex flex-col h-full items-center mx-5 lg:mx-16 gap-6">
@@ -41,11 +41,11 @@ export default function Menu() {
           {selectedKey}
         </h1>
         <Tabs
-          defaultSelectedKey="All items"
+          defaultSelectedKey="ALL ITEMS"
           selectedKey={selectedKey}
           onSelectionChange={setSelectedKey}
           classNames={{
-            tab: "h-12 p-3 font-semibold",
+            tab: "h-12 p-3",
             tabContent: "w-full group-data-[selected=true]:text-background ",
             cursor: "bg-foreground",
             panel: "w-full",
@@ -54,17 +54,20 @@ export default function Menu() {
           color="primary"
           aria-label="Tabs sizes"
         >
-          <Tab key="All items" title="Both">
+          <Tab key="ALL ITEMS" title="Both">
             <div className="grid justify-items-center  place-items-start content-evenly gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 w-full">
               {pizzas.map((pizza, index) => (
-                <div key={pizza.id} className="w-full flex-grow flex justify-center">
+                <div
+                  key={pizza.id}
+                  className="w-full flex-grow flex justify-center"
+                >
                   <PizzaItem key={index} id={index} color="bg-peachblossom" />
                 </div>
               ))}
             </div>
           </Tab>
           <Tab
-            key="Vegetarian"
+            key="VEGETARIAN"
             title={
               <Image width={40} src="/Images/veg.png" alt="veg pizza image" />
             }
@@ -78,7 +81,7 @@ export default function Menu() {
             </div>
           </Tab>
           <Tab
-            key="Non Vegetarian"
+            key="NON VEGETARIAN"
             title={
               <Image
                 width={40}
