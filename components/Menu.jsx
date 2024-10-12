@@ -32,7 +32,7 @@ export default function Menu() {
     "#fadfa1", // Light Apricot
   ];
 
-  const [selectedKey, setSelectedKey] = React.useState("ALL ITEMS");
+  const [selectedKey, setSelectedKey] = React.useState("All Items");
 
   return (
     <div className="flex flex-col h-full items-center mx-5 lg:mx-16 gap-6">
@@ -41,7 +41,7 @@ export default function Menu() {
           {selectedKey}
         </h1>
         <Tabs
-          defaultSelectedKey="ALL ITEMS"
+          defaultSelectedKey="All Items"
           selectedKey={selectedKey}
           onSelectionChange={setSelectedKey}
           classNames={{
@@ -54,7 +54,7 @@ export default function Menu() {
           color="primary"
           aria-label="Tabs sizes"
         >
-          <Tab key="ALL ITEMS" title="Both">
+          <Tab key="All Items" title="Both">
             <div className="grid justify-items-center  place-items-start content-evenly gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 w-full">
               {pizzas.map((pizza, index) => (
                 <div
@@ -67,7 +67,7 @@ export default function Menu() {
             </div>
           </Tab>
           <Tab
-            key="VEGETARIAN"
+            key="Vegetarian"
             title={
               <Image width={40} src="/Images/veg.png" alt="veg pizza image" />
             }
@@ -81,7 +81,7 @@ export default function Menu() {
             </div>
           </Tab>
           <Tab
-            key="NON VEGETARIAN"
+            key="Non Vegetarian"
             title={
               <Image
                 width={40}

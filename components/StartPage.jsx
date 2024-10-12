@@ -52,6 +52,7 @@ export default function StartPage() {
               ⚡fast!
             </span>
           </h2>
+          
           {/* <WordRotate
             className="text-4xl font-bold text-black dark:text-white"
             words={[

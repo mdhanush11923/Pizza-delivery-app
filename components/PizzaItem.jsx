@@ -105,6 +105,7 @@ export default function PizzaItem({ id, color }) {
       </Card>
       <Accordion isCompact variant="splitted">
         <AccordionItem
+        
           classNames={{
             title:
               "font-normal font-semibold text-[#F5F5F5] dark:text-charcoalgray",

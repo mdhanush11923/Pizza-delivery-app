@@ -1,7 +1,5 @@
 import StartPage from "@/components/StartPage";
-
+import Orders from "@/components/Orders";
 export default function HomePage() {
-  return <div className="flex items-center justify-center">
-    Orders page
-  </div>;
+  return <Orders />
 }
