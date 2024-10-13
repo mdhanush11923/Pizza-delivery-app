@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import React, { useState } from "react";
 import { Select, SelectItem } from "@nextui-org/select";
@@ -8,35 +8,44 @@ import { Image } from "@nextui-org/react";
 import { bases, sauces, cheeses, veggies } from "./pizzaData";
 
 const PizzaCustomization = () => {
-const [selectedBase, setSelectedBase] = useState(null);
-const [selectedSauce, setSelectedSauce] = useState(null);
-const [selectedCheese, setSelectedCheese] = useState(null);
-const [selectedVeggies, setSelectedVeggies] = useState([]);
-const [pizzaQuantity, setPizzaQuantity] = useState(1);
+  const [selectedBaseId, setSelectedBaseId] = useState(null);
+  const [selectedSauceId, setSelectedSauceId] = useState(null);
+  const [selectedCheeseId, setSelectedCheeseId] = useState(null);
+  const [selectedVeggiesIds, setSelectedVeggiesIds] = useState([]);
+  const [pizzaQuantity, setPizzaQuantity] = useState(1);
 
   // const { addItemToCart } = useCart();
 
-  const handleVeggiesChange = (selectedValues) => {
-    setSelectedVeggies(selectedValues); // Update veggies with selected values from CheckboxGroup
+  const handleBaseChange = (keys) => {
+    const selectedId = Array.from(keys)[0];
+    setSelectedBaseId(selectedId);
   };
 
-  // const handleSubmit = () => {
-  //   const itemId = `${Date.now()}`; // Unique ID based on timestamp
-  //   const itemName = `Custom Pizza with ${[...base].join(", ")}, ${[
-  //     ...sauce,
-  //   ].join(", ")}, ${[...cheese].join(", ")}, and ${veggies.join(", ")}`;
-  //   const itemPrice = 500*quantity; // Implement your own logic to calculate price
+  const handleSauceChange = (keys) => {
+    const selectedId = Array.from(keys)[0];
+    setSelectedSauceId(selectedId);
+  };
 
-  //   const orderData = {
-  //     itemId,
-  //     itemName,
-  //     itemPrice,
-  //     quantity: quantity,
-  //   };
+  const handleCheeseChange = (keys) => {
+    const selectedId = Array.from(keys)[0];
+    setSelectedCheeseId(selectedId);
+  };
 
-  //   console.log(orderData);
-  //   addItemToCart(orderData);
-  // };
+  const handleVeggiesChange = (selectedValues) => {
+    setSelectedVeggiesIds(selectedValues);
+  };
+
+  const handleSubmit = () => {
+    const pizza = {
+      base: selectedBaseId,
+      sauce: selectedSauceId,
+      cheese: selectedCheeseId,
+      veggies: selectedVeggiesIds,
+      quantity: pizzaQuantity,
+    };
+    console.log("Pizza Customization:", pizza);
+    // addItemToCart(pizza); // Uncomment to add item to cart
+  };
 
   return (
     <div className="flex flex-col items-center h-full p-10 pt-4">
@@ -57,22 +66,30 @@ const [pizzaQuantity, setPizzaQuantity] = useState(1);
           <Select
             variant="faded"
             label="Choose Pizza Base"
-            selectedKeys={selectedBase}
-            onSelectionChange={setSelectedBase}
+            selectedKeys={
+              selectedBaseId ? new Set([selectedBaseId]) : new Set()
+            }
+            onSelectionChange={handleBaseChange}
           >
             {bases.map((item) => (
-              <SelectItem key={item.name}>{item.name}</SelectItem>
+              <SelectItem key={item.id} value={item.id}>
+                {item.name}
+              </SelectItem>
             ))}
           </Select>
 
           <Select
             variant="faded"
             label="Choose Sauce"
-            selectedKeys={selectedSauce}
-            onSelectionChange={setSelectedSauce}
+            selectedKeys={
+              selectedSauceId ? new Set([selectedSauceId]) : new Set()
+            }
+            onSelectionChange={handleSauceChange}
           >
             {sauces.map((item) => (
-              <SelectItem key={item.name}>{item.name}</SelectItem>
+              <SelectItem key={item.id} value={item.id}>
+                {item.name}
+              </SelectItem>
             ))}
           </Select>
         </div>
@@ -81,20 +98,24 @@ const [pizzaQuantity, setPizzaQuantity] = useState(1);
           <Select
             variant="faded"
             label="Choose Cheese"
-            selectedKeys={selectedCheese}
-            onSelectionChange={setSelectedCheese}
+            selectedKeys={
+              selectedCheeseId ? new Set([selectedCheeseId]) : new Set()
+            }
+            onSelectionChange={handleCheeseChange}
           >
             {cheeses.map((item) => (
-              <SelectItem key={item.name}>{item.name}</SelectItem>
+              <SelectItem key={item.id} value={item.id}>
+                {item.name}
+              </SelectItem>
             ))}
           </Select>
 
           <Input
-        label="Quatity"
+            label="Quantity"
             variant="faded"
             type="number"
             value={pizzaQuantity}
-            onChange={setPizzaQuantity}
+            onChange={(e) => setPizzaQuantity(Number(e.target.value))}
           />
         </div>
 
@@ -103,13 +124,11 @@ const [pizzaQuantity, setPizzaQuantity] = useState(1);
           color="warning"
           label="Choose Veggies"
           orientation="horizontal"
+          value={selectedVeggiesIds}
+          onChange={handleVeggiesChange}
         >
           {veggies.map((item) => (
-            <Checkbox
-              key={item}
-              value={item.name}
-              onChange={handleVeggiesChange} // Handle change
-            >
+            <Checkbox key={item.id} value={item.id}>
               {item.name}
             </Checkbox>
           ))}
@@ -120,7 +139,7 @@ const [pizzaQuantity, setPizzaQuantity] = useState(1);
           color="danger"
           size="lg"
           radius="sm"
-          // onClick={handleSubmit}
+          onClick={handleSubmit}
         >
           Add to cart
         </Button>

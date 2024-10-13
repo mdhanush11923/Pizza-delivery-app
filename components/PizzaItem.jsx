@@ -96,11 +96,18 @@ export default function PizzaItem({ id, color }) {
               {pizza.name}
             </h1>
           </div>
-          <div className="flex flex-col w-full gap-4 px-5">
-            <h2 className="scroll-m-20 text-[black] text-2xl font-poppins font-extrabold tracking-tight first:mt-0">
-              ₹ {pizza.prices[selectedSize]}
-            </h2>
-          </div>
+        </div>
+        <div className="flex w-full items-center gap-4 px-5">
+          <h2 className="w-full text-[black] text-2xl font-poppins font-extrabold">
+            ₹ {pizza.prices[selectedSize]}
+          </h2>
+          <Button
+            fullWidth
+            className="rounded-[10px] h-12 bg-[#41B3A2]"
+            color="primary"
+          >
+            <AddIcon />
+          </Button>
         </div>
       </Card>
       <Accordion isCompact variant="splitted">
@@ -125,18 +132,14 @@ export default function PizzaItem({ id, color }) {
               : "None"}
             , Category: {pizza.category}
           </p>
-          <Divider className="my-2" />
-          <h2 className="scroll-m-20 text-background text-sm opacity-85 tracking-tight first:mt-0">
-            In Stock: {pizza.stock}
-          </h2>
         </AccordionItem>
       </Accordion>
 
       <div className="flex px-5 items-center justify-between">
         <DemoDropDown />
-        <Button className="rounded-[20px] bg-[#41B3A2]" color="primary">
-          <AddIcon />
-        </Button>
+        <h2 className="scroll-m-20 text-background text-sm opacity-85 tracking-tight first:mt-0">
+          In Stock: {pizza.stock}
+        </h2>
       </div>
     </Card>
   );

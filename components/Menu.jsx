@@ -34,9 +34,6 @@ export default function Menu() {
 
   const [selectedKey, setSelectedKey] = React.useState("All Items");
 
-  console.log("Vegetarian Pizzas:", vegetarianPizzas);
-  console.log("Non-Vegetarian Pizzas:", nonVegetarianPizzas);
-
   return (
     <div className="flex flex-col h-full items-center mx-5 lg:mx-16 gap-6">
       <div className="flex flex-wrap  items-center gap-3 w-full justify-center sm:justify-between">
