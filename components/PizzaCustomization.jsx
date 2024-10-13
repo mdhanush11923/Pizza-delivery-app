@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Select, SelectItem } from "@nextui-org/select";
 import { Button, Checkbox, CheckboxGroup, Input } from "@nextui-org/react";
 import { Image } from "@nextui-org/react";
@@ -13,8 +13,18 @@ const PizzaCustomization = () => {
   const [selectedCheeseId, setSelectedCheeseId] = useState(null);
   const [selectedVeggiesIds, setSelectedVeggiesIds] = useState([]);
   const [pizzaQuantity, setPizzaQuantity] = useState(1);
-
+  const [totalPrice, setTotalPrice] = useState(0);
   // const { addItemToCart } = useCart();
+
+  useEffect(() => {
+    calculateTotalPrice();
+  }, [
+    selectedBaseId,
+    selectedSauceId,
+    selectedCheeseId,
+    selectedVeggiesIds,
+    pizzaQuantity,
+  ]);
 
   const handleBaseChange = (keys) => {
     const selectedId = Array.from(keys)[0];
@@ -35,6 +45,32 @@ const PizzaCustomization = () => {
     setSelectedVeggiesIds(selectedValues);
   };
 
+  const getItemPriceById = (items, id) => {
+    const item = items.find((item) => item.id === id);
+    return item ? item.price : 0;
+  };
+
+  const calculateTotalPrice = () => {
+    const basePrice = getItemPriceById(bases, selectedBaseId);
+    const saucePrice = getItemPriceById(sauces, selectedSauceId);
+    const cheesePrice = getItemPriceById(cheeses, selectedCheeseId);
+    const veggiesPrice = selectedVeggiesIds.reduce(
+      (total, veggieId) => total + getItemPriceById(veggies, veggieId),
+      0,
+    );
+
+    const singlePizzaPrice =
+      basePrice + saucePrice + cheesePrice + veggiesPrice;
+          // Debugging logs to check values
+    console.log("Base Price: ", basePrice);
+    console.log("Sauce Price: ", saucePrice);
+    console.log("Cheese Price: ", cheesePrice);
+    console.log("Veggies Price: ", veggiesPrice);
+    console.log("Single Pizza Price: ", singlePizzaPrice);
+
+    setTotalPrice(singlePizzaPrice * pizzaQuantity);
+  };
+
   const handleSubmit = () => {
     const pizza = {
       base: selectedBaseId,
@@ -42,11 +78,11 @@ const PizzaCustomization = () => {
       cheese: selectedCheeseId,
       veggies: selectedVeggiesIds,
       quantity: pizzaQuantity,
+      totalPrice,
     };
     console.log("Pizza Customization:", pizza);
     // addItemToCart(pizza); // Uncomment to add item to cart
   };
-
   return (
     <div className="flex flex-col items-center h-full p-10 pt-4">
       <div className="flex flex-col items-center gap-12">
@@ -114,6 +150,7 @@ const PizzaCustomization = () => {
             label="Quantity"
             variant="faded"
             type="number"
+            min={1}
             value={pizzaQuantity}
             onChange={(e) => setPizzaQuantity(Number(e.target.value))}
           />
@@ -133,6 +170,10 @@ const PizzaCustomization = () => {
             </Checkbox>
           ))}
         </CheckboxGroup>
+
+        <div className="text-2xl mt-6 font-bold">
+          Total Price: ${totalPrice.toFixed(2)}
+        </div>
 
         <Button
           className="w-44 h-14 reddanger"

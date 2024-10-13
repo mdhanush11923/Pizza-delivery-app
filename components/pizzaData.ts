@@ -11,38 +11,38 @@
 
 // Separate arrays for bases, sauces, cheeses, and veggies
 const bases = [
-  { id: 0, name: "Thick Crust", price: 250, availableQuantity: 50 },
-  { id: 1, name: "Thin Crust", price: 200, availableQuantity: 50 },
-  { id: 2, name: "Cheese Burst", price: 300, availableQuantity: 50 },
-  { id: 3, name: "Gluten Free", price: 350, availableQuantity: 50 },
-  { id: 4, name: "Whole Wheat", price: 220, availableQuantity: 50 }
+  { id: "0", name: "Thick Crust", price: 250, availableQuantity: 50 },
+  { id: "1", name: "Thin Crust", price: 200, availableQuantity: 50 },
+  { id: "2", name: "Cheese Burst", price: 300, availableQuantity: 50 },
+  { id: "3", name: "Gluten Free", price: 350, availableQuantity: 50 },
+  { id: "4", name: "Whole Wheat", price: 220, availableQuantity: 50 }
 ];
 
 const sauces = [
-  { id: 0, name: "Tomato Basil", price: 50, availableQuantity: 50 },
-  { id: 1, name: "Barbeque", price: 60, availableQuantity: 50 },
-  { id: 2, name: "White Garlic", price: 70, availableQuantity: 50 },
-  { id: 3, name: "Pesto", price: 80, availableQuantity: 50 },
-  { id: 4, name: "Spicy Buffalo", price: 90, availableQuantity: 50 }
+  { id: "0", name: "Tomato Basil", price: 50, availableQuantity: 50 },
+  { id: "1", name: "Barbeque", price: 60, availableQuantity: 50 },
+  { id: "2", name: "White Garlic", price: 70, availableQuantity: 50 },
+  { id: "3", name: "Pesto", price: 80, availableQuantity: 50 },
+  { id: "4", name: "Spicy Buffalo", price: 90, availableQuantity: 50 }
 ];
 
 const cheeses = [
-  { id: 0, name: "Cheddar", price: 120, availableQuantity: 50 },
-  { id: 1, name: "Mozzarella", price: 100, availableQuantity: 50 },
-  { id: 2, name: "Parmesan", price: 140, availableQuantity: 50 },
-  { id: 3, name: "Gouda", price: 160, availableQuantity: 50 },
-  { id: 4, name: "Feta", price: 180, availableQuantity: 50 }
+  { id: "0", name: "Cheddar", price: 120, availableQuantity: 50 },
+  { id: "1", name: "Mozzarella", price: 100, availableQuantity: 50 },
+  { id: "2", name: "Parmesan", price: 140, availableQuantity: 50 },
+  { id: "3", name: "Gouda", price: 160, availableQuantity: 50 },
+  { id: "4", name: "Feta", price: 180, availableQuantity: 50 }
 ];
 
 const veggies = [
-  { id: 0, name: "Olives", price: 30, availableQuantity: 50 },
-  { id: 1, name: "Bell Peppers", price: 20, availableQuantity: 50 },
-  { id: 2, name: "Onions", price: 25, availableQuantity: 50 },
-  { id: 3, name: "Spinach", price: 35, availableQuantity: 50 },
-  { id: 4, name: "Mushrooms", price: 40, availableQuantity: 50 },
-  { id: 5, name: "Cherry Tomatoes", price: 30, availableQuantity: 50 },
-  { id: 6, name: "Jalapenos", price: 20, availableQuantity: 50 },
-  { id: 7, name: "Sweet Corn", price: 25, availableQuantity: 50 }
+  { id: "0", name: "Olives", price: 30, availableQuantity: 50 },
+  { id: "1", name: "Bell Peppers", price: 20, availableQuantity: 50 },
+  { id: "2", name: "Onions", price: 25, availableQuantity: 50 },
+  { id: "3", name: "Spinach", price: 35, availableQuantity: 50 },
+  { id: "4", name: "Mushrooms", price: 40, availableQuantity: 50 },
+  { id: "5", name: "Cherry Tomatoes", price: 30, availableQuantity: 50 },
+  { id: "6", name: "Jalapenos", price: 20, availableQuantity: 50 },
+  { id: "7", name: "Sweet Corn", price: 25, availableQuantity: 50 }
 ];
 
 // Updated Pizza interface
