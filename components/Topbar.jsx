@@ -62,7 +62,7 @@ export default function Topbar(props) {
       <NavbarContent className="hidden ml-3 w-full md:flex" justify="start">
         {menuItems.slice(0, 4).map((item) => (
           <NavbarItem
-            className="data-[active=true]:font-bold"
+            className=" data-[active=true]:font-bold"
             isActive={item.path === pathname}
             key={item.path}
           >

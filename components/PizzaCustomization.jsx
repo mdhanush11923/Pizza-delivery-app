@@ -89,7 +89,13 @@ const [pizzaQuantity, setPizzaQuantity] = useState(1);
             ))}
           </Select>
 
-          <Input variant="faded" value={0} />
+          <Input
+        label="Quatity"
+            variant="faded"
+            type="number"
+            value={pizzaQuantity}
+            onChange={setPizzaQuantity}
+          />
         </div>
 
         <CheckboxGroup
