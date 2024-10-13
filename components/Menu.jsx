@@ -34,6 +34,9 @@ export default function Menu() {
 
   const [selectedKey, setSelectedKey] = React.useState("All Items");
 
+  console.log("Vegetarian Pizzas:", vegetarianPizzas);
+  console.log("Non-Vegetarian Pizzas:", nonVegetarianPizzas);
+
   return (
     <div className="flex flex-col h-full items-center mx-5 lg:mx-16 gap-6">
       <div className="flex flex-wrap  items-center gap-3 w-full justify-center sm:justify-between">
@@ -74,8 +77,8 @@ export default function Menu() {
           >
             <div className="grid justify-items-center place-items-start content-evenly gap-5 md:gap-16 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 w-full">
               {vegetarianPizzas.map((pizza) => (
-                <div key={pizza.id} className="w-full flex justify-center">
-                  <PizzaItem id={pizza.id} color="bg-veggreen" />
+                <div key={pizza.pizzaId} className="w-full flex justify-center">
+                  <PizzaItem id={pizza.pizzaId} color="bg-veggreen" />
                 </div>
               ))}
             </div>
@@ -92,8 +95,8 @@ export default function Menu() {
           >
             <div className="grid justify-items-center place-items-start content-evenly gap-5 md:gap-16 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 w-full">
               {nonVegetarianPizzas.map((pizza) => (
-                <div key={pizza.id} className="w-full flex justify-center">
-                  <PizzaItem id={pizza.id} color="bg-[#A1D6B2]" />
+                <div key={pizza.pizzaId} className="w-full flex justify-center">
+                  <PizzaItem id={pizza.pizzaId} color="bg-[#A1D6B2]" />
                 </div>
               ))}
             </div>

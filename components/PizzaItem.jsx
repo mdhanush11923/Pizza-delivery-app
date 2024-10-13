@@ -88,7 +88,7 @@ export default function PizzaItem({ id, color }) {
             className="w-full object-cover"
             width="100%"
             radius="full"
-            src={pizza.image}
+            src={pizza.imageSource}
             isBlurred
           />
           <div>
@@ -105,11 +105,10 @@ export default function PizzaItem({ id, color }) {
       </Card>
       <Accordion isCompact variant="splitted">
         <AccordionItem
-        
           classNames={{
             title:
               "font-normal font-semibold text-[#F5F5F5] dark:text-charcoalgray",
-            content: "text-background text-left  opacity-85",
+            content: "text-background text-left opacity-85",
             base: "bg-charcoalgray dark:bg-[#f5f5f5] shadow-none",
           }}
           key="1"
@@ -119,21 +118,23 @@ export default function PizzaItem({ id, color }) {
           <p>{pizza.description}</p>
           <Divider className="my-2" />
           <p className="text-sm">
-            Base: {pizza.base}, Sauce:{pizza.sauce}, Cheese: {pizza.cheese},
-            Veggies: {pizza.veggies}, Category: {pizza.category}
+            Base: {pizza.base.name}, Sauce: {pizza.sauce.name}, Cheese:{" "}
+            {pizza.cheese.name}, Veggies:{" "}
+            {pizza.veggies && pizza.veggies.length > 0
+              ? pizza.veggies.map((veggie) => veggie.name).join(", ")
+              : "None"}
+            , Category: {pizza.category}
           </p>
           <Divider className="my-2" />
           <h2 className="scroll-m-20 text-background text-sm opacity-85 tracking-tight first:mt-0">
-            In Stock: {pizza.availableQuantity}
+            In Stock: {pizza.stock}
           </h2>
         </AccordionItem>
       </Accordion>
+
       <div className="flex px-5 items-center justify-between">
         <DemoDropDown />
-        <Button
-          className="rounded-[20px] bg-[#41B3A2]"
-          color="primary"
-        >
+        <Button className="rounded-[20px] bg-[#41B3A2]" color="primary">
           <AddIcon />
         </Button>
       </div>

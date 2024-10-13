@@ -75,8 +75,8 @@ export default function Hero() {
       </h1>
       <div className="flex flex-wrap gap-20 justify-center mb-20 items-center">
         <PizzaItem color="bg-limefrost" id={0} />
-        <PizzaItem color="bg-lemonburst" id={4} />
-        <PizzaItem color="bg-limefrost" id={5} />
+        {/* <PizzaItem color="bg-lemonburst" id={4} />
+        <PizzaItem color="bg-limefrost" id={5} /> */}
       </div>
     </div>
   );

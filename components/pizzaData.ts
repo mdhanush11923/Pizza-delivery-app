@@ -9,157 +9,6 @@
 // import pestoVeggie from "/Images/PestoVeggie.png";
 'use client'
 
-interface Pizza {
-  name: string;
-  description: string;
-  category: 'Vegetarian' | 'Non-Vegetarian';
-  sizes: {
-    small: number;
-    medium: number;
-    large: number;
-  };
-  base: 'Thin Crust' | 'Thick Crust' | 'Cheese Burst' | 'Gluten Free';
-  cheese: 'Mozzarella' | 'Cheddar' | 'Parmesan' | 'Vegan Cheese';
-  sauce: 'Tomato' | 'Barbeque' | 'Pesto' | 'White Garlic';
-  veggies?: ('Bell Peppers' | 'Onions' | 'Olives' | 'Mushrooms' | 'Jalapenos' | 'Spinach' | 'Tomatoes' | 'Corn')[];
-  stock: number;
-  imageSource: string;
-}
-
-const createPizza = (pizza: Pizza): Pizza => {
-  return pizza;
-};
-
-
-
-const pizzas = [
-  {
-    id: 0,
-    name: "Tomato Basil Classic",
-    description:
-      "Classic pizza with fresh tomatoes, mozzarella cheese, and basil leaves.",
-    prices: { small: 199, medium: 299, large: 399 },
-    base: "Thin Crust",
-    sauce: "Tomato Basil",
-    cheese: "Mozzarella",
-    veggies: "Bell Peppers",
-    category: "Vegetarian",
-    image: "/Images/Margherita.png",
-    availableQuantity: 10,
-  },
-  {
-    id: 1,
-    name: "Olive Delight",
-    description:
-      "Classic pizza with fresh tomatoes, mozzarella cheese, and basil leaves.",
-    prices: { small: 199, medium: 299, large: 399 },
-    base: "Thin Crust",
-    sauce: "Tomato Basil",
-    cheese: "Mozzarella",
-    veggies: "Olives",
-    category: "Vegetarian",
-    image: "/Images/Margherita.png",
-    availableQuantity: 10,
-  },
-  {
-    id: 2,
-    name: "Cheese Burst Bliss",
-    description:
-      "Classic pizza with fresh tomatoes, mozzarella cheese, and basil leaves.",
-    prices: { small: 249, medium: 349, large: 449 },
-    base: "Cheese Burst",
-    sauce: "Tomato Basil",
-    cheese: "Mozzarella",
-    veggies: "Bell Peppers",
-    category: "Vegetarian",
-    image: "/Images/Margherita.png",
-    availableQuantity: 10,
-  },
-  {
-    id: 3,
-    name: "Olive Dream",
-    description:
-      "Classic pizza with fresh tomatoes, mozzarella cheese, and basil leaves.",
-    prices: { small: 249, medium: 349, large: 449 },
-    base: "Cheese Burst",
-    sauce: "Tomato Basil",
-    cheese: "Mozzarella",
-    veggies: "Olives",
-    category: "Vegetarian",
-    image: "/Images/Margherita.png",
-    availableQuantity: 10,
-  },
-  {
-    id: 4,
-    name: "Pepperoni Heat",
-    description:
-      "A favorite with spicy pepperoni, mozzarella, and signature tomato sauce.",
-    prices: { small: 249, medium: 399, large: 499 },
-    base: "Thin Crust",
-    sauce: "Tomato Basil",
-    cheese: "Mozzarella",
-    veggies: "Onions",
-    category: "Non-Vegetarian",
-    image: "/Images/Pepperoni.png",
-    availableQuantity: 10,
-  },
-  {
-    id: 5,
-    name: "Mushroom Pepperoni",
-    description:
-      "A favorite with spicy pepperoni, mozzarella, and signature tomato sauce.",
-    prices: { small: 249, medium: 399, large: 499 },
-    base: "Thin Crust",
-    sauce: "Tomato Basil",
-    cheese: "Mozzarella",
-    veggies: "Mushrooms",
-    category: "Non-Vegetarian",
-    image: "/Images/Pepperoni.png",
-    availableQuantity: 10,
-  },
-  {
-    id: 6,
-    name: "BBQ Pepperoni",
-    description:
-      "A favorite with spicy pepperoni, cheddar cheese, and BBQ sauce.",
-    prices: { small: 269, medium: 419, large: 519 },
-    base: "Thin Crust",
-    sauce: "Barbeque",
-    cheese: "Cheddar",
-    veggies: "Onions",
-    category: "Non-Vegetarian",
-    image: "/Images/Pepperoni.png",
-    availableQuantity: 10,
-  },
-  {
-    id: 7,
-    name: "BBQ Mushroom Pepperoni",
-    description:
-      "A favorite with spicy pepperoni, cheddar cheese, and BBQ sauce.",
-    prices: { small: 269, medium: 419, large: 519 },
-    base: "Thin Crust",
-    sauce: "Barbeque",
-    cheese: "Cheddar",
-    veggies: "Mushrooms",
-    category: "Non-Vegetarian",
-    image: "/Images/Pepperoni.png",
-    availableQuantity: 10,
-  },
-  {
-    id: 8,
-    name: "Thick Crust Pepperoni",
-    description:
-      "A favorite with spicy pepperoni, mozzarella, and signature tomato sauce.",
-    prices: { small: 259, medium: 409, large: 509 },
-    base: "Thick Crust",
-    sauce: "Tomato Basil",
-    cheese: "Mozzarella",
-    veggies: "Onions",
-    category: "Non-Vegetarian",
-    image: "/Images/Pepperoni.png",
-    availableQuantity: 10,
-  },
-];
 
 // Separate arrays for bases, sauces, cheeses, and veggies
 const bases = [
@@ -167,7 +16,7 @@ const bases = [
   { name: "Thick Crust", availableQuantity: 50 },
   { name: "Cheese Burst", availableQuantity: 50 },
   { name: "Gluten Free", availableQuantity: 50 },
-  { name: "Whole Wheat", availableQuantity: 50 },
+  { name: "Whole Wheat", availableQuantity: 50 }
 ];
 
 const sauces = [
@@ -175,16 +24,18 @@ const sauces = [
   { name: "Barbeque", availableQuantity: 50 },
   { name: "White Garlic", availableQuantity: 50 },
   { name: "Pesto", availableQuantity: 50 },
-  { name: "Spicy Buffalo", availableQuantity: 50 },
+  { name: "Spicy Buffalo", availableQuantity: 50 }
 ];
+
 
 const cheeses = [
   { name: "Mozzarella", availableQuantity: 50 },
   { name: "Cheddar", availableQuantity: 50 },
   { name: "Parmesan", availableQuantity: 50 },
   { name: "Gouda", availableQuantity: 50 },
-  { name: "Feta", availableQuantity: 50 },
+  { name: "Feta", availableQuantity: 50 }
 ];
+
 
 const veggies = [
   { name: "Bell Peppers", availableQuantity: 50 },
@@ -193,7 +44,176 @@ const veggies = [
   { name: "Spinach", availableQuantity: 50 },
   { name: "Mushrooms", availableQuantity: 50 },
   { name: "Cherry Tomatoes", availableQuantity: 50 },
+  { name: "Jalapenos", availableQuantity: 50 },
+  { name: "Sweet Corn", availableQuantity: 50 }
 ];
+
+// Updated Pizza interface
+interface Pizza {
+      pizzaId: number;
+  name: string;
+  description: string;
+  category: 'Vegetarian' | 'Non-Vegetarian';
+  prices: {
+    small: number;
+    medium: number;
+    large: number;
+  };
+  base: { name: string; availableQuantity: number };
+  cheese: { name: string; availableQuantity: number };
+  sauce: { name: string; availableQuantity: number };
+  veggies?: { name: string; availableQuantity: number }[]; 
+  stock: number;
+  imageSource: string;
+}
+
+// Updated createPizza function
+const createPizza = (pizza: Omit<Pizza, 'stock'>): Pizza => {
+  const stock = Math.min(
+    pizza.base.availableQuantity,
+    pizza.cheese.availableQuantity,
+    pizza.sauce.availableQuantity,
+    ...(pizza.veggies?.map(v => v.availableQuantity) || [])
+  );
+
+  return {
+    ...pizza,
+    stock
+  };
+};
+
+// Image sources
+const Pepperoni = "/Images/Pepperoni.png";
+const Margherita = "/Images/Margherita.png";
+const VeggieDelight = "/Images/VeggieDelight.png";
+const BBQChicken = "/Images/BBQChicken.png";
+const FourCheese = "/Images/FourCheese.png";
+const Hawaiian = "/Images/Hawaiian.png";
+const BuffaloChicken = "/Images/BuffaloChicken.png";
+const MeatLovers = "/Images/MeatLovers.png";
+const PestoVeggie = "/Images/PestoVeggie.png";
+
+// Create pizzas with Indian Rupee prices
+const pizzas: Pizza[] = [
+  createPizza({
+    pizzaId: 0,
+    name: "Pepperoni",
+    description: "Classic pepperoni pizza with gooey mozzarella cheese.",
+    category: "Non-Vegetarian",
+    prices: { small: 399, medium: 599, large: 799 },
+    base: bases[0], // Thin Crust
+    cheese: cheeses[0], // Mozzarella
+    sauce: sauces[0], // Tomato Basil
+    veggies: [], // No veggies
+    imageSource: Pepperoni,
+  }),
+  
+  createPizza({
+    pizzaId: 1,
+    name: "Margherita",
+    description: "A simple and delicious pizza topped with tomatoes and fresh mozzarella.",
+    category: "Vegetarian",
+    prices: { small: 299, medium: 449, large: 599 },
+    base: bases[1], // Thick Crust
+    cheese: cheeses[2], // Parmesan
+    sauce: sauces[0], // Tomato Basil
+    veggies: [veggies[2], veggies[5]], // Onions, Cherry Tomatoes
+    imageSource: Margherita,
+  }),
+
+  createPizza({
+    pizzaId: 2,
+    name: "Veggie Delight",
+    description: "A medley of fresh vegetables on a crispy base.",
+    category: "Vegetarian",
+    prices: { small: 449, medium: 649, large: 849 },
+    base: bases[3], // Gluten Free
+    cheese: cheeses[1], // Cheddar
+    sauce: sauces[2], // White Garlic
+    veggies: [veggies[0], veggies[2], veggies[4]], // Bell Peppers, Onions, Mushrooms
+    imageSource: VeggieDelight,
+  }),
+
+  createPizza({
+    pizzaId: 3,
+    name: "BBQ Chicken",
+    description: "Savory BBQ chicken topped with onions and mozzarella.",
+    category: "Non-Vegetarian",
+    prices: { small: 499, medium: 699, large: 899 },
+    base: bases[2], // Cheese Burst
+    cheese: cheeses[0], // Mozzarella
+    sauce: sauces[1], // Barbeque
+    veggies: [veggies[2]], // Onions
+    imageSource: BBQChicken,
+  }),
+
+  createPizza({
+    pizzaId: 4,
+    name: "Four Cheese",
+    description: "A cheese lover's dream with four types of cheese.",
+    category: "Vegetarian",
+    prices: { small: 549, medium: 749, large: 999 },
+    base: bases[4], // Whole Wheat
+    cheese: cheeses[3], // Gouda
+    sauce: sauces[3], // Pesto
+    veggies: [veggies[3]], // Spinach
+    imageSource: FourCheese,
+  }),
+
+  createPizza({
+    pizzaId: 5,
+    name: "Hawaiian",
+    description: "A tropical twist with ham and pineapple.",
+    category: "Non-Vegetarian",
+    prices: { small: 449, medium: 649, large: 849 },
+    base: bases[0], // Thin Crust
+    cheese: cheeses[2], // Parmesan
+    sauce: sauces[0], // Tomato Basil
+    veggies: [veggies[5]], // Cherry Tomatoes
+    imageSource: Hawaiian,
+  }),
+
+  createPizza({
+    pizzaId: 6,
+    name: "Buffalo Chicken",
+    description: "Spicy buffalo chicken with a creamy sauce.",
+    category: "Non-Vegetarian",
+    prices: { small: 499, medium: 699, large: 899 },
+    base: bases[1], // Thick Crust
+    cheese: cheeses[1], // Cheddar
+    sauce: sauces[4], // Spicy Buffalo
+    veggies: [veggies[2]], // Onions
+    imageSource: BuffaloChicken,
+  }),
+
+  createPizza({
+    pizzaId: 7,
+    name: "Meat Lovers",
+    description: "A meat-heavy pizza loaded with pepperoni, sausage, and bacon.",
+    category: "Non-Vegetarian",
+    prices: { small: 599, medium: 799, large: 1099 },
+    base: bases[2], // Cheese Burst
+    cheese: cheeses[0], // Mozzarella
+    sauce: sauces[1], // Barbeque
+    veggies: [], // No veggies
+    imageSource: MeatLovers,
+  }),
+
+  createPizza({
+    pizzaId: 8,
+    name: "Pesto Veggie",
+    description: "A fresh mix of veggies with pesto sauce and mozzarella cheese.",
+    category: "Vegetarian",
+    prices: { small: 449, medium: 649, large: 849 },
+    base: bases[3], // Gluten Free
+    cheese: cheeses[0], // Mozzarella
+    sauce: sauces[3], // Pesto
+    veggies: [veggies[0], veggies[2], veggies[6]], // Bell Peppers, Onions, Jalapenos
+    imageSource: PestoVeggie,
+  })
+];
+
+
 
 const vegetarianPizzas = pizzas.filter(
   (pizza) => pizza.category === "Vegetarian"
