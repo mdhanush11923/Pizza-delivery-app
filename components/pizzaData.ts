@@ -9,48 +9,45 @@
 // import pestoVeggie from "/Images/PestoVeggie.png";
 'use client'
 
-
 // Separate arrays for bases, sauces, cheeses, and veggies
 const bases = [
-  { name: "Thin Crust", availableQuantity: 50 },
-  { name: "Thick Crust", availableQuantity: 50 },
-  { name: "Cheese Burst", availableQuantity: 50 },
-  { name: "Gluten Free", availableQuantity: 50 },
-  { name: "Whole Wheat", availableQuantity: 50 }
+  { name: "Thin Crust", price: 200, availableQuantity: 50 },
+  { name: "Thick Crust", price: 250, availableQuantity: 50 },
+  { name: "Cheese Burst", price: 300, availableQuantity: 50 },
+  { name: "Gluten Free", price: 350, availableQuantity: 50 },
+  { name: "Whole Wheat", price: 220, availableQuantity: 50 }
 ];
 
 const sauces = [
-  { name: "Tomato Basil", availableQuantity: 50 },
-  { name: "Barbeque", availableQuantity: 50 },
-  { name: "White Garlic", availableQuantity: 50 },
-  { name: "Pesto", availableQuantity: 50 },
-  { name: "Spicy Buffalo", availableQuantity: 50 }
+  { name: "Tomato Basil", price: 50, availableQuantity: 50 },
+  { name: "Barbeque", price: 60, availableQuantity: 50 },
+  { name: "White Garlic", price: 70, availableQuantity: 50 },
+  { name: "Pesto", price: 80, availableQuantity: 50 },
+  { name: "Spicy Buffalo", price: 90, availableQuantity: 50 }
 ];
-
 
 const cheeses = [
-  { name: "Mozzarella", availableQuantity: 50 },
-  { name: "Cheddar", availableQuantity: 50 },
-  { name: "Parmesan", availableQuantity: 50 },
-  { name: "Gouda", availableQuantity: 50 },
-  { name: "Feta", availableQuantity: 50 }
+  { name: "Mozzarella", price: 100, availableQuantity: 50 },
+  { name: "Cheddar", price: 120, availableQuantity: 50 },
+  { name: "Parmesan", price: 140, availableQuantity: 50 },
+  { name: "Gouda", price: 160, availableQuantity: 50 },
+  { name: "Feta", price: 180, availableQuantity: 50 }
 ];
 
-
 const veggies = [
-  { name: "Bell Peppers", availableQuantity: 50 },
-  { name: "Olives", availableQuantity: 50 },
-  { name: "Onions", availableQuantity: 50 },
-  { name: "Spinach", availableQuantity: 50 },
-  { name: "Mushrooms", availableQuantity: 50 },
-  { name: "Cherry Tomatoes", availableQuantity: 50 },
-  { name: "Jalapenos", availableQuantity: 50 },
-  { name: "Sweet Corn", availableQuantity: 50 }
+  { name: "Bell Peppers", price: 20, availableQuantity: 50 },
+  { name: "Olives", price: 30, availableQuantity: 50 },
+  { name: "Onions", price: 25, availableQuantity: 50 },
+  { name: "Spinach", price: 35, availableQuantity: 50 },
+  { name: "Mushrooms", price: 40, availableQuantity: 50 },
+  { name: "Cherry Tomatoes", price: 30, availableQuantity: 50 },
+  { name: "Jalapenos", price: 20, availableQuantity: 50 },
+  { name: "Sweet Corn", price: 25, availableQuantity: 50 }
 ];
 
 // Updated Pizza interface
 interface Pizza {
-      pizzaId: number;
+  pizzaId: number;
   name: string;
   description: string;
   category: 'Vegetarian' | 'Non-Vegetarian';
@@ -59,13 +56,13 @@ interface Pizza {
     medium: number;
     large: number;
   };
-  base: { name: string; availableQuantity: number };
-  cheese: { name: string; availableQuantity: number };
-  sauce: { name: string; availableQuantity: number };
-  veggies?: { name: string; availableQuantity: number }[]; 
+  base: { name: string; price: number; availableQuantity: number };
+  cheese: { name: string; price: number; availableQuantity: number };
+  sauce: { name: string; price: number; availableQuantity: number };
+  veggies?: { name: string; price: number; availableQuantity: number }[]; 
   stock: number;
   imageSource: string;
-}
+} 
 
 // Updated createPizza function
 const createPizza = (pizza: Omit<Pizza, 'stock'>): Pizza => {

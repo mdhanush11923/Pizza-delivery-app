@@ -1,6 +1,6 @@
 import Loading from "@/components/Loading";
-import Menu from "@/components/Menu";
+import PizzaCustomization from "@/components/PizzaCustomization";
 
-export default function MenuPage() {
-  return <Menu />;
+export default function CustomPage() {
+  return <PizzaCustomization />;
 }
