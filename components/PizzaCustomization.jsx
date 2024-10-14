@@ -72,22 +72,25 @@ const PizzaCustomization = () => {
   };
 
   const handleSubmit = () => {
-    const pizza = {
-      base: selectedBaseId,
-      sauce: selectedSauceId,
-      cheese: selectedCheeseId,
-      veggies: selectedVeggiesIds,
+    const selectedPizza = {
+      pizzaId: Date.now(),
+      pizzaName: "Custom pizza",
+      size: "medium",
+      baseId: selectedBaseId,
+      sauceId: selectedSauceId,
+      cheeseId: selectedCheeseId,
+      veggiesIds: selectedVeggiesIds,
       quantity: pizzaQuantity,
       totalPrice,
     };
-    console.log("Pizza Customization:", pizza);
+    console.log("Pizza Customization:", selectedPizza);
     // addItemToCart(pizza); // Uncomment to add item to cart
   };
 
     // const handleAddToCart = () => {
     //   const selectedPizza = {
     //     pizzaId: pizza.pizzaId,
-    //     size: "medium", // Assume size is selected by the user
+    //     size: "medium",
     //     baseId: "0", // Assume base is selected
     //     cheeseId: "1", // Assume cheese is selected
     //     sauceId: "2", // Assume sauce is selected

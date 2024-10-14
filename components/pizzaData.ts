@@ -66,6 +66,7 @@ interface Pizza {
 
 interface CartItem {
   pizzaId: number;
+  pizzaName: string;
   quantity: number;
   size: 'small' | 'medium' | 'large'; 
   baseId: string;
