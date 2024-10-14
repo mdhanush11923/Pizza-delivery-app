@@ -83,6 +83,22 @@ const PizzaCustomization = () => {
     console.log("Pizza Customization:", pizza);
     // addItemToCart(pizza); // Uncomment to add item to cart
   };
+
+    // const handleAddToCart = () => {
+    //   const selectedPizza = {
+    //     pizzaId: pizza.pizzaId,
+    //     size: "medium", // Assume size is selected by the user
+    //     baseId: "0", // Assume base is selected
+    //     cheeseId: "1", // Assume cheese is selected
+    //     sauceId: "2", // Assume sauce is selected
+    //     veggiesIds: ["1", "3"], // Assume veggies are selected
+    //     totalPrice: 599, // Assume total price is calculated
+    //     quantity: 1,
+    //   };
+
+    //   addItemToCart(selectedPizza);
+    // };
+
   return (
     <div className="flex flex-col items-center h-full p-10 pt-4">
       <div className="flex flex-col items-center gap-12">

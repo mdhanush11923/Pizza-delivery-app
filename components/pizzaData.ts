@@ -64,6 +64,17 @@ interface Pizza {
   imageSource: string;
 } 
 
+interface CartItem {
+  pizzaId: number;
+  quantity: number;
+  size: 'small' | 'medium' | 'large'; 
+  baseId: string;
+  cheeseId: string;
+  sauceId: string;
+  veggiesIds?: string[];
+  totalPrice: number;
+}
+
 // Updated createPizza function
 const createPizza = (pizza: Omit<Pizza, 'stock'>): Pizza => {
   const stock = Math.min(

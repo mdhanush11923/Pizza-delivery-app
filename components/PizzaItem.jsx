@@ -24,12 +24,18 @@ import ArrowDropDownCircleSharpIcon from "@mui/icons-material/ArrowDropDownCircl
 import pizzas from "./pizzaData";
 import { AddCircleOutline, AddRounded, AddSharp } from "@mui/icons-material";
 import { ScrollShadow } from "@nextui-org/react";
-// import { useCart } from "./Cart";
+import { useCart } from "./Cart";
 
 export default function PizzaItem({ id, color }) {
   const [selectedSize, setSelectedSize] = React.useState("medium"); // Default size
+  // const [cartCount, setCartCount] = React.useState(0); // State for cart count
   const pizza = pizzas[id];
-  
+
+    const { cartCount, addToCart } = useCart();
+  // const addToCart = () => {
+  //   setCartCount(cartCount + 1); // Increment cart count
+  // };
+
   // const { addItemToCart } = useCart();  // Access the function to add items to the cart from the CartContext
 
   // const addToCart = () => {
@@ -105,6 +111,7 @@ export default function PizzaItem({ id, color }) {
             fullWidth
             className="rounded-[10px] h-12 bg-[#41B3A2]"
             color="primary"
+            onClick={addToCart}
           >
             <AddIcon />
           </Button>

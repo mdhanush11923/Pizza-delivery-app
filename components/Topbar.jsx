@@ -20,11 +20,12 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { ThemeSwitch } from "./theme-switch";
 import Link from "next/link";
 import NextLink from "next/link";
+import { useCart } from "./Cart";
 
 
 export default function Topbar(props) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  // const { cartCount } = useCart();
+  const { cartCount } = useCart();
   const router = useRouter();
   const pathname = usePathname();
   const menuItems = [
@@ -86,7 +87,7 @@ export default function Topbar(props) {
           <IconButton aria-label="cart">
             <Badge
               size="lg"
-              // content={cartCount === 0 ? "" : cartCount}
+              content={cartCount === 0 ? "" : cartCount}
               variant="shadow"
               color="success"
             >
