@@ -56,10 +56,10 @@ interface Pizza {
     medium: number;
     large: number;
   };
-  base: { id: number, name: string; price: number; availableQuantity: number };
-  cheese: { id: number, name: string; price: number; availableQuantity: number };
-  sauce: { id: number, name: string; price: number; availableQuantity: number };
-  veggies?: { id: number, name: string; price: number; availableQuantity: number }[]; 
+  base: { id: string, name: string; price: number; availableQuantity: number };
+  cheese: { id: string, name: string; price: number; availableQuantity: number };
+  sauce: { id: string, name: string; price: number; availableQuantity: number };
+  veggies?: { id: string, name: string; price: number; availableQuantity: number }[]; 
   stock: number;
   imageSource: string;
 } 

@@ -137,7 +137,7 @@ export default function PizzaItem({ id, color }) {
 
       <div className="flex px-5 items-center justify-between">
         <DemoDropDown />
-        <h2 className="scroll-m-20 text-background text-sm opacity-85 tracking-tight first:mt-0">
+        <h2 className="scroll-m-20 text-background font-poppins text-sm opacity-85 tracking-tight first:mt-0">
           In Stock: {pizza.stock}
         </h2>
       </div>
