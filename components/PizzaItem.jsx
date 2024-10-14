@@ -110,7 +110,7 @@ export default function PizzaItem({ id, color }) {
           </h2>
           <Button
             fullWidth
-            className="rounded-[10px] h-12 bg-[#41B3A2]"
+            className="rounded-[10px] h-12 bg-[#41B3A2] dark:bg-warning"
             color="primary"
             onClick={addToCart}
           >

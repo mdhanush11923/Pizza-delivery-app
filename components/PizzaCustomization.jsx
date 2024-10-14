@@ -191,9 +191,11 @@ const PizzaCustomization = () => {
         </CheckboxGroup>
 
         <div className="flex flex-wrap w-full items-center gap-5 justify-end">
-          <div className="text-2xl  font-poppins font-bold">
-            Total Price: ₹{totalPrice.toFixed(2)}
-          </div>
+          {totalPrice!==0 && (
+            <div className="text-2xl  font-poppins font-bold">
+              Price: ₹{totalPrice.toFixed(2)}
+            </div>
+          )}
 
           <Button
             className="w-44 h-14 reddanger"
@@ -201,6 +203,7 @@ const PizzaCustomization = () => {
             size="lg"
             radius="sm"
             onClick={handleSubmit}
+            isDisabled={selectedBaseId===null}
           >
             Add to cart
           </Button>
