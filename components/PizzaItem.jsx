@@ -53,11 +53,11 @@ export default function PizzaItem({ id, color }) {
       <Dropdown>
         <DropdownTrigger>
           <Button
-            className="capitalize font-poppins text-white dark:text-charcoalgray"
+            className="capitalize font-poppins text-charcoalgray"
             radius="sm"
             color=""
             size="sm"
-            variant="solid"
+            variant="bordered"
           >
             {selectedSize}
             <ArrowDropDownCircleSharpIcon />
@@ -98,9 +98,10 @@ export default function PizzaItem({ id, color }) {
             isBlurred
           />
           <div>
-            <h1 className="flex items-center scroll-m-20 text-charcoalgray min-h-16 font-poppins text-2xl font-extrabold tracking-tight">
+            <h1 className="flex items-center scroll-m-20 text-charcoalgray min-h-14 font-poppins text-2xl font-extrabold tracking-tight">
               {pizza.name}
             </h1>
+            <DemoDropDown />
           </div>
         </div>
         <div className="flex w-full items-center gap-4 px-5">
@@ -143,7 +144,6 @@ export default function PizzaItem({ id, color }) {
       </Accordion>
 
       <div className="flex px-5 items-center justify-between">
-        <DemoDropDown />
         <h2 className="scroll-m-20 text-background font-poppins text-sm opacity-85 tracking-tight first:mt-0">
           In Stock: {pizza.stock}
         </h2>
