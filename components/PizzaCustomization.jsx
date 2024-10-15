@@ -83,7 +83,7 @@ const PizzaCustomization = () => {
       quantity: pizzaQuantity,
       totalPrice,
     };
-    console.log("Pizza Customization:", selectedPizza);
+    // console.log("Pizza Customization:", selectedPizza);
     // addItemToCart(pizza); // Uncomment to add item to cart
   };
 

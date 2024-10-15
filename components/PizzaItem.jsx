@@ -83,10 +83,10 @@ export default function PizzaItem({ id, color }) {
   }
 
   return (
-    <Card className="w-[275px] flex flex-col justify-evenly bg-charcoalgray  dark:bg-[#f5f5f5] pb-4 gap-2 rounded-b-[10px] shadow-md">
+    <Card className="w-[275px] flex flex-col justify-evenly bg-charcoalgray  dark:bg-[#f5f5f5] pb-4 gap-2 rounded-[5px] shadow-md">
       <Card
         style={{ backgroundColor: color }}
-        className={`w-[275px] justify-center self-start text-center rounded-b-[30px] ${color} p-5 shadow-md`}
+        className={`w-[275px] justify-center self-start text-center rounded-t-none rounded-b-[30px] ${color} p-5 shadow-md`}
       >
         <div className="flex gap-4 flex-col items-center p-5">
           <Image
@@ -105,12 +105,9 @@ export default function PizzaItem({ id, color }) {
           </div>
         </div>
         <div className="flex w-full justify-end items-center gap-2 px-5">
-          <h2 className="w-full text-[black] text-xl font-poppins font-extrabold">
-            ₹ {pizza.prices[selectedSize].toFixed(1)}
-          </h2>
           <Button
             fullWidth
-            className="rounded-[10px] h-12 bg-[#41B3A2] dark:bg-warning"
+            className="rounded-b-[30px] h-12 bg-[#41B3A2] dark:bg-warning"
             color="primary"
             onClick={addToCart}
           >
@@ -143,10 +140,18 @@ export default function PizzaItem({ id, color }) {
         </AccordionItem>
       </Accordion>
 
-      <div className="flex px-5 items-center justify-between">
-        <h2 className="scroll-m-20 text-background font-poppins text-sm opacity-85 tracking-tight first:mt-0">
-          In Stock: {pizza.stock}
+      <div className="flex w-full px-5 items-center justify-between">
+        <h2 className="text-white dark:text-[black] text-lg font-poppins font-extrabold">
+          ₹ {pizza.prices[selectedSize].toFixed(0)}
         </h2>
+        <div className="flex">
+          <h2 className="scroll-m-20 mr-1 text-background font-poppins text-sm opacity-85 tracking-tight first:mt-0">
+            In Stock:
+          </h2>
+          <h2 className="scroll-m-20 text-background font-poppins font-bold text-sm opacity-85 tracking-tight first:mt-0">
+            {pizza.stock}
+          </h2>
+        </div>
       </div>
     </Card>
   );

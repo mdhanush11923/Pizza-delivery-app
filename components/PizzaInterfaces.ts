@@ -1,3 +1,4 @@
+// Pizza interface
 export interface Pizza {
   pizzaId: number;
   name: string;
@@ -8,19 +9,40 @@ export interface Pizza {
     medium: number;
     large: number;
   };
-  base: { id: string, name: string; price: number; availableQuantity: number };
-  cheese: { id: string, name: string; price: number; availableQuantity: number };
-  sauce: { id: string, name: string; price: number; availableQuantity: number };
-  veggies?: { id: string, name: string; price: number; availableQuantity: number }[]; 
+  base: {
+    id: string;
+    name: string;
+    price: number;
+    availableQuantity: number;
+  };
+  cheese: {
+    id: string;
+    name: string;
+    price: number;
+    availableQuantity: number;
+  };
+  sauce: {
+    id: string;
+    name: string;
+    price: number;
+    availableQuantity: number;
+  };
+  veggies?: {
+    id: string;
+    name: string;
+    price: number;
+    availableQuantity: number;
+  }[];
   stock: number;
   imageSource: string;
-} 
+}
 
+// CartItem interface
 export interface CartItem {
   pizzaId: number;
   pizzaName: string;
   quantity: number;
-  size: 'small' | 'medium' | 'large'; 
+  size: 'small' | 'medium' | 'large';
   baseId: string;
   cheeseId: string;
   sauceId: string;
@@ -28,17 +50,17 @@ export interface CartItem {
   totalPrice: number;
 }
 
-
+// Function to create a Pizza with stock based on ingredient availability
 export const createPizza = (pizza: Omit<Pizza, 'stock'>): Pizza => {
   const stock = Math.min(
     pizza.base.availableQuantity,
     pizza.cheese.availableQuantity,
     pizza.sauce.availableQuantity,
-    ...(pizza.veggies?.map(v => v.availableQuantity) || [])
+    ...(pizza.veggies?.map((v) => v.availableQuantity) || [])
   );
 
   return {
     ...pizza,
-    stock
+    stock,
   };
 };

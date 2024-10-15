@@ -88,8 +88,8 @@ export default function StartPage() {
                 Login
               </Button>
               <BorderBeam
-                size={400}
-                duration={10}
+                size={500}
+                duration={5}
                 borderWidth={3}
                 // colorFrom="#006BFF"
                 // colorTo="#FF9400"
