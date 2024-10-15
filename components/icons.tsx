@@ -2,13 +2,6 @@ import * as React from "react";
 
 import { IconSvgProps } from "@/types";
 
-export const MyLogo: any = () => {
-   return <div className="flex ">
-      <p className="font-black text-inherit text-xl">PIZzA</p>
-      <p className="font-regular text-inherit">Delivery</p>
-    </div>
-};
-
 export const DiscordIcon: React.FC<IconSvgProps> = ({
   size = 24,
   width,

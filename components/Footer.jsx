@@ -1,7 +1,6 @@
 "use client";
 
 import { Link } from "@nextui-org/react";
-import { MyLogo } from "./icons";
 
 export default function Footer() {
   return (
