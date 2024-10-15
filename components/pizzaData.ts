@@ -1,13 +1,8 @@
-// import Pepperoni from "/Images/Pepperoni.png";
-// import Margherita from "/Images/Margherita.png";
-// import VeggieDelight from "/Images/VeggieDelight.png";
-// import BBQChicken from "/Images/BBQChicken.png";
-// import fourCheese from "/Images/FourCheese.png";
-// import hawaiian from "/Images/Hawaiian.png";
-// import buffaloChicken from "/Images/BuffaloChicken.png";
-// import meatLovers from "/Images/MeatLovers.png";
-// import pestoVeggie from "/Images/PestoVeggie.png";
 'use client'
+
+import { createPizza, Pizza } from "./PizzaInterfaces";
+
+
 
 // Separate arrays for bases, sauces, cheeses, and veggies
 const bases = [
@@ -44,52 +39,6 @@ const veggies = [
   { id: "6", name: "Jalapenos", price: 20, availableQuantity: 50 },
   { id: "7", name: "Sweet Corn", price: 25, availableQuantity: 50 }
 ];
-
-// Updated Pizza interface
-interface Pizza {
-  pizzaId: number;
-  name: string;
-  description: string;
-  category: 'Vegetarian' | 'Non-Vegetarian' | 'Custom';
-  prices: {
-    small: number;
-    medium: number;
-    large: number;
-  };
-  base: { id: string, name: string; price: number; availableQuantity: number };
-  cheese: { id: string, name: string; price: number; availableQuantity: number };
-  sauce: { id: string, name: string; price: number; availableQuantity: number };
-  veggies?: { id: string, name: string; price: number; availableQuantity: number }[]; 
-  stock: number;
-  imageSource: string;
-} 
-
-interface CartItem {
-  pizzaId: number;
-  pizzaName: string;
-  quantity: number;
-  size: 'small' | 'medium' | 'large'; 
-  baseId: string;
-  cheeseId: string;
-  sauceId: string;
-  veggiesIds?: string[];
-  totalPrice: number;
-}
-
-// Updated createPizza function
-const createPizza = (pizza: Omit<Pizza, 'stock'>): Pizza => {
-  const stock = Math.min(
-    pizza.base.availableQuantity,
-    pizza.cheese.availableQuantity,
-    pizza.sauce.availableQuantity,
-    ...(pizza.veggies?.map(v => v.availableQuantity) || [])
-  );
-
-  return {
-    ...pizza,
-    stock
-  };
-};
 
 // Image sources
 const Pepperoni = "/Images/Pepperoni.png";

@@ -24,7 +24,7 @@ import ArrowDropDownCircleSharpIcon from "@mui/icons-material/ArrowDropDownCircl
 import pizzas from "./pizzaData";
 import { AddCircleOutline, AddRounded, AddSharp } from "@mui/icons-material";
 import { ScrollShadow } from "@nextui-org/react";
-import { useCart } from "./Cart";
+import { useCart } from "./CartData";
 
 export default function PizzaItem({ id, color }) {
   const [selectedSize, setSelectedSize] = React.useState("medium"); // Default size
@@ -104,9 +104,9 @@ export default function PizzaItem({ id, color }) {
             <DemoDropDown />
           </div>
         </div>
-        <div className="flex w-full items-center gap-4 px-5">
-          <h2 className="w-full text-[black] text-2xl font-poppins font-extrabold">
-            ₹ {pizza.prices[selectedSize]}
+        <div className="flex w-full justify-end items-center gap-2 px-5">
+          <h2 className="w-full text-[black] text-xl font-poppins font-extrabold">
+            ₹ {pizza.prices[selectedSize].toFixed(1)}
           </h2>
           <Button
             fullWidth

@@ -2,7 +2,7 @@ import dynamic from "next/dynamic";
 import Loading from "@/components/Loading";
 import Footer from "@/components/Footer";
 import { Navbar } from "@/components/navbar";
-import {CartProvider} from "@/components/Cart"
+import {CartProvider} from "@/components/CartData"
 
 const Topbar = dynamic(() => import("@/components/Topbar"), {
   loading: () => <Loading />,

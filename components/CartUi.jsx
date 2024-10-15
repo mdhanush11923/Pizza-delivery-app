@@ -1,5 +1,3 @@
-"use client";
-
 import {
   Button,
   Card,
@@ -10,90 +8,7 @@ import {
   ModalHeader,
   useDisclosure,
 } from "@nextui-org/react";
-import React, { createContext, useContext, useState } from "react";
 
-// Create a Context for the cart
-const CartContext = createContext();
-
-// Create a provider component
-export const CartProvider = ({ children }) => {
-  // const [cartItems, setCartItems] = useState([]);
-  // const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
-  const [cartCount, setCartCount] = useState(0);
-  // const cartTotal = cartItems.reduce(
-  //   (total, item) => total + item.totalPrice,
-  //   0,
-  // );
-
-  const addToCart = () => {
-    setCartCount((prevCount) => prevCount + 1);
-  };
-
-  // const addItemToCart = (item) => {
-  //   setCartItems((prevItems) => {
-  //     const existingItem = prevItems.find(
-  //       (cartItem) =>
-  //         cartItem.pizzaId === item.pizzaId &&
-  //         cartItem.baseId === item.baseId &&
-  //         cartItem.cheeseId === item.cheeseId &&
-  //         cartItem.sauceId === item.sauceId &&
-  //         JSON.stringify(cartItem.veggiesIds) ===
-  //           JSON.stringify(item.veggiesIds) &&
-  //         cartItem.size === item.size,
-  //     );
-
-  //     if (existingItem) {
-  //       return prevItems.map((cartItem) =>
-  //         cartItem.pizzaId === item.pizzaId &&
-  //         cartItem.size === item.size &&
-  //         cartItem.baseId === item.baseId &&
-  //         cartItem.cheeseId === item.cheeseId &&
-  //         cartItem.sauceId === item.sauceId &&
-  //         JSON.stringify(cartItem.veggiesIds) ===
-  //           JSON.stringify(item.veggiesIds)
-  //           ? { ...cartItem, quantity: cartItem.quantity + 1 }
-  //           : cartItem,
-  //       );
-  //     } else {
-  //       return [...prevItems, { ...item, quantity: 1 }];
-  //     }
-  //   });
-  // };
-
-  // const removeItemFromCart = (pizzaId, size) => {
-  //   setCartItems((prevItems) =>
-  //     prevItems
-  //       .map((item) =>
-  //         item.pizzaId === pizzaId && item.size === size
-  //           ? { ...item, quantity: item.quantity - 1 }
-  //           : item,
-  //       )
-  //       .filter((item) => item.quantity > 0),
-  //   );
-  // };
-
-  return (
-    <CartContext.Provider
-      value={{
-        cartCount,
-        addToCart
-        // cartItems,
-        // cartTotal,
-        // addItemToCart,
-        // removeItemFromCart,
-      }}
-    >
-      {children}
-    </CartContext.Provider>
-  );
-};
-
-// Custom hook to use the Cart Context
-export const useCart = () => {
-  return useContext(CartContext);
-};
-
-// // UI part
 // export default function Cart({ darkMode }) {
 //   const { cartItems, removeItemFromCart, cartTotal } = useCart();
 //   const { isOpen, onOpen, onClose } = useDisclosure();

@@ -20,7 +20,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { ThemeSwitch } from "./theme-switch";
 import Link from "next/link";
 import NextLink from "next/link";
-import { useCart } from "./Cart";
+import { useCart } from "./CartData";
 
 
 export default function Topbar(props) {
