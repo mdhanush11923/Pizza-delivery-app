@@ -61,12 +61,6 @@ const PizzaCustomization = () => {
 
     const singlePizzaPrice =
       basePrice + saucePrice + cheesePrice + veggiesPrice;
-          // Debugging logs to check values
-    console.log("Base Price: ", basePrice);
-    console.log("Sauce Price: ", saucePrice);
-    console.log("Cheese Price: ", cheesePrice);
-    console.log("Veggies Price: ", veggiesPrice);
-    console.log("Single Pizza Price: ", singlePizzaPrice);
 
     setTotalPrice(singlePizzaPrice * pizzaQuantity);
   };

@@ -104,7 +104,8 @@ export default function PizzaItem({ id, color }) {
             <DemoDropDown />
           </div>
         </div>
-        <div className="flex w-full justify-end items-center gap-2 px-5">
+        <div className="flex w-full justify-end items-top">
+          <div className="w-6 bg-[black] h-2"></div>
           <Button
             fullWidth
             className="rounded-b-full h-12 bg-[#41B3A2] dark:bg-warning"
@@ -113,6 +114,7 @@ export default function PizzaItem({ id, color }) {
           >
             <AddIcon />
           </Button>
+          <div className="w-6 bg-[black] h-2"></div>
         </div>
       </Card>
       <Accordion isCompact variant="splitted">
