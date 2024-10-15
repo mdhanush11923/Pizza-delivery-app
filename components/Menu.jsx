@@ -13,6 +13,7 @@ import { Button } from "@nextui-org/react";
 import PizzaItem from "./PizzaItem";
 import pizzas from "./pizzaData";
 import { vegetarianPizzas, nonVegetarianPizzas } from "./pizzaData";
+import BlurFade from "./ui/blur-fade";
 
 export default function Menu() {
   const colors = [
@@ -61,7 +62,9 @@ export default function Menu() {
                   key={pizza.id}
                   className="w-full flex-grow flex justify-center"
                 >
-                  <PizzaItem key={index} id={index} color="bg-peachblossom" />
+                  <BlurFade delay={0.25} inView>
+                    <PizzaItem key={index} id={index} color="bg-peachblossom" />
+                  </BlurFade>
                 </div>
               ))}
             </div>
@@ -75,7 +78,9 @@ export default function Menu() {
             <div className="grid justify-items-center place-items-start content-evenly gap-5 md:gap-16 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 w-full">
               {vegetarianPizzas.map((pizza) => (
                 <div key={pizza.pizzaId} className="w-full flex justify-center">
-                  <PizzaItem id={pizza.pizzaId} color="bg-veggreen" />
+                  <BlurFade delay={0.25} inView>
+                    <PizzaItem id={pizza.pizzaId} color="bg-veggreen" />
+                  </BlurFade>
                 </div>
               ))}
             </div>
@@ -93,7 +98,9 @@ export default function Menu() {
             <div className="grid justify-items-center place-items-start content-evenly gap-5 md:gap-16 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 w-full">
               {nonVegetarianPizzas.map((pizza) => (
                 <div key={pizza.pizzaId} className="w-full flex justify-center">
-                  <PizzaItem id={pizza.pizzaId} color="bg-[#A1D6B2]" />
+                  <BlurFade delay={0.25} inView>
+                    <PizzaItem id={pizza.pizzaId} color="bg-[#A1D6B2]" />
+                  </BlurFade>
                 </div>
               ))}
             </div>
