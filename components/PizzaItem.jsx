@@ -107,7 +107,7 @@ export default function PizzaItem({ id, color }) {
         <div className="flex w-full justify-end items-center gap-2 px-5">
           <Button
             fullWidth
-            className="rounded-b-[30px] h-12 bg-[#41B3A2] dark:bg-warning"
+            className="rounded-b-full h-12 bg-[#41B3A2] dark:bg-warning"
             color="primary"
             onClick={addToCart}
           >
@@ -128,7 +128,7 @@ export default function PizzaItem({ id, color }) {
           title="Description"
         >
           <p>{pizza.description}</p>
-          <Divider className="my-2" />
+          <Divider className="my-2 bg-white dark:bg-[black]" />
           <p className="text-sm">
             Base: {pizza.base.name}, Sauce: {pizza.sauce.name}, Cheese:{" "}
             {pizza.cheese.name}, Veggies:{" "}
