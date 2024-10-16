@@ -60,9 +60,8 @@ export default function CartUi() {
           onPress={onOpen}
           className="fixed bottom-5 left-10 border items-center right-10 p-4 text-center z-50"
         >
-          <h1 className="text-center font-semibold m-0">
-            {cartCount} items
-            in cart
+          <h1 className="text-center shadow-sm font-semibold m-0">
+            {cartCount} items in cart
           </h1>
         </Card>
       )}

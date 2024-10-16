@@ -22,8 +22,8 @@ export default function DashBoardLayout({
       <CartProvider>
         <Topbar />
         <div className="">{children}</div>
-        <Footer />
         <CartUi />
+        <Footer />
       </CartProvider>
     </section>
   );
