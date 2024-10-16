@@ -34,7 +34,7 @@ const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
             ? {
                 ...item,
                 quantity: pizzaItem.quantity,
-                totalPrice: item.totalPrice + pizzaItem.totalPrice,
+                totalPrice: pizzaItem.totalPrice,
               }
             : item,
         );

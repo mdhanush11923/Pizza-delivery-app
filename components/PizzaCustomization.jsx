@@ -7,6 +7,7 @@ import { Image } from "@nextui-org/react";
 // import { useCart } from "./Cart";
 import { bases, sauces, cheeses, veggies } from "./pizzaData";
 import { createCartItem } from "./PizzaInterfaces";
+import { useCart } from "./CartData";
 
 const PizzaCustomization = () => {
   const [selectedBaseId, setSelectedBaseId] = useState(null);
