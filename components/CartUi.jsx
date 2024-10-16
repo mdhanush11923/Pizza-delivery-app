@@ -13,6 +13,7 @@ import {
 } from "@nextui-org/react";
 import { useTheme } from "next-themes";
 import { useCart } from "./CartData";
+import { useRouter } from "next/navigation";
 
 export default function CartUi() {
   const { theme } = useTheme();
@@ -20,6 +21,7 @@ export default function CartUi() {
   const { cartCount, cartItems, removeItemFromCart, cartTotal } = useCart();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [paymentId, setPaymentId] = useState("");
+  const router = useRouter();
 
   // Function to dynamically load Razorpay script
   const loadRazorpayScript = () => {
@@ -32,23 +34,37 @@ export default function CartUi() {
     });
   };
 
-  const verifyPayment = async (paymentDetails) => {
-    const response = await fetch("/api/verify-payment", {
+const verifyPayment = async (paymentId) => {
+  const response = await fetch("/api/verify-payment", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ paymentId }), // Only sending the paymentId
+  });
+
+  const data = await response.json();
+  if (data.success) {
+    alert("Payment verified successfully!");
+    // Add order functionality
+    await fetch("/api/add-order", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(paymentDetails),
+      body: JSON.stringify({
+        paymentId,
+        cartItems,
+        totalAmount: cartTotal,
+      }),
     });
 
-    const data = await response.json();
-    if (data.success) {
-      alert("Payment verified successfully!");
-      // Handle successful payment verification (e.g., update order status)
-    } else {
-      alert("Payment verification failed.");
-    }
-  };
+    router.push("orders");
+  } else {
+    alert("Payment verification failed.");
+  }
+};
+
 
   const handlePayment = async () => {
     const isScriptLoaded = await loadRazorpayScript();
@@ -67,13 +83,11 @@ export default function CartUi() {
       handler: async function (response) {
         // Make handler async
         alert("Payment ID: " + response.razorpay_payment_id);
-        setPaymentId(response.razorpay_payment_id); // Update paymentId
+        setPaymentId(response.razorpay_payment_id);
         await verifyPayment({
-          // Call verifyPayment here
-          razorpay_order_id: response.razorpay_order_id,
           razorpay_payment_id: response.razorpay_payment_id,
-          razorpay_signature: response.razorpay_signature,
         });
+
       },
       prefill: {
         name: "Customer Name",
@@ -84,7 +98,7 @@ export default function CartUi() {
         address: "note value",
       },
       theme: {
-        color: "bg-myhouseblue",
+        color: "#4C5D65",
       },
     };
 
@@ -92,7 +106,7 @@ export default function CartUi() {
     rzp1.open();
   };
 
-  console.log("Cart items: ", cartItems);
+  // console.log("Cart items: ", cartItems);
 
   return (
     <div>
