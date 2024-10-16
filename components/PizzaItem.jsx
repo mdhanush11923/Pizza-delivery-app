@@ -46,8 +46,8 @@ const handlePack = () => {
       pizza.veggies.length > 0
         ? pizza.veggies.map((vegId) => vegId)
         : undefined, // Add only if veggies are selected
-    quantity: quantity + 1,
-    totalPrice: pizza.prices[selectedSize]*(quantity+1), // Calculate total price based on the selected options
+    quantity: 1,
+    totalPrice: pizza.prices[selectedSize], // Calculate total price based on the selected options
   });
 
   console.log("Pizza Customization: ", cartItem);
