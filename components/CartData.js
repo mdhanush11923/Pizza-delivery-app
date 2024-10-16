@@ -10,8 +10,7 @@ export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
 
   // Count of total items in the cart
-const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
-
+  const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
 
   // Calculate the total price of the items in the cart
   const cartTotal = cartItems.reduce(
@@ -45,13 +44,29 @@ const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
     });
   };
 
-  // Function to remove an item from the cart
+  // Function to remove an item from the cart if its quantity is 1
   const removeItemFromCart = (pizzaId, size) => {
-    setCartItems((prevItems) =>
-      prevItems.filter(
-        (item) => !(item.pizzaId === pizzaId && item.size === size),
-      ),
-    );
+    setCartItems((prevItems) => {
+      const existingItem = prevItems.find(
+        (item) => item.pizzaId === pizzaId && item.size === size,
+      );
+
+      if (existingItem && existingItem.quantity === 1) {
+        // If the item's quantity is 1, remove it from the cart
+        return prevItems.filter(
+          (item) => !(item.pizzaId === pizzaId && item.size === size),
+        );
+      } else if (existingItem) {
+        // If the item's quantity is greater than 1, reduce its quantity
+        return prevItems.map((item) =>
+          item.pizzaId === pizzaId && item.size === size
+            ? { ...item, quantity: item.quantity - 1 }
+            : item,
+        );
+      }
+
+      return prevItems; // Return the original array if the item does not exist
+    });
   };
 
   // Function to update the quantity of an item in the cart

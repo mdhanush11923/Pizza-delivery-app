@@ -16,7 +16,7 @@ import { useCart } from "./CartData";
 export default function CartUi() {
   const {theme} = useTheme();
   const darkMode = theme == "dark";
-  const { cartItems, removeItemFromCart, cartTotal } = useCart();
+  const { cartCount, cartItems, removeItemFromCart, cartTotal } = useCart();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const handlePayment = () => {
@@ -59,7 +59,7 @@ export default function CartUi() {
           className="fixed bottom-5 left-10 border items-center right-10 p-4 text-center z-50"
         >
           <h1 className="text-center font-semibold m-0">
-            {cartItems.reduce((total, item) => total + item.quantity, 0)} items
+            {cartCount} items
             in cart
           </h1>
         </Card>
@@ -98,7 +98,7 @@ export default function CartUi() {
                     >
                       <div>
                         <h4 className="font-semibold font-poppins">
-                          {item.pizzaId} {/* Replace with actual pizza name */}
+                          {item.pizzaName}
                         </h4>
                         <div className="text-sm font-medium">
                           <p>
