@@ -47,6 +47,8 @@ export default function CartUi() {
     rzp1.open();
   };
 
+  console.log("Cart items: ",cartItems);
+
   return (
     <div>
       {cartItems.length > 0 && (

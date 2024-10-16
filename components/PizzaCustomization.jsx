@@ -69,8 +69,8 @@ const PizzaCustomization = () => {
 
   const handleSubmit = () => {
     const cartItem = createCartItem({
-      itemId: Date.now(),
-      itemName: "Custom pizza",
+      pizzaId: Date.now(),
+      pizzaName: "Custom pizza",
       size: "medium", // Size is hardcoded, change if needed
       baseId: selectedBaseId,
       quantity: pizzaQuantity,
