@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect, useState } from "react";
 import {
   Button,
   Card,
@@ -14,22 +15,65 @@ import { useTheme } from "next-themes";
 import { useCart } from "./CartData";
 
 export default function CartUi() {
-  const {theme} = useTheme();
-  const darkMode = theme == "dark";
+  const { theme } = useTheme();
+  const darkMode = theme === "dark";
   const { cartCount, cartItems, removeItemFromCart, cartTotal } = useCart();
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [paymentId, setPaymentId] = useState("");
 
-  const handlePayment = () => {
+  // Function to dynamically load Razorpay script
+  const loadRazorpayScript = () => {
+    return new Promise((resolve) => {
+      const script = document.createElement("script");
+      script.src = "https://checkout.razorpay.com/v1/checkout.js";
+      script.onload = () => resolve(true);
+      script.onerror = () => resolve(false);
+      document.body.appendChild(script);
+    });
+  };
+
+  const verifyPayment = async (paymentDetails) => {
+    const response = await fetch("/api/verify-payment", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(paymentDetails),
+    });
+
+    const data = await response.json();
+    if (data.success) {
+      alert("Payment verified successfully!");
+      // Handle successful payment verification (e.g., update order status)
+    } else {
+      alert("Payment verification failed.");
+    }
+  };
+
+  const handlePayment = async () => {
+    const isScriptLoaded = await loadRazorpayScript();
+
+    if (!isScriptLoaded) {
+      alert("Failed to load Razorpay. Please try again later.");
+      return;
+    }
+
     const options = {
       key: "rzp_test_erkUjbE4TD28ds",
       amount: cartTotal * 100, // Amount in paise
       currency: "INR",
       name: "PIZzA Delivery",
       description: "Test Transaction",
-      handler: function (response) {
+      handler: async function (response) {
+        // Make handler async
         alert("Payment ID: " + response.razorpay_payment_id);
-        alert("Order ID: " + response.razorpay_order_id);
-        alert("Signature: " + response.razorpay_signature);
+        setPaymentId(response.razorpay_payment_id); // Update paymentId
+        await verifyPayment({
+          // Call verifyPayment here
+          razorpay_order_id: response.razorpay_order_id,
+          razorpay_payment_id: response.razorpay_payment_id,
+          razorpay_signature: response.razorpay_signature,
+        });
       },
       prefill: {
         name: "Customer Name",
@@ -43,11 +87,12 @@ export default function CartUi() {
         color: "bg-myhouseblue",
       },
     };
+
     const rzp1 = new Razorpay(options);
     rzp1.open();
   };
 
-  console.log("Cart items: ",cartItems);
+  console.log("Cart items: ", cartItems);
 
   return (
     <div>
@@ -61,7 +106,7 @@ export default function CartUi() {
           className="fixed bottom-5 left-10 border items-center right-10 p-4 text-center z-50"
         >
           <h1 className="text-center shadow-sm font-semibold m-0">
-            {cartCount} items in cart
+            {cartCount} {(cartCount == 1)? "item": "items"} in cart
           </h1>
         </Card>
       )}

@@ -50,6 +50,16 @@ export interface CartItem {
   totalPrice: number;
 }
 
+interface Order {
+  orderId: number;
+  items: CartItem[];
+  totalAmount: number; // Should account for sizes
+  orderDate: Date;
+  customerName: string;
+  status: 'Pending' | 'Completed' | 'Cancelled';
+}
+
+
 // Function to create a Pizza with stock based on ingredient availability
 export const createPizza = (pizza: Omit<Pizza, 'stock'>): Pizza => {
   const stock = Math.min(
