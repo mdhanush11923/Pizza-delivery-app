@@ -6,6 +6,7 @@ import { Button, Checkbox, CheckboxGroup, Input } from "@nextui-org/react";
 import { Image } from "@nextui-org/react";
 // import { useCart } from "./Cart";
 import { bases, sauces, cheeses, veggies } from "./pizzaData";
+import { createCartItem } from "./PizzaInterfaces";
 
 const PizzaCustomization = () => {
   const [selectedBaseId, setSelectedBaseId] = useState(null);
@@ -14,7 +15,7 @@ const PizzaCustomization = () => {
   const [selectedVeggiesIds, setSelectedVeggiesIds] = useState([]);
   const [pizzaQuantity, setPizzaQuantity] = useState(1);
   const [totalPrice, setTotalPrice] = useState(0);
-  // const { addItemToCart } = useCart();
+  const { addItemToCart } = useCart();
 
   useEffect(() => {
     calculateTotalPrice();
@@ -66,19 +67,20 @@ const PizzaCustomization = () => {
   };
 
   const handleSubmit = () => {
-    const selectedPizza = {
-      pizzaId: Date.now(),
-      pizzaName: "Custom pizza",
-      size: "medium",
+    const cartItem = createCartItem({
+      itemId: Date.now(),
+      itemName: "Custom pizza",
+      size: "medium", // Size is hardcoded, change if needed
       baseId: selectedBaseId,
-      sauceId: selectedSauceId,
-      cheeseId: selectedCheeseId,
-      veggiesIds: selectedVeggiesIds,
       quantity: pizzaQuantity,
+      ...(selectedSauceId && { sauceId: selectedSauceId }), // Conditionally add sauceId
+      ...(selectedCheeseId && { cheeseId: selectedCheeseId }), // Conditionally add cheeseId
+      ...(selectedVeggiesIds.length > 0 && { veggiesIds: selectedVeggiesIds }), // Conditionally add veggiesIds
       totalPrice,
-    };
-    // console.log("Pizza Customization:", selectedPizza);
-    // addItemToCart(pizza); // Uncomment to add item to cart
+    });
+
+    console.log("Pizza Customization: ", cartItem);
+    addItemToCart(cartItem);
   };
 
     // const handleAddToCart = () => {

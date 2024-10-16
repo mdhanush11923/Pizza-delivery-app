@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import React from "react";
 import {
   Button,
@@ -25,28 +25,36 @@ import pizzas from "./pizzaData";
 import { AddCircleOutline, AddRounded, AddSharp } from "@mui/icons-material";
 import { ScrollShadow } from "@nextui-org/react";
 import { useCart } from "./CartData";
+import { createCartItem } from "./PizzaInterfaces";
 
 export default function PizzaItem({ id, color }) {
   const [selectedSize, setSelectedSize] = React.useState("medium"); // Default size
-  // const [cartCount, setCartCount] = React.useState(0); // State for cart count
+  const [quantity, setQuantity] = React.useState(0); // State for cart count
   const pizza = pizzas[id];
 
-    const { cartCount, addToCart } = useCart();
-  // const addToCart = () => {
-  //   setCartCount(cartCount + 1); // Increment cart count
-  // };
+  const { cartCount, addItemToCart } = useCart();
 
-  // const { addItemToCart } = useCart();  // Access the function to add items to the cart from the CartContext
+const handlePack = () => {
+  const cartItem = createCartItem({
+    pizzaId: id,
+    pizzaName: pizza.name,
+    size: selectedSize,
+    baseId: pizza.base.id, // Get base ID
+    sauceId: pizza.sauce.id, // Get sauce ID
+    cheeseId: pizza.cheese.id, // Get cheese ID
+    veggiesIds:
+      pizza.veggies.length > 0
+        ? pizza.veggies.map((vegId) => vegId)
+        : undefined, // Add only if veggies are selected
+    quantity: quantity + 1,
+    totalPrice: pizza.prices[selectedSize]*(quantity+1), // Calculate total price based on the selected options
+  });
 
-  // const addToCart = () => {
-  //   addItemToCart({
-  //     itemId: id,
-  //     itemName: pizza.name,
-  //     itemPrice: pizza.prices[selectedSize],
-  //     itemSize: selectedSize,
-  //   });
+  console.log("Pizza Customization: ", cartItem);
+  addItemToCart(cartItem); // Add item to the cart
+  setQuantity(quantity + 1); // Increment cart count
+};
 
-  // };
 
   function DemoDropDown() {
     return (
@@ -62,7 +70,6 @@ export default function PizzaItem({ id, color }) {
             {selectedSize}
             <ArrowDropDownCircleSharpIcon />
           </Button>
-
         </DropdownTrigger>
         <DropdownMenu
           aria-label="Single selection example"
@@ -104,17 +111,22 @@ export default function PizzaItem({ id, color }) {
             <DemoDropDown />
           </div>
         </div>
-        <div className="flex w-full justify-end items-top">
-          <div className="w-6 bg-[black] h-2"></div>
+        <div className="ml-1 w-full bg-[#41B3A2] dark:bg-warning h-2"></div>
+        <div className="ml-1 w-full flex justify-between h-1">
+          <div className="w-2 bg-[#41B3A2] dark:bg-warning h-2"></div>
+          <div className="w-1 h-2  bg-[#41B3A2] dark:bg-warning"></div>
+        </div>
+        <div className="flex w-full justify-end gap-1 items-top">
+          <div className="w-0 bg-[#41B3A2] dark:bg-warning h-5"></div>
           <Button
             fullWidth
-            className="rounded-b-full h-12 bg-[#41B3A2] dark:bg-warning"
+            className="rounded-t-[0px] rounded-b-[5px] h-12 bg-[#41B3A2] dark:bg-warning"
             color="primary"
-            onClick={addToCart}
+            onClick={handlePack}
           >
             <AddIcon />
           </Button>
-          <div className="w-6 bg-[black] h-2"></div>
+          <div className="w-0 bg-[#41B3A2] dark:bg-warning h-5"></div>
         </div>
       </Card>
       <Accordion isCompact variant="splitted">
@@ -151,7 +163,15 @@ export default function PizzaItem({ id, color }) {
             In Stock:
           </h2>
           <h2 className="scroll-m-20 text-background font-poppins font-bold text-sm opacity-85 tracking-tight first:mt-0">
-            {pizza.stock}
+            {pizza.stock - quantity}
+          </h2>
+        </div>
+        <div>
+          <h2 className="scroll-m-20 mr-1 text-background font-poppins text-sm opacity-85 tracking-tight first:mt-0">
+            Quantity:
+          </h2>
+          <h2 className="scroll-m-20 text-background font-poppins font-bold text-sm opacity-85 tracking-tight first:mt-0">
+            {quantity}
           </h2>
         </div>
       </div>

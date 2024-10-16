@@ -2,7 +2,8 @@ import dynamic from "next/dynamic";
 import Loading from "@/components/Loading";
 import Footer from "@/components/Footer";
 import { Navbar } from "@/components/navbar";
-import {CartProvider} from "@/components/CartData"
+import { CartProvider } from "@/components/CartData";
+import CartUi from "@/components/CartUi";
 
 const Topbar = dynamic(() => import("@/components/Topbar"), {
   loading: () => <Loading />,
@@ -18,13 +19,12 @@ export default function DashBoardLayout({
 }) {
   return (
     <section className="flex flex-col items-center justify-center gap-4">
-        <CartProvider>
-      <Topbar />
-      <div className="">
-        {children}
-      </div>
-      <Footer />
-        </CartProvider>
+      <CartProvider>
+        <Topbar />
+        <div className="">{children}</div>
+        <Footer />
+        <CartUi />
+      </CartProvider>
     </section>
   );
 }

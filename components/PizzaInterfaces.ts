@@ -44,8 +44,8 @@ export interface CartItem {
   quantity: number;
   size: 'small' | 'medium' | 'large';
   baseId: string;
-  cheeseId: string;
-  sauceId: string;
+  cheeseId?: string;
+  sauceId?: string;
   veggiesIds?: string[];
   totalPrice: number;
 }
@@ -62,5 +62,14 @@ export const createPizza = (pizza: Omit<Pizza, 'stock'>): Pizza => {
   return {
     ...pizza,
     stock,
+  };
+};
+
+export const createCartItem = (cartItem: CartItem): CartItem => {
+  return {
+    ...cartItem,
+    ...(cartItem.sauceId && { sauceId: cartItem.sauceId }), // Conditionally include sauceId
+    ...(cartItem.cheeseId && { cheeseId: cartItem.cheeseId }), // Conditionally include cheeseId
+    ...(cartItem.veggiesIds && cartItem.veggiesIds.length > 0 && { veggiesIds: cartItem.veggiesIds }), // Conditionally include veggiesIds
   };
 };
