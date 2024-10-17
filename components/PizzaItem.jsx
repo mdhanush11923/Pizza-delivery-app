@@ -167,9 +167,6 @@ const handlePack = () => {
           </h2>
         </div>
         <div>
-          <h2 className="scroll-m-20 mr-1 text-background font-poppins text-sm opacity-85 tracking-tight first:mt-0">
-            Quantity:
-          </h2>
           <h2 className="scroll-m-20 text-background font-poppins font-bold text-sm opacity-85 tracking-tight first:mt-0">
             {quantity}
           </h2>
