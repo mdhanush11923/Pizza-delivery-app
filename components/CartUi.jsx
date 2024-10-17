@@ -14,11 +14,12 @@ import {
 import { useTheme } from "next-themes";
 import { useCart } from "./CartData";
 import { useRouter } from "next/navigation";
+import { createOrder } from "./PizzaInterfaces";
 
 export default function CartUi() {
   const { theme } = useTheme();
   const darkMode = theme === "dark";
-  const { cartCount, cartItems, removeItemFromCart, cartTotal } = useCart();
+  const { cartCount, cartItems, removeItemFromCart, cartTotal, addNewOrder } = useCart();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [paymentId, setPaymentId] = useState("");
   const router = useRouter();
@@ -46,18 +47,9 @@ const verifyPayment = async (paymentId) => {
   const data = await response.json();
   if (data.success) {
     alert("Payment verified successfully!");
-    // Add order functionality
-    await fetch("/api/add-order", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        paymentId,
-        cartItems,
-        totalAmount: cartTotal,
-      }),
-    });
+
+    const newOrder = createOrder(paymentId, "John Doe", cartItems, new Date(), cartTotal);
+    addNewOrder(newOrder);
 
     router.push("orders");
   } else {
@@ -66,45 +58,45 @@ const verifyPayment = async (paymentId) => {
 };
 
 
-  const handlePayment = async () => {
-    const isScriptLoaded = await loadRazorpayScript();
+const handlePayment = async () => {
+  const isScriptLoaded = await loadRazorpayScript();
 
-    if (!isScriptLoaded) {
-      alert("Failed to load Razorpay. Please try again later.");
-      return;
-    }
+  if (!isScriptLoaded) {
+    alert("Failed to load Razorpay. Please try again later.");
+    return;
+  }
 
-    const options = {
-      key: "rzp_test_erkUjbE4TD28ds",
-      amount: cartTotal * 100, // Amount in paise
-      currency: "INR",
-      name: "PIZzA Delivery",
-      description: "Test Transaction",
-      handler: async function (response) {
-        // Make handler async
-        alert("Payment ID: " + response.razorpay_payment_id);
-        setPaymentId(response.razorpay_payment_id);
-        await verifyPayment({
-          razorpay_payment_id: response.razorpay_payment_id,
-        });
+  if (typeof Razorpay === "undefined") {
+    alert("Razorpay is not available. Please try again.");
+    return;
+  }
 
-      },
-      prefill: {
-        name: "Customer Name",
-        email: "customer@example.com",
-        contact: "9999999999",
-      },
-      notes: {
-        address: "note value",
-      },
-      theme: {
-        color: "#4C5D65",
-      },
-    };
-
-    const rzp1 = new Razorpay(options);
-    rzp1.open();
+  const options = {
+    key: "rzp_test_erkUjbE4TD28ds",
+    amount: cartTotal * 100, // Amount in paise
+    currency: "INR",
+    name: "PIZzA Delivery",
+    description: "Test Transaction",
+    handler: async function (response) {
+      alert("Payment ID: " + response.razorpay_payment_id);
+      await verifyPayment(response.razorpay_payment_id); // Pass only the paymentId
+    },
+    prefill: {
+      name: "Customer Name",
+      email: "customer@example.com",
+      contact: "9999999999",
+    },
+    notes: {
+      address: "note value",
+    },
+    theme: {
+      color: "#4C5D65",
+    },
   };
+
+  const rzp1 = new Razorpay(options);
+  rzp1.open();
+};;
 
   // console.log("Cart items: ", cartItems);
 

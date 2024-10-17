@@ -111,16 +111,16 @@ const handlePack = () => {
             <DemoDropDown />
           </div>
         </div>
-        <div className="ml-1 w-full bg-[#41B3A2] dark:bg-warning h-2"></div>
+        {/* <div className="ml-1 w-full bg-[#41B3A2] dark:bg-warning h-2"></div>
         <div className="ml-1 w-full flex justify-between h-1">
           <div className="w-2 bg-[#41B3A2] dark:bg-warning h-2"></div>
           <div className="w-1 h-2  bg-[#41B3A2] dark:bg-warning"></div>
-        </div>
+        </div> */}
         <div className="flex w-full justify-end gap-1 items-top">
-          <div className="w-0 bg-[#41B3A2] dark:bg-warning h-5"></div>
+          {/* <div className="w-0 bg-[#41B3A2] dark:bg-warning h-5"></div> */}
           <Button
             fullWidth
-            className="rounded-t-[0px] rounded-b-[5px] h-12 bg-[#41B3A2] dark:bg-warning"
+            className="rounded-t-[0px] rounded-b-[20px] h-12 bg-[#41B3A2] dark:bg-warning"
             color="primary"
             onClick={handlePack}
           >

@@ -1,0 +1,65 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+// model Pizza {
+//   pizzaId        String   @id @default(auto()) @map("_id") @db.ObjectId
+//   name           String
+//   description    String
+//   category       Category
+//   smallPrice     Float
+//   mediumPrice    Float
+//   largePrice     Float
+//   base           Base     @relation(fields: [baseId], references: [id])
+//   baseId         String   @db.ObjectId
+//   cheese         Cheese   @relation(fields: [cheeseId], references: [id])
+//   cheeseId       String   @db.ObjectId
+//   sauce          Sauce    @relation(fields: [sauceId], references: [id])
+//   sauceId        String   @db.ObjectId
+//   veggies        Veggie[] @db.ObjectId[]  // Array of ObjectIDs for many-to-many relation
+//   stock          Int
+//   imageSource    String
+// }
+
+// model Base {
+//   id              String   @id @default(auto()) @map("_id") @db.ObjectId
+//   name            String
+//   price           Float
+//   availableQuantity Int
+//   pizzas          Pizza[]  // Relation back to Pizza
+// }
+
+// model Cheese {
+//   id              String   @id @default(auto()) @map("_id") @db.ObjectId
+//   name            String
+//   price           Float
+//   availableQuantity Int
+//   pizzas          Pizza[]  // Relation back to Pizza
+// }
+
+// model Sauce {
+//   id              String   @id @default(auto()) @map("_id") @db.ObjectId
+//   name            String
+//   price           Float
+//   availableQuantity Int
+//   pizzas          Pizza[]  // Relation back to Pizza
+// }
+
+// model Veggie {
+//   id              String   @id @default(auto()) @map("_id") @db.ObjectId
+//   name            String
+//   price           Float
+//   availableQuantity Int
+//   pizzas          Pizza[]  @relation(references: [pizzaId])  // Array for relation back to Pizza
+// }
+
+// enum Category {
+//   VEGETARIAN
+//   NON_VEGETARIAN
+//   CUSTOM
+// }

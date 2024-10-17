@@ -6,6 +6,38 @@ const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
+  const [orders, setOrders] = useState([
+    {
+  orderId: 1,
+  items: [
+    {
+      pizzaId: 1,
+      pizzaName: 'Margherita',
+      quantity: 2,
+      size: 'medium',
+      baseId: 'b1',
+      cheeseId: 'c1',
+      sauceId: 's1',
+      veggiesIds: ['v1'],
+      totalPrice: 598
+    },
+    {
+      pizzaId: 2,
+      pizzaName: 'Pepperoni Heat',
+      quantity: 1,
+      size: 'large',
+      baseId: 'b2',
+      cheeseId: 'c1',
+      sauceId: 's2',
+      totalPrice: 449
+    }
+  ],
+  totalAmount: 1047,
+  orderDate: new Date(),
+  customerName: 'John Doe',
+  status: 'Pending'
+}
+  ]);
 
   const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
   const cartTotal = cartItems.reduce(
@@ -69,6 +101,11 @@ export const CartProvider = ({ children }) => {
     );
   };
 
+  // Function to add a new order
+  const addNewOrder = (newOrder) => {
+    setOrders((prevOrders) => [...prevOrders, newOrder]);
+  };
+
   return (
     <CartContext.Provider
       value={{
@@ -78,6 +115,8 @@ export const CartProvider = ({ children }) => {
         addItemToCart,
         removeItemFromCart,
         updateItemQuantity,
+        orders,
+        addNewOrder,
       }}
     >
       {children}

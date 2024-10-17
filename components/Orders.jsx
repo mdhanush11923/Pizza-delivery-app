@@ -1,24 +1,10 @@
 'use client'
 import React, { useEffect, useState } from "react";
 import HistoryIcon from "@mui/icons-material/History";
+import { useCart } from "./CartData";
 
 export default function Orders() {
-  const [orders, setOrders] = useState([
-    {
-      orderId: "1",
-      date: "2024-10-17T10:00:00Z",
-      total: 499.99,
-      items: [
-        {
-          pizzaName: "Margherita",
-          size: "medium",
-          quantity: 2,
-          totalPrice: 249.99,
-        },
-      ],
-    },
-  ]);
-
+  const {orders} = useCart();
   return (
     <div className="flex w-full h-screen gap-4 items-center justify-center bg-dark">
       {orders.length === 0 ? (
@@ -36,9 +22,9 @@ export default function Orders() {
                   <div>
                     <h2 className="font-semibold">Order #{order.orderId}</h2>
                     <p>
-                      Ordered on: {new Date(order.date).toLocaleDateString()}
+                      Ordered on: {new Date(order.orderDate).toLocaleDateString()}
                     </p>
-                    <p>Total: ₹{order.total.toFixed(2)}</p>
+                    <p>Total: ₹{order.totalAmount?.toFixed(2) || "N/A"}</p>
                   </div>
                   <div className="flex gap-2">
                     {order.items.map((item, i) => (
@@ -46,7 +32,7 @@ export default function Orders() {
                         <p className="font-medium">{item.pizzaName}</p>
                         <p>Size: {item.size}</p>
                         <p>Quantity: {item.quantity}</p>
-                        <p>Price: ₹{item.totalPrice.toFixed(2)}</p>
+                        <p>Price: ₹{item.totalPrice?.toFixed(2) || "N/A"}</p>
                       </div>
                     ))}
                   </div>
