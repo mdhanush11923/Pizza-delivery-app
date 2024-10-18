@@ -263,8 +263,7 @@ export default function Entry(props) {
                       toast({
                         variant: "success",
                         title: "Did you forget to eat?",
-                        duration: 1000,
-                        position: BOTTOM_RIGHT,
+                        duration: 1000
                       })
                     }
                   >
