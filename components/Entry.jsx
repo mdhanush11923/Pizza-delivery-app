@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import {
   CardFooter,
@@ -20,6 +20,7 @@ import Alert from "@mui/material/Alert";
 import { Slide, Snackbar } from "@mui/material";
 import { useRouter } from "next/navigation";
 import { AnimatedSubscribeButton } from "./ui/animated-subscribe-button";
+import { useToast } from "@/hooks/use-toast";
 
 export default function Entry(props) {
   const [isVisible, setIsVisible] = React.useState({
@@ -35,7 +36,8 @@ export default function Entry(props) {
     }));
   };
 
-  const buttonClass = "bg-[#4C5D65] font-semibold hover:font-extrabold hover:bg-[#F27F14] text-white h-16";
+  const buttonClass =
+    "bg-[#4C5D65] font-semibold hover:font-extrabold hover:bg-[#F27F14] text-white h-16";
 
   const [isSignedUp, setIsSignedUp] = React.useState(false);
 
@@ -55,6 +57,8 @@ export default function Entry(props) {
   });
 
   const [errorMessage, setErrorMessage] = React.useState("");
+
+  const { toast } = useToast();
 
   const router = useRouter();
 
@@ -77,6 +81,11 @@ export default function Entry(props) {
   }
 
   function handleLoginSubmit() {
+    toast({
+      variant: "destructive",
+      title: "Scheduled: Catch up",
+      description: "Friday, February 10, 2023 at 5:57 PM",
+    });
     if (!loginDetails.email || !loginDetails.p1) {
       setErrorMessage("Please fill in all fields for login.");
       return;
@@ -90,6 +99,7 @@ export default function Entry(props) {
     // Proceed with login action (e.g., API call)
     if (!isSignedUp) {
       setErrorMessage("You are not signed up yet.");
+
       return;
     }
 

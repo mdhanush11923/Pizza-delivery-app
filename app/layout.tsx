@@ -1,7 +1,7 @@
 import "@/styles/globals.css";
 import { Metadata, Viewport } from "next";
 import clsx from "clsx";
-
+import { Toaster } from "@/components/ui/toaster";
 import { Providers } from "./providers";
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
@@ -46,11 +46,12 @@ export default function RootLayout({
           fontSans.variable,
         )}
       >
-          <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-            <div className="relative flex flex-col min-h-screen">
-              <main>{children}</main>
-            </div>
-          </Providers>
+        <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
+          <div className="relative flex flex-col min-h-screen">
+            <main>{children}</main>
+            <Toaster />
+          </div>
+        </Providers>
       </body>
     </html>
   );
