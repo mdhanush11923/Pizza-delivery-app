@@ -120,7 +120,7 @@ const handlePack = () => {
           {/* <div className="w-0 bg-[#41B3A2] dark:bg-warning h-5"></div> */}
           <Button
             fullWidth
-            className="rounded-t-[0px] rounded-b-[20px] h-12 bg-[#41B3A2] dark:bg-warning"
+            className="rounded-t-[0px] rounded-b-[20px] h-14 bg-[#41B3A2] dark:bg-warning"
             color="primary"
             onClick={handlePack}
           >
