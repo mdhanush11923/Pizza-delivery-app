@@ -19,7 +19,7 @@ import { createOrder } from "./PizzaInterfaces";
 export default function CartUi() {
   const { theme } = useTheme();
   const darkMode = theme === "dark";
-  const { cartCount, cartItems, removeItemFromCart, cartTotal, addNewOrder } = useCart();
+  const { cartCount, cartItems, clearCart, removeItemFromCart, cartTotal, addNewOrder } = useCart();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [paymentId, setPaymentId] = useState("");
   const router = useRouter();
@@ -47,10 +47,10 @@ const verifyPayment = async (paymentId) => {
   const data = await response.json();
   if (data.success) {
     alert("Payment verified successfully!");
-
+    onClose();
     const newOrder = createOrder(paymentId, "John Doe", cartItems, new Date(), cartTotal);
     addNewOrder(newOrder);
-
+    clearCart();
     router.push("orders");
   } else {
     alert("Payment verification failed.");

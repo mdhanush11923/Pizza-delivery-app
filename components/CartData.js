@@ -101,6 +101,10 @@ export const CartProvider = ({ children }) => {
     );
   };
 
+  const clearCart = () => {
+    setCartItems([]);
+  }
+
   // Function to add a new order
   const addNewOrder = (newOrder) => {
     setOrders((prevOrders) => [...prevOrders, newOrder]);
@@ -113,6 +117,7 @@ export const CartProvider = ({ children }) => {
         cartTotal,
         cartItems,
         addItemToCart,
+        clearCart,
         removeItemFromCart,
         updateItemQuantity,
         orders,
