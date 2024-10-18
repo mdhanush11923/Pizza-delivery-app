@@ -38,7 +38,7 @@ export default function Menu() {
   return (
     <div className="flex flex-col h-full items-center mx-5 lg:mx-16 gap-6">
       <div className="flex flex-wrap  items-center gap-3 w-full justify-center sm:justify-between">
-        <h1 className="flex gap-2 p-3 text-center sm:text-start justify-center sm:justify-start font-poppins items-center font-extrabold tracking-tight text-4xl h-28 w-72 lg:w-[26rem] sm:text-5xl">
+        <h1 className="flex gap-2 p-3 text-center sm:text-start justify-center sm:justify-start font-poppins items-center font-extrabold tracking-tight text-4xl h-28 w-72 lg:w-[26rem] sm:text-4xl">
           {selectedKey}
         </h1>
         <Tabs
