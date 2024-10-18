@@ -81,25 +81,31 @@ export default function Entry(props) {
   }
 
   function handleLoginSubmit() {
-    toast({
-      variant: "destructive",
-      title: "Scheduled: Catch up",
-      description: "Friday, February 10, 2023 at 5:57 PM",
-    });
     if (!loginDetails.email || !loginDetails.p1) {
-      setErrorMessage("Please fill in all fields for login.");
+      // setErrorMessage("Please fill in all fields for login.");
+      toast({
+        variant: "destructive",
+        title: "Please fill in all fields for login.",
+      });
       return;
     }
 
     if (!validateEmail(loginDetails.email)) {
-      setErrorMessage("Please enter a valid email address.");
+      // setErrorMessage("Please enter a valid email address.");
+      toast({
+        variant: "destructive",
+        title: "Please enter a valid email address.",
+      });
       return;
     }
 
     // Proceed with login action (e.g., API call)
     if (!isSignedUp) {
-      setErrorMessage("You are not signed up yet.");
-
+      // setErrorMessage("You are not signed up yet.");
+      toast({
+        variant: "destructive",
+        title: "You are not signed up yet.",
+      });
       return;
     }
 
@@ -116,26 +122,42 @@ export default function Entry(props) {
       !details.firstName ||
       !details.lastName
     ) {
-      setErrorMessage("Please fill in all fields for sign up.");
+      // setErrorMessage("Please fill in all fields for sign up.");
+      toast({
+        variant: "destructive",
+        title: "Please fill in all fields for sign up.",
+      });
       return;
     }
 
     if (!validateEmail(details.email)) {
-      setErrorMessage("Please enter a valid email address.");
+      // setErrorMessage("Please enter a valid email address.");
+      toast({
+        variant: "destructive",
+        title: "Please enter a valid email address.",
+      });
       return;
     }
 
     if (details.p1 !== details.p2) {
-      setErrorMessage("Passwords do not match.");
+      // setErrorMessage("Passwords do not match.");
+      toast({
+        variant: "destructive",
+        title: "Passwords do not match.",
+      });
       return;
     }
 
     // Proceed with signup action (e.g., API call)
     setErrorMessage("");
-    setOpenSignupAlert(true);
+    // setOpenSignupAlert(true);
+                  toast({
+                    variant: "success",
+                    title: "You've successfully signed up. Please log in to continue.",
+                  });
     setIsSignedUp(true);
 
-    console.log("Sign Up Details:", details);
+    // console.log("Sign Up Details:", details);
   }
 
   // Email validation function using regex
@@ -234,7 +256,18 @@ export default function Entry(props) {
                   type={isVisible.loginPassword ? "text" : "password"}
                 />
                 <div className="flex justify-end">
-                  <Button className="place-self-end" variant="light">
+                  <Button
+                    className="place-self-end"
+                    variant="light"
+                    onClick={() =>
+                      toast({
+                        variant: "success",
+                        title: "Did you forget to eat?",
+                        duration: 1000,
+                        position: BOTTOM_RIGHT,
+                      })
+                    }
+                  >
                     Forgot password?
                   </Button>
                 </div>
@@ -342,7 +375,7 @@ export default function Entry(props) {
                     }
                   />
                 </div>
-                {/* <Button
+                <Button
                   fullWidth
                   radius="lg"
                   className={buttonClass}
@@ -351,8 +384,8 @@ export default function Entry(props) {
                   onPress={handleSignupSubmit}
                 >
                   Sign Up
-                </Button> */}
-                <AnimatePresence mode="wait">
+                </Button>
+                {/* <AnimatePresence mode="wait">
                   {isSignedUp ? (
                     <motion.button
                       className="h-16 w-full overflow-hidden rounded-md p-[20px] bg-background outline outline-1 outline-black"
@@ -388,7 +421,7 @@ export default function Entry(props) {
                       </motion.span>
                     </motion.button>
                   )}
-                </AnimatePresence>
+                </AnimatePresence> */}
                 <Snackbar
                   anchorOrigin={{ vertical: "top", horizontal: "right" }}
                   open={openSignupAlert}
