@@ -1,5 +1,5 @@
-'use client'
-import React, { useEffect, useState } from "react";
+"use client";
+import React from "react";
 import HistoryIcon from "@mui/icons-material/History";
 import { useCart } from "./CartData";
 import {
@@ -9,27 +9,41 @@ import {
   TableColumn,
   TableRow,
   TableCell,
+  Chip,
 } from "@nextui-org/react";
 
 export default function Orders() {
-  const {orders} = useCart();
+  const { orders } = useCart();
+  const statusColorMap = {
+    Delivered: "success",
+    Cancelled: "danger",
+    Pending: "warning",
+  };
+  const reversedOrders = [...orders].reverse();
+  const formatDate = (dateString) => {
+    const options = { day: "2-digit", month: "short", year: "numeric" };
+    return new Date(dateString).toLocaleDateString("en-GB", options);
+  };
+
   return (
     <div className="flex min-h-screen gap-4 justify-center p-5 bg-dark">
-      {orders.length === 0 ? (
+      {reversedOrders.length === 0 ? (
         <div className="flex gap-2 items-center">
           <HistoryIcon />
           <h1>No orders history</h1>
         </div>
       ) : (
         <div className="w-full rounded-lg p-5">
-          <h1 className="text-2xl font-bold mb-4">Order History</h1>
+          <h1 className="text-3xl lg:text-4xl font-extrabold font-poppins mb-4">
+            Order History
+          </h1>
           <ul className="space-y-4">
-            {orders.map((order, index) => (
+            {reversedOrders.map((order, index) => (
               <li key={index} className="border-b border-gray-200 pb-4">
                 <div className="flex gap-5 justify-between">
                   <Table
                     classNames={{
-                      wrapper: "w-[250px] sm:w-full",
+                      wrapper: "w-[240px] sm:w-full",
                     }}
                     aria-label="Example table with dynamic content"
                     color="success"
@@ -38,24 +52,29 @@ export default function Orders() {
                         <h2 className="font-semibold">
                           Order #{order.orderId}
                         </h2>
-                        <p>
-                          Ordered on:{" "}
-                          {new Date(order.orderDate).toLocaleDateString()}
-                        </p>
+                        <p>{formatDate(order.orderDate)}</p>
                       </div>
                     }
                     bottomContent={
                       <div className="flex justify-between">
-                        <p>Total: ₹{order.totalAmount?.toFixed(2) || "N/A"}</p>
-                        <p>Status: {order.status}</p>
+                        <h2 className="font-semibold">
+                          ₹{order.totalAmount?.toFixed(2) || "N/A"}
+                        </h2>
+                        <Chip
+                          color={statusColorMap[order.status]}
+                          size="sm"
+                          variant="flat"
+                        >
+                          {order.status}
+                        </Chip>
                       </div>
                     }
                   >
                     <TableHeader>
                       <TableColumn width={300}>PIZZA NAME</TableColumn>
-                      <TableColumn>SIZE</TableColumn>
-                      <TableColumn>QUANTITY</TableColumn>
-                      <TableColumn>PRICE</TableColumn>
+                      <TableColumn width={150}>SIZE</TableColumn>
+                      <TableColumn width={100}>QUANTITY</TableColumn>
+                      <TableColumn width={200}>PRICE</TableColumn>
                     </TableHeader>
                     <TableBody>
                       {order.items.map((item, i) => (

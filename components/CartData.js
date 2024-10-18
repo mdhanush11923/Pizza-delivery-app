@@ -35,7 +35,7 @@ export const CartProvider = ({ children }) => {
   totalAmount: 1047,
   orderDate: new Date(),
   customerName: 'John Doe',
-  status: 'Pending'
+  status: 'Delivered'
 }
   ]);
 

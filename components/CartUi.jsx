@@ -21,7 +21,6 @@ export default function CartUi() {
   const darkMode = theme === "dark";
   const { cartCount, cartItems, clearCart, removeItemFromCart, cartTotal, addNewOrder } = useCart();
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [paymentId, setPaymentId] = useState("");
   const router = useRouter();
 
   // Function to dynamically load Razorpay script
@@ -51,7 +50,7 @@ const verifyPayment = async (paymentId) => {
     const newOrder = createOrder(paymentId, "John Doe", cartItems, new Date(), cartTotal);
     addNewOrder(newOrder);
     clearCart();
-    router.push("orders");
+    router.push("/dashboard/orders");
   } else {
     alert("Payment verification failed.");
   }
@@ -78,19 +77,30 @@ const handlePayment = async () => {
     name: "PIZzA Delivery",
     description: "Test Transaction",
     handler: async function (response) {
-      alert("Payment ID: " + response.razorpay_payment_id);
       await verifyPayment(response.razorpay_payment_id); // Pass only the paymentId
     },
     prefill: {
       name: "Customer Name",
       email: "customer@example.com",
-      contact: "9999999999",
+      contact: "+919999999999",
     },
     notes: {
       address: "note value",
     },
     theme: {
       color: "#4C5D65",
+      backdrop_color: "#4C5D65",
+    },
+    config: {
+      display: {
+        hide: [
+          { method: "card" },
+          { method: "paylater" }, // Hide Pay Later option
+        ],
+        preferences: {
+          show_default_blocks: true, // Show default blocks for payment methods
+        },
+      },
     },
   };
 

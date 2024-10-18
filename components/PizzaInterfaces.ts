@@ -56,7 +56,7 @@ export interface Order {
   totalAmount: number;
   orderDate: Date;
   customerName: string;
-  status: 'Pending' | 'Completed' | 'Cancelled';
+  status: 'Pending' | 'Delivered' | 'Cancelled';
 }
 
 
