@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import { Select, SelectItem } from "@nextui-org/select";
-import { Button, Checkbox, CheckboxGroup, Input } from "@nextui-org/react";
+import { Button, Checkbox, CheckboxGroup, Input, Slider } from "@nextui-org/react";
 import { Image } from "@nextui-org/react";
 // import { useCart } from "./Cart";
 import { bases, sauces, cheeses, veggies } from "./pizzaData";
@@ -15,7 +15,7 @@ const PizzaCustomization = () => {
   const [selectedSauceId, setSelectedSauceId] = useState(null);
   const [selectedCheeseId, setSelectedCheeseId] = useState(null);
   const [selectedVeggiesIds, setSelectedVeggiesIds] = useState([]);
-  const [pizzaQuantity, setPizzaQuantity] = useState(1);
+  const [pizzaQuantity, setPizzaQuantity] = useState(2);
   const [totalPrice, setTotalPrice] = useState(0);
   const { addItemToCart } = useCart();
 
@@ -103,8 +103,8 @@ const PizzaCustomization = () => {
   return (
     <div className="flex flex-col items-center h-full p-10 pt-4">
       <div className="flex flex-col items-center gap-12">
-        <div className="flex flex-wrap justify-center items-center gap-10">
-          <h1 className="scroll-m-20 sm:mb-4 text-4xl text-center font-poppins font-extrabold tracking-tight lg:text-5xl">
+        <div className="flex flex-wrap items-center gap-10">
+          <h1 className="scroll-m-20 sm:mb-4 text-4xl font-poppins font-extrabold tracking-tight lg:text-5xl">
             Create Your Own Pizza
           </h1>
           <Image
@@ -125,7 +125,7 @@ const PizzaCustomization = () => {
             onSelectionChange={handleBaseChange}
           >
             {bases.map((item) => (
-              <SelectItem key={item.id} value={item.id}>
+              <SelectItem color="success" key={item.id} value={item.id}>
                 {item.name}
               </SelectItem>
             ))}
@@ -140,14 +140,11 @@ const PizzaCustomization = () => {
             onSelectionChange={handleSauceChange}
           >
             {sauces.map((item) => (
-              <SelectItem key={item.id} value={item.id}>
+              <SelectItem color="success" key={item.id} value={item.id}>
                 {item.name}
               </SelectItem>
             ))}
           </Select>
-        </div>
-
-        <div className="flex flex-wrap sm:flex-nowrap gap-8 w-full">
           <Select
             variant="faded"
             label="Choose Cheese"
@@ -157,24 +154,15 @@ const PizzaCustomization = () => {
             onSelectionChange={handleCheeseChange}
           >
             {cheeses.map((item) => (
-              <SelectItem key={item.id} value={item.id}>
+              <SelectItem color="success" key={item.id} value={item.id}>
                 {item.name}
               </SelectItem>
             ))}
           </Select>
-
-          <Input
-            label="Quantity"
-            variant="faded"
-            type="number"
-            min={1}
-            value={pizzaQuantity}
-            onChange={(e) => setPizzaQuantity(Number(e.target.value))}
-          />
         </div>
 
         <CheckboxGroup
-          classNames={{ label: "text-center" }}
+          classNames={{ label: "text-semibold", wrapper: "max-w-[900px]" }}
           color="warning"
           label="Choose Veggies"
           orientation="horizontal"
@@ -188,23 +176,44 @@ const PizzaCustomization = () => {
           ))}
         </CheckboxGroup>
 
-        <div className="flex flex-wrap w-full items-center gap-5 justify-end">
-          {totalPrice!==0 && (
-            <div className="text-2xl  font-poppins font-bold">
-              Price: ₹{totalPrice.toFixed(2)}
-            </div>
-          )}
-
-          <Button
-            className="w-44 h-14 reddanger"
-            color="danger"
+        <div className="flex flex-wrap sm:flex-nowrap gap-8 w-full">
+          {/* <Input
+            label="Quantity"
+            variant="faded"
+            type="number"
+            min={1}
+            value={pizzaQuantity}
+            onChange={(e) => setPizzaQuantity(Number(e.target.value))}
+          /> */}
+          <Slider
             size="lg"
-            radius="sm"
-            onClick={handleSubmit}
-            isDisabled={selectedBaseId===null}
-          >
-            Add to cart
-          </Button>
+            step={1}
+            color="warning"
+            label="Quantity"
+            showSteps={true}
+            maxValue={10}
+            minValue={1}
+            value={pizzaQuantity}
+            onChange={setPizzaQuantity}
+          />
+          <div className="flex flex-wrap w-full items-center gap-5 justify-end">
+            {totalPrice !== 0 && (
+              <div className="text-2xl  font-poppins font-bold">
+                Price: ₹{totalPrice.toFixed(2)}
+              </div>
+            )}
+
+            <Button
+              className="w-44 h-14 reddanger"
+              color="danger"
+              size="lg"
+              radius="sm"
+              onClick={handleSubmit}
+              isDisabled={selectedBaseId === null}
+            >
+              Add to cart
+            </Button>
+          </div>
         </div>
       </div>
     </div>
