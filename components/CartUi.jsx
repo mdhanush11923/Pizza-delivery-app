@@ -15,6 +15,7 @@ import { useTheme } from "next-themes";
 import { useCart } from "./CartData";
 import { useRouter } from "next/navigation";
 import { createOrder } from "./PizzaInterfaces";
+import { useToast } from "@/hooks/use-toast";
 
 export default function CartUi() {
   const { theme } = useTheme();
@@ -22,6 +23,7 @@ export default function CartUi() {
   const { cartCount, cartItems, clearCart, removeItemFromCart, cartTotal, addNewOrder } = useCart();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const router = useRouter();
+  const { toast } = useToast();
 
   // Function to dynamically load Razorpay script
   const loadRazorpayScript = () => {
@@ -45,7 +47,11 @@ const verifyPayment = async (paymentId) => {
 
   const data = await response.json();
   if (data.success) {
-    alert("Payment verified successfully!");
+    // alert("Payment verified successfully!");
+                  toast({
+                    variant: "success",
+                    title: "Payment verified successfully!",
+                  });
     onClose();
     const newOrder = createOrder(paymentId, "John Doe", cartItems, new Date(), cartTotal);
     addNewOrder(newOrder);
@@ -61,7 +67,11 @@ const handlePayment = async () => {
   const isScriptLoaded = await loadRazorpayScript();
 
   if (!isScriptLoaded) {
-    alert("Failed to load Razorpay. Please try again later.");
+    // alert("Failed to load Razorpay. Please try again later.");
+                  toast({
+                    variant: "destructive",
+                    title: "Failed to load Razorpay. Please try again later.",
+                  });
     return;
   }
 

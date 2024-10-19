@@ -8,6 +8,7 @@ import { Image } from "@nextui-org/react";
 import { bases, sauces, cheeses, veggies } from "./pizzaData";
 import { createCartItem } from "./PizzaInterfaces";
 import { useCart } from "./CartData";
+import { CustomCheckbox } from "./CustomCheckbox";
 
 const PizzaCustomization = () => {
   const [selectedBaseId, setSelectedBaseId] = useState(null);
@@ -181,9 +182,9 @@ const PizzaCustomization = () => {
           onChange={handleVeggiesChange}
         >
           {veggies.map((item) => (
-            <Checkbox key={item.id} value={item.id}>
+            <CustomCheckbox key={item.id} value={item.id}>
               {item.name}
-            </Checkbox>
+            </CustomCheckbox>
           ))}
         </CheckboxGroup>
 
