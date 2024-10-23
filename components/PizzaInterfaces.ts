@@ -34,6 +34,7 @@ export interface Pizza {
     availableQuantity: number;
   }[];
   stock: number;
+  quantity: number;
   imageSource: string;
 }
 
@@ -78,6 +79,7 @@ export const createPizza = (pizza: Omit<Pizza, 'stock'>): Pizza => {
   return {
     ...pizza,
     stock,
+    quantity: 0
   };
 };
 

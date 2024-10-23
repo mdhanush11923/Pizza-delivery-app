@@ -21,7 +21,7 @@ import {
 import { Link } from "@nextui-org/react";
 import AddIcon from "@mui/icons-material/Add";
 import ArrowDropDownCircleSharpIcon from "@mui/icons-material/ArrowDropDownCircleSharp";
-import pizzas from "./pizzaData";
+import pizzas, { bases, cheeses, sauces, veggies } from "./pizzaData";
 import { AddCircleOutline, AddRounded, AddSharp } from "@mui/icons-material";
 import { ScrollShadow } from "@nextui-org/react";
 import { useCart } from "./CartData";
@@ -34,27 +34,52 @@ export default function PizzaItem({ id, color }) {
 
   const { cartCount, addItemToCart } = useCart();
 
-const handlePack = () => {
-  const cartItem = createCartItem({
-    pizzaId: id,
-    pizzaName: pizza.name,
-    size: selectedSize,
-    baseId: pizza.base.id, // Get base ID
-    sauceId: pizza.sauce.id, // Get sauce ID
-    cheeseId: pizza.cheese.id, // Get cheese ID
-    veggiesIds:
-      pizza.veggies.length > 0
-        ? pizza.veggies.map((vegId) => vegId)
-        : undefined, // Add only if veggies are selected
-    quantity: 1,
-    totalPrice: pizza.prices[selectedSize], // Calculate total price based on the selected options
-  });
+  const handlePack = () => {
+    const cartItem = createCartItem({
+      pizzaId: id,
+      pizzaName: pizza.name,
+      size: selectedSize,
+      baseId: pizza.base.id, // Get base ID
+      sauceId: pizza.sauce.id, // Get sauce ID
+      cheeseId: pizza.cheese.id, // Get cheese ID
+      veggiesIds:
+        pizza.veggies.length > 0
+          ? pizza.veggies.map((vegId) => vegId)
+          : undefined, // Add only if veggies are selected
+      quantity: 1,
+      totalPrice: pizza.prices[selectedSize], // Calculate total price based on the selected options
+    });
 
-  console.log("Pizza Customization: ", cartItem);
-  addItemToCart(cartItem); // Add item to the cart
-  setQuantity(quantity + 1); // Increment cart count
-};
+    console.log("Pizza Customization: ", cartItem);
+    addItemToCart(cartItem);
+    updateStock(pizza, 1);
+  };
 
+  // Update function in the context
+  const updateStock = (pizza, quantity) => {
+    // Update pizza stock
+    pizza.stock -= quantity;
+    pizza.quantity += quantity;
+
+    // Update base stock
+    const baseIndex = bases.findIndex((b) => b.id === pizza.base.id);
+    if (baseIndex !== -1) bases[baseIndex].availableQuantity -= quantity;
+
+    // Update cheese stock
+    const cheeseIndex = cheeses.findIndex((c) => c.id === pizza.cheese.id);
+    if (cheeseIndex !== -1) cheeses[cheeseIndex].availableQuantity -= quantity;
+
+    // Update sauce stock
+    const sauceIndex = sauces.findIndex((s) => s.id === pizza.sauce.id);
+    if (sauceIndex !== -1) sauces[sauceIndex].availableQuantity -= quantity;
+
+    // Update veggies stock
+    pizza.veggies?.forEach((veggie) => {
+      const veggieIndex = veggies.findIndex((v) => v.id === veggie.id);
+      if (veggieIndex !== -1)
+        veggies[veggieIndex].availableQuantity -= quantity;
+    });
+  };
 
   function DemoDropDown() {
     return (
@@ -120,7 +145,7 @@ const handlePack = () => {
           {/* <div className="w-0 bg-[#41B3A2] dark:bg-warning h-5"></div> */}
           <Button
             fullWidth
-            className="rounded-t-[0px] rounded-b-[20px] h-14 bg-[#41B3A2] dark:bg-warning"
+            className="rounded-t-[0px] rounded-[10px] h-14 bg-[#41B3A2] dark:bg-warning"
             color="primary"
             onClick={handlePack}
           >
@@ -163,12 +188,12 @@ const handlePack = () => {
             In Stock:
           </h2>
           <h2 className="scroll-m-20 text-background font-poppins font-bold text-sm opacity-85 tracking-tight first:mt-0">
-            {pizza.stock - quantity}
+            {pizza.stock}
           </h2>
         </div>
         <div>
           <h2 className="scroll-m-20 text-background font-poppins font-bold text-sm opacity-85 tracking-tight first:mt-0">
-            {quantity}
+            {pizza.quantity}
           </h2>
         </div>
       </div>

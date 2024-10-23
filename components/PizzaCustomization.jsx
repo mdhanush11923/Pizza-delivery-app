@@ -125,7 +125,12 @@ const PizzaCustomization = () => {
             onSelectionChange={handleBaseChange}
           >
             {bases.map((item) => (
-              <SelectItem color="success" key={item.id} value={item.id}>
+              <SelectItem
+                color="warning"
+                variant="flat"
+                key={item.id}
+                value={item.id}
+              >
                 {item.name}
               </SelectItem>
             ))}
@@ -140,7 +145,12 @@ const PizzaCustomization = () => {
             onSelectionChange={handleSauceChange}
           >
             {sauces.map((item) => (
-              <SelectItem color="success" key={item.id} value={item.id}>
+              <SelectItem
+                color="warning"
+                variant="flat"
+                key={item.id}
+                value={item.id}
+              >
                 {item.name}
               </SelectItem>
             ))}
@@ -154,7 +164,12 @@ const PizzaCustomization = () => {
             onSelectionChange={handleCheeseChange}
           >
             {cheeses.map((item) => (
-              <SelectItem color="success" key={item.id} value={item.id}>
+              <SelectItem
+                color="warning"
+                variant="flat"
+                key={item.id}
+                value={item.id}
+              >
                 {item.name}
               </SelectItem>
             ))}
@@ -176,7 +191,7 @@ const PizzaCustomization = () => {
           ))}
         </CheckboxGroup>
 
-        <div className="flex flex-wrap sm:flex-nowrap gap-8 w-full">
+        <div className="flex flex-wrap items-stretch sm:flex-nowrap gap-8 w-full">
           {/* <Input
             label="Quantity"
             variant="faded"

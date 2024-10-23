@@ -1,8 +1,6 @@
-'use client'
+"use client";
 
 import { createPizza, Pizza } from "./PizzaInterfaces";
-
-
 
 // Separate arrays for bases, sauces, cheeses, and veggies
 const bases = [
@@ -10,7 +8,7 @@ const bases = [
   { id: "1", name: "Thin Crust", price: 200, availableQuantity: 50 },
   { id: "2", name: "Cheese Burst", price: 300, availableQuantity: 50 },
   { id: "3", name: "Gluten Free", price: 350, availableQuantity: 50 },
-  { id: "4", name: "Whole Wheat", price: 220, availableQuantity: 50 }
+  { id: "4", name: "Whole Wheat", price: 220, availableQuantity: 50 },
 ];
 
 const sauces = [
@@ -18,7 +16,7 @@ const sauces = [
   { id: "1", name: "Barbeque", price: 60, availableQuantity: 50 },
   { id: "2", name: "White Garlic", price: 70, availableQuantity: 50 },
   { id: "3", name: "Pesto", price: 80, availableQuantity: 50 },
-  { id: "4", name: "Spicy Buffalo", price: 90, availableQuantity: 50 }
+  { id: "4", name: "Spicy Buffalo", price: 90, availableQuantity: 50 },
 ];
 
 const cheeses = [
@@ -26,7 +24,7 @@ const cheeses = [
   { id: "1", name: "Mozzarella", price: 100, availableQuantity: 50 },
   { id: "2", name: "Parmesan", price: 140, availableQuantity: 50 },
   { id: "3", name: "Gouda", price: 160, availableQuantity: 50 },
-  { id: "4", name: "Feta", price: 180, availableQuantity: 50 }
+  { id: "4", name: "Feta", price: 180, availableQuantity: 50 },
 ];
 
 const veggies = [
@@ -37,7 +35,7 @@ const veggies = [
   { id: "4", name: "Mushrooms", price: 40, availableQuantity: 50 },
   { id: "5", name: "Cherry Tomatoes", price: 30, availableQuantity: 50 },
   { id: "6", name: "Jalapenos", price: 20, availableQuantity: 50 },
-  { id: "7", name: "Sweet Corn", price: 25, availableQuantity: 50 }
+  { id: "7", name: "Sweet Corn", price: 25, availableQuantity: 50 },
 ];
 
 // Image sources
@@ -65,11 +63,12 @@ const pizzas: Pizza[] = [
     veggies: [], // No veggies
     imageSource: Pepperoni,
   }),
-  
+
   createPizza({
     pizzaId: 1,
     name: "Margherita",
-    description: "A simple and delicious pizza topped with tomatoes and fresh mozzarella.",
+    description:
+      "A simple and delicious pizza topped with tomatoes and fresh mozzarella.",
     category: "Vegetarian",
     prices: { small: 299, medium: 449, large: 599 },
     base: bases[1], // Thick Crust
@@ -147,7 +146,8 @@ const pizzas: Pizza[] = [
   createPizza({
     pizzaId: 7,
     name: "Meat Lovers",
-    description: "A meat-heavy pizza loaded with pepperoni, sausage, and bacon.",
+    description:
+      "A meat-heavy pizza loaded with pepperoni, sausage, and bacon.",
     category: "Non-Vegetarian",
     prices: { small: 599, medium: 799, large: 1099 },
     base: bases[2], // Cheese Burst
@@ -160,7 +160,8 @@ const pizzas: Pizza[] = [
   createPizza({
     pizzaId: 8,
     name: "Pesto Veggie",
-    description: "A fresh mix of veggies with pesto sauce and mozzarella cheese.",
+    description:
+      "A fresh mix of veggies with pesto sauce and mozzarella cheese.",
     category: "Vegetarian",
     prices: { small: 449, medium: 649, large: 849 },
     base: bases[3], // Gluten Free
@@ -168,22 +169,20 @@ const pizzas: Pizza[] = [
     sauce: sauces[3], // Pesto
     veggies: [veggies[0], veggies[2], veggies[6]], // Bell Peppers, Onions, Jalapenos
     imageSource: PestoVeggie,
-  })
+  }),
 ];
 
-
-
 const vegetarianPizzas = pizzas.filter(
-  (pizza) => pizza.category === "Vegetarian"
+  (pizza) => pizza.category === "Vegetarian",
 );
 
 const nonVegetarianPizzas = pizzas.filter(
-  (pizza) => pizza.category === "Non-Vegetarian"
+  (pizza) => pizza.category === "Non-Vegetarian",
 );
 
 export default pizzas;
 
-export {createPizza};
+export { createPizza };
 
 export {
   vegetarianPizzas,

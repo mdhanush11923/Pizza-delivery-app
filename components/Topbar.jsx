@@ -63,12 +63,12 @@ export default function Topbar(props) {
       <NavbarContent className="hidden ml-3 w-full md:flex" justify="start">
         {menuItems.slice(0, 4).map((item) => (
           <NavbarItem
-            className=" data-[active=true]:font-bold"
+            className=" data-[active=true]:font-bold data-[active=true]:text-limefros p-1"
             isActive={item.path === pathname}
             key={item.path}
           >
             <NextLink
-              className="foreground data-[active=true]:font-bold data-[active=true]:text-primary "
+              className="foreground data-[active=true]:font-bold"
               href={item.path}
             >
               {item.title}
@@ -76,8 +76,8 @@ export default function Topbar(props) {
           </NavbarItem>
         ))}
         <NavbarItem className="hidden md:flex ">
-          <NextLink className="text-reddanger" href="/">
-              Logout
+          <NextLink className="text-danger" href="/">
+            Logout
           </NextLink>
         </NavbarItem>
       </NavbarContent>

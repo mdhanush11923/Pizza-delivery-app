@@ -10,6 +10,8 @@ import {
   TableRow,
   TableCell,
   Chip,
+  Accordion,
+  AccordionItem,
 } from "@nextui-org/react";
 
 export default function Orders() {
@@ -33,8 +35,8 @@ export default function Orders() {
           <h1>No orders history</h1>
         </div>
       ) : (
-        <div className="w-full rounded-lg p-5">
-          <h1 className="text-3xl lg:text-4xl font-extrabold font-poppins mb-4">
+        <div className="w-full">
+          <h1 className="text-center text-3xl lg:text-4xl font-extrabold font-poppins mb-10">
             Order History
           </h1>
           <ul className="space-y-4">
@@ -65,8 +67,16 @@ export default function Orders() {
                           size="sm"
                           variant="flat"
                         >
-                          {order.status}
+                          {order.status} 
                         </Chip>
+                        {/* <Accordion>
+                          <AccordionItem
+                            key="1"
+                            aria-label="Accordion 1"
+                            title="Accordion 1"
+                          >
+                          </AccordionItem>
+                        </Accordion> */}
                       </div>
                     }
                   >
