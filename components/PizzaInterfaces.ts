@@ -62,24 +62,25 @@ export interface Order {
 
 
 // Function to create a Pizza with stock based on ingredient availability
-export const createPizza = (pizza: Omit<Pizza, 'stock'>): Pizza => {
-  const stock = pizza.veggies && pizza.veggies.length > 0 
-  ? Math.min(
-      pizza.base.availableQuantity,
-      pizza.cheese.availableQuantity,
-      pizza.sauce.availableQuantity,
-      ...(pizza.veggies.map((v) => v.availableQuantity))
-    ) 
-  : Math.min(
-      pizza.base.availableQuantity,
-      pizza.cheese.availableQuantity,
-      pizza.sauce.availableQuantity
-    );
+export const createPizza = (pizza: Omit<Pizza, "stock" | "quantity">): Pizza => {
+  const stock =
+    pizza.veggies && pizza.veggies.length > 0
+      ? Math.min(
+          pizza.base.availableQuantity,
+          pizza.cheese.availableQuantity,
+          pizza.sauce.availableQuantity,
+          ...pizza.veggies.map((v) => v.availableQuantity),
+        )
+      : Math.min(
+          pizza.base.availableQuantity,
+          pizza.cheese.availableQuantity,
+          pizza.sauce.availableQuantity,
+        );
 
   return {
     ...pizza,
     stock,
-    quantity: 0
+    quantity: 0,
   };
 };
 
