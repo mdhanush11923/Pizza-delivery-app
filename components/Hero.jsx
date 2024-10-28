@@ -1,10 +1,11 @@
 "use client";
 
 import React from "react";
-import { Link, Divider, Image, Button } from "@nextui-org/react";
+import { Divider, Image, Button } from "@nextui-org/react";
 import PizzaItem from "./PizzaItem";
 import { title } from "./primitives";
 import TextRevealByWord from "./ui/text-reveal";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -40,8 +41,8 @@ export default function Hero() {
               color="success"
               radius="sm"
               size="lg"
-              // href="/pizza-delivery/dashboard/menu"
-              // as={Link}
+              href="/pizza-delivery/dashboard/menu"
+              as={Link}
             >
               Explore Menu
             </Button>
@@ -51,8 +52,8 @@ export default function Hero() {
               variant="ghost"
               radius="sm"
               size="lg"
-              // href="/pizza-delivery/dashboard/custom"
-              // as={Link}
+              href="/pizza-delivery/dashboard/custom"
+              as={Link}
             >
               Custom Pizza
             </Button>
