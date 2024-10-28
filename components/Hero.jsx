@@ -41,7 +41,7 @@ export default function Hero() {
               color="success"
               radius="sm"
               size="lg"
-              href="/pizza-delivery/dashboard/menu"
+              href="/dashboard/menu"
               as={Link}
             >
               Explore Menu
@@ -52,7 +52,7 @@ export default function Hero() {
               variant="ghost"
               radius="sm"
               size="lg"
-              href="/pizza-delivery/dashboard/custom"
+              href="/dashboard/custom"
               as={Link}
             >
               Custom Pizza
