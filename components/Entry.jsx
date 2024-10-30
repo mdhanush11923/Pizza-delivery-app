@@ -221,7 +221,7 @@ export default function Entry(props) {
             radius="lg"
           >
             <Tab key="login" title="Login">
-              <form action={actions.signIn}>
+              <form>
                 <div className="flex-col space-y-5 justify-center">
                   <Input
                     isClearable
@@ -280,7 +280,6 @@ export default function Entry(props) {
                     variant="solid"
                     size="lg"
                     onPress={handleLoginSubmit}
-                    type="submit"
                   >
                     Login
                   </Button>
