@@ -21,6 +21,7 @@ import { Slide, Snackbar } from "@mui/material";
 import { useRouter } from "next/navigation";
 import { AnimatedSubscribeButton } from "./ui/animated-subscribe-button";
 import { useToast } from "@/hooks/use-toast";
+import * as actions from "@/actions";
 
 export default function Entry(props) {
   const [isVisible, setIsVisible] = React.useState({
@@ -151,10 +152,10 @@ export default function Entry(props) {
     // Proceed with signup action (e.g., API call)
     setErrorMessage("");
     // setOpenSignupAlert(true);
-                  toast({
-                    variant: "success",
-                    title: "You've successfully signed up. Please log in to continue.",
-                  });
+    toast({
+      variant: "success",
+      title: "You've successfully signed up. Please log in to continue.",
+    });
     setIsSignedUp(true);
 
     // console.log("Sign Up Details:", details);
@@ -220,81 +221,84 @@ export default function Entry(props) {
             radius="lg"
           >
             <Tab key="login" title="Login">
-              <div className="flex-col space-y-5 justify-center">
-                <Input
-                  isClearable
-                  name="email"
-                  onChange={handleLoginChange}
-                  value={loginDetails.email}
-                  type="email"
-                  label="Email"
-                  isInvalid={isInvalidLoginEmail}
-                  color={isInvalidLoginEmail && "danger"}
-                  errorMessage="Please enter a valid email"
-                  onClear={() => handleLoginClear("email")} // Clear only the email field
-                />
-                <Input
-                  isClearable
-                  name="p1"
-                  onChange={handleLoginChange}
-                  value={loginDetails.p1}
-                  label="Password"
-                  endContent={
-                    <button
-                      className="focus:outline-none"
-                      type="button"
-                      onClick={() => toggleVisibility("loginPassword")}
-                      aria-label="toggle password visibility"
-                    >
-                      {isVisible.loginPassword ? (
-                        <VisibilityIcon className="text-2xl text-default-400 pointer-events-none" />
-                      ) : (
-                        <VisibilityOffIcon className="text-2xl text-default-400 pointer-events-none" />
-                      )}
-                    </button>
-                  }
-                  type={isVisible.loginPassword ? "text" : "password"}
-                />
-                <div className="flex justify-end">
-                  <Button
-                    className="place-self-end"
-                    variant="light"
-                    onClick={() =>
-                      toast({
-                        variant: "success",
-                        title: "Did you forget to eat?",
-                        duration: 1000
-                      })
+              <form action={actions.signIn}>
+                <div className="flex-col space-y-5 justify-center">
+                  <Input
+                    isClearable
+                    name="email"
+                    onChange={handleLoginChange}
+                    value={loginDetails.email}
+                    type="email"
+                    label="Email"
+                    isInvalid={isInvalidLoginEmail}
+                    color={isInvalidLoginEmail && "danger"}
+                    errorMessage="Please enter a valid email"
+                    onClear={() => handleLoginClear("email")} // Clear only the email field
+                  />
+                  <Input
+                    isClearable
+                    name="p1"
+                    onChange={handleLoginChange}
+                    value={loginDetails.p1}
+                    label="Password"
+                    endContent={
+                      <button
+                        className="focus:outline-none"
+                        type="button"
+                        onClick={() => toggleVisibility("loginPassword")}
+                        aria-label="toggle password visibility"
+                      >
+                        {isVisible.loginPassword ? (
+                          <VisibilityIcon className="text-2xl text-default-400 pointer-events-none" />
+                        ) : (
+                          <VisibilityOffIcon className="text-2xl text-default-400 pointer-events-none" />
+                        )}
+                      </button>
                     }
-                  >
-                    Forgot password?
-                  </Button>
-                </div>
+                    type={isVisible.loginPassword ? "text" : "password"}
+                  />
+                  <div className="flex justify-end">
+                    <Button
+                      className="place-self-end"
+                      variant="light"
+                      onClick={() =>
+                        toast({
+                          variant: "success",
+                          title: "Did you forget to eat?",
+                          duration: 1000,
+                        })
+                      }
+                    >
+                      Forgot password?
+                    </Button>
+                  </div>
 
-                <Button
-                  fullWidth
-                  radius="lg"
-                  className={buttonClass}
-                  variant="solid"
-                  size="lg"
-                  onPress={handleLoginSubmit}
-                >
-                  Login
-                </Button>
-
-                <div className="flex justify-center">
                   <Button
-                    className="place-self-center"
-                    variant="light"
-                    onClick={() => {
-                      navigate("/pizza-delivery/admin");
-                    }}
-                    href="/pizza-delivery/admin"
+                    fullWidth
+                    radius="lg"
+                    className={buttonClass}
+                    variant="solid"
+                    size="lg"
+                    onPress={handleLoginSubmit}
+                    type="submit"
                   >
-                    Admin?
+                    Login
                   </Button>
+
+                  <div className="flex justify-center">
+                    <Button
+                      className="place-self-center"
+                      variant="light"
+                      onClick={() => {
+                        navigate("/pizza-delivery/admin");
+                      }}
+                      href="/pizza-delivery/admin"
+                    >
+                      Admin?
+                    </Button>
+                  </div>
                 </div>
-              </div>
+              </form>
             </Tab>
 
             <Tab key="signup" title="Sign up">
