@@ -12,6 +12,7 @@ import {
   Tabs,
   Tab,
   Image,
+  Divider,
 } from "@nextui-org/react";
 import { AnimatePresence, motion } from "framer-motion";
 import VisibilityIcon from "@mui/icons-material/Visibility";
@@ -287,9 +288,10 @@ export default function Entry(props) {
                   </Button>
                 </div>
               </form>
+              <Divider className="my-5" />
 
               <div className="flex justify-between">
-                <div className="flex w-full mt-7 px-3 items-center gap-3">
+                <div className="flex w-full px-3 items-center gap-3">
                   <h2 className="font-light">Sign in with</h2>
                   <form action={actions.signIn}>
                     <Button isIconOnly variant="light" size="sm" type="submit">
