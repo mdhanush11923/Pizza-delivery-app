@@ -292,7 +292,7 @@ export default function Entry(props) {
                 <div className="flex w-full mt-7 px-3 items-center gap-3">
                   <h2 className="font-light">Sign in with</h2>
                   <form action={actions.signIn}>
-                    <Button isIconOnly variant="light" color="success" size="sm" type="submit">
+                    <Button isIconOnly variant="light" size="sm" type="submit">
                       <Google />
                     </Button>
                   </form>
