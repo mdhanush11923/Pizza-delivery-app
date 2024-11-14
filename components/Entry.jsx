@@ -22,6 +22,8 @@ import { useRouter } from "next/navigation";
 import { AnimatedSubscribeButton } from "./ui/animated-subscribe-button";
 import { useToast } from "@/hooks/use-toast";
 import * as actions from "@/actions";
+import { GitHub, Google } from "@mui/icons-material";
+
 
 export default function Entry(props) {
   const [isVisible, setIsVisible] = React.useState({
@@ -283,21 +285,35 @@ export default function Entry(props) {
                   >
                     Login
                   </Button>
-
-                  <div className="flex justify-center">
-                    <Button
-                      className="place-self-center"
-                      variant="light"
-                      onClick={() => {
-                        navigate("/pizza-delivery/admin");
-                      }}
-                      href="/pizza-delivery/admin"
-                    >
-                      Admin?
-                    </Button>
-                  </div>
                 </div>
               </form>
+
+              <div className="flex justify-between">
+                <div className="flex w-full mt-7 px-3 items-center gap-3">
+                  <h2 className="font-light">Sign in with</h2>
+                  <form action={actions.signIn}>
+                    <Button isIconOnly variant="ghost" size="sm" type="submit">
+                      <Google />
+                    </Button>
+                  </form>
+                  <form action={actions.signIn}>
+                    <Button isIconOnly variant="ghost" size="sm" type="submit">
+                      <GitHub />
+                    </Button>
+                  </form>
+                </div>
+
+                <Button
+                  className="place-self-end"
+                  variant="light"
+                  onClick={() => {
+                    navigate("/pizza-delivery/admin");
+                  }}
+                  href="/pizza-delivery/admin"
+                >
+                  Admin?
+                </Button>
+              </div>
             </Tab>
 
             <Tab key="signup" title="Sign up">
@@ -387,6 +403,7 @@ export default function Entry(props) {
                 >
                   Sign Up
                 </Button>
+
                 {/* <AnimatePresence mode="wait">
                   {isSignedUp ? (
                     <motion.button
