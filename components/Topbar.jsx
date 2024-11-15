@@ -82,7 +82,7 @@ export default function Topbar(props) {
           </NavbarItem>
         ))}
         <NavbarItem className="hidden md:flex ">
-          <Button className="text-danger" variant="ghost" onClick={handleLogoutClick}>
+          <Button className="text-danger" variant="light" onClick={handleLogoutClick}>
             Logout
           </Button>
         </NavbarItem>
