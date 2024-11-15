@@ -25,8 +25,16 @@ import { useToast } from "@/hooks/use-toast";
 import * as actions from "@/actions";
 import { GitHub, Google } from "@mui/icons-material";
 
-
 export default function Entry(props) {
+  const { data: session, status } = useSession(); // Get session data and status
+  // Redirect to dashboard if user is already logged in
+  const router = useRouter();
+  React.useEffect(() => {
+    if (status === "authenticated") {
+      router.push("/dashboard"); // Redirect to dashboard if logged in
+    }
+  }, [status, router]);
+
   const [isVisible, setIsVisible] = React.useState({
     loginPassword: false,
     signupPassword: false,
@@ -63,8 +71,6 @@ export default function Entry(props) {
   const [errorMessage, setErrorMessage] = React.useState("");
 
   const { toast } = useToast();
-
-  const router = useRouter();
 
   const handleAlertClose = (event, reason) => {
     if (reason === "clickaway") {
@@ -103,21 +109,42 @@ export default function Entry(props) {
       return;
     }
 
-    // Proceed with login action (e.g., API call)
-    if (!isSignedUp) {
-      // setErrorMessage("You are not signed up yet.");
-      toast({
-        variant: "destructive",
-        title: "You are not signed up yet.",
-      });
-      return;
-    }
-
-    setErrorMessage("");
-    router.push("/dashboard");
-
-    console.log("Login Details:", loginDetails);
+    // Simulate login using NextAuth's signIn function
+    signIn("credentials", {
+      email: loginDetails.email,
+      password: loginDetails.p1,
+      redirect: false, // Don't automatically redirect after login
+    }).then((response) => {
+      if (response?.error) {
+        toast({
+          variant: "destructive",
+          title: "Login failed. Please check your credentials.",
+        });
+      } else {
+        router.push("/dashboard");
+        toast({
+          variant: "success",
+          title: "Login successful! Redirecting...",
+        });
+      }
+    });
   }
+
+  // Proceed with login action (e.g., API call)
+  // if (!isSignedUp) {
+  //   // setErrorMessage("You are not signed up yet.");
+  //   toast({
+  //     variant: "destructive",
+  //     title: "You are not signed up yet.",
+  //   });
+  //   return;
+  // }
+
+  // setErrorMessage("");
+  // router.push("/dashboard");
+
+  // console.log("Login Details:", loginDetails);
+  // }
   function handleSignupSubmit() {
     if (
       !details.email ||

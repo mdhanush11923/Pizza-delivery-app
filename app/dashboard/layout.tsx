@@ -34,7 +34,7 @@ export default async function DashBoardLayout({
   );
 }
 else {
-  redirect("/");
+  redirect("/login");
   return null;
 }
 }

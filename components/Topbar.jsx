@@ -21,6 +21,7 @@ import { ThemeSwitch } from "./theme-switch";
 import Link from "next/link";
 import NextLink from "next/link";
 import { useCart } from "./CartData";
+import { signOut } from "@/actions";
 
 
 export default function Topbar(props) {
@@ -45,6 +46,11 @@ export default function Topbar(props) {
     console.log(path);
     router.push(path);
   };
+
+  const handleLogoutClick = () => {
+    signOut();
+    router.push("/");
+  }
 
   return (
     <Navbar
@@ -76,9 +82,9 @@ export default function Topbar(props) {
           </NavbarItem>
         ))}
         <NavbarItem className="hidden md:flex ">
-          <NextLink className="text-danger" href="/">
+          <Button className="text-danger" onClick={handleLogoutClick}>
             Logout
-          </NextLink>
+          </Button>
         </NavbarItem>
       </NavbarContent>
 
