@@ -29,7 +29,17 @@ import { useSession } from "next-auth/react";
 export default function Entry(props) {
   const { data: session, status } = useSession(); // Get session data and status
   const router = useRouter();
-  
+
+  React.useEffect(() => {
+    if (status === "authenticated") {
+      router.push("/dashboard"); // Redirect to dashboard if logged in
+    }
+  }, [status, router]);
+
+    if (status === "loading") {
+      return <div>Loading...</div>; // Display loading state while session is being checked
+    }
+    
   const [isVisible, setIsVisible] = React.useState({
     loginPassword: false,
     signupPassword: false,
