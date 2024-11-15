@@ -24,6 +24,7 @@ import { AnimatedSubscribeButton } from "./ui/animated-subscribe-button";
 import { useToast } from "@/hooks/use-toast";
 import * as actions from "@/actions";
 import { GitHub, Google } from "@mui/icons-material";
+import { useSession } from "next-auth/react";
 
 export default function Entry(props) {
   const { data: session, status } = useSession(); // Get session data and status
