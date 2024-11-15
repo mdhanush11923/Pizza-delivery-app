@@ -54,7 +54,7 @@ export default function Entry(props) {
   const buttonClass =
     "bg-[#4C5D65] font-semibold hover:font-extrabold hover:bg-[#F27F14] text-white h-16";
 
-  const [isSignedUp, setIsSignedUp] = React.useState(true);
+  const [isSignedUp, setIsSignedUp] = React.useState(false);
 
   const [openSignupAlert, setOpenSignupAlert] = React.useState(false);
 
@@ -133,15 +133,15 @@ export default function Entry(props) {
   //   });
   // }
 
-  // Proceed with login action (e.g., API call)
-  if (!isSignedUp) {
-    // setErrorMessage("You are not signed up yet.");
-    toast({
-      variant: "destructive",
-      title: "You are not signed up yet.",
-    });
-    return;
-  }
+  // // Proceed with login action (e.g., API call)
+  // if (!isSignedUp) {
+  //   // setErrorMessage("You are not signed up yet.");
+  //   toast({
+  //     variant: "destructive",
+  //     title: "You are not signed up yet.",
+  //   });
+  //   return;
+  // }
 
   // setErrorMessage("");
   router.push("/dashboard");
