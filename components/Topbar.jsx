@@ -43,7 +43,7 @@ export default function Topbar(props) {
   };
 
   const handleTabClick = (path) => {
-    console.log(path);
+    // console.log(path);
     router.push(path);
   };
 

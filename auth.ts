@@ -53,4 +53,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   pages: {
     signIn: "/login", // Redirect users to login if they are not authenticated
   },
+  session: {
+    strategy: "jwt",
+  },
 });
