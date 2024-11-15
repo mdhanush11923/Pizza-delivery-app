@@ -28,15 +28,15 @@ import { useSession } from "next-auth/react";
 import { signIn } from "@/auth";
 
 export default function Entry(props) {
-  const { data: session, status } = useSession(); // Get session data and status
+  const { data: session, status } = useSession();
   const router = useRouter();
 
-  React.useEffect(() => {
-    if (status === "authenticated") {
-      console.log("yes authenticated");
-      router.push("/dashboard"); // Redirect to dashboard if logged in
-    }
-  }, [status, router]);
+  // React.useEffect(() => {
+  //   if (status === "authenticated") {
+  //     console.log("yes authenticated");
+  //     router.push("/dashboard");
+  //   }
+  // }, [status, router]);
     
   const [isVisible, setIsVisible] = React.useState({
     loginPassword: false,
@@ -112,42 +112,42 @@ export default function Entry(props) {
       return;
     }
 
-    // Simulate login using NextAuth's signIn function
-    signIn("credentials", {
-      email: loginDetails.email,
-      password: loginDetails.p1,
-      redirect: false, // Don't automatically redirect after login
-    }).then((response) => {
-      if (response?.error) {
-        toast({
-          variant: "destructive",
-          title: "Login failed. Please check your credentials.",
-        });
-      } else {
-        router.push("/dashboard");
-        toast({
-          variant: "success",
-          title: "Login successful! Redirecting...",
-        });
-      }
-    });
-  }
+  //   // Simulate login using NextAuth's signIn function
+  //   signIn("credentials", {
+  //     email: loginDetails.email,
+  //     password: loginDetails.p1,
+  //     redirect: false, // Don't automatically redirect after login
+  //   }).then((response) => {
+  //     if (response?.error) {
+  //       toast({
+  //         variant: "destructive",
+  //         title: "Login failed. Please check your credentials.",
+  //       });
+  //     } else {
+  //       router.push("/dashboard");
+  //       toast({
+  //         variant: "success",
+  //         title: "Login successful! Redirecting...",
+  //       });
+  //     }
+  //   });
+  // }
 
   // Proceed with login action (e.g., API call)
-  // if (!isSignedUp) {
-  //   // setErrorMessage("You are not signed up yet.");
-  //   toast({
-  //     variant: "destructive",
-  //     title: "You are not signed up yet.",
-  //   });
-  //   return;
-  // }
+  if (!isSignedUp) {
+    // setErrorMessage("You are not signed up yet.");
+    toast({
+      variant: "destructive",
+      title: "You are not signed up yet.",
+    });
+    return;
+  }
 
   // setErrorMessage("");
-  // router.push("/dashboard");
+  router.push("/dashboard");
 
   // console.log("Login Details:", loginDetails);
-  // }
+  }
   function handleSignupSubmit() {
     if (
       !details.email ||
