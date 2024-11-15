@@ -4,6 +4,8 @@ import Footer from "@/components/Footer";
 import { Navbar } from "@/components/navbar";
 import { CartProvider } from "@/components/CartData";
 import CartUi from "@/components/CartUi";
+import { auth } from "@/auth";
+import { redirect } from "next/navigation";
 
 const Topbar = dynamic(() => import("@/components/Topbar"), {
   loading: () => <Loading />,
@@ -12,13 +14,16 @@ const Topbar = dynamic(() => import("@/components/Topbar"), {
 //   loading: () => <Footer />,
 // })
 
-export default function DashBoardLayout({
+export default async function DashBoardLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <section className="flex flex-col items-center justify-center gap-4">
+  const session = await auth();
+  if(session?.user) {
+
+    return (
+      <section className="flex flex-col items-center justify-center gap-4">
       <CartProvider>
         <Topbar />
         <div className="">{children}</div>
@@ -27,4 +32,9 @@ export default function DashBoardLayout({
       </CartProvider>
     </section>
   );
+}
+else {
+  redirect("/");
+  return null;
+}
 }
