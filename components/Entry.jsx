@@ -32,7 +32,7 @@ export default function Entry(props) {
   const router = useRouter();
 
   React.useEffect(() => {
-    if (status === "authenticated") {
+    if (status === "authenticated" && !session) {
       console.log("yes authenticated");
       router.push("/dashboard"); // Redirect to dashboard if logged in
     }
