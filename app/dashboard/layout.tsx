@@ -20,7 +20,7 @@ export default async function DashBoardLayout({
   children: React.ReactNode;
 }) {
   const session = await auth();
-  if(session?.user) {
+  if(true) {
 
     return (
       <section className="flex flex-col items-center justify-center gap-4">
