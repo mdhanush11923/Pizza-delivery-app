@@ -35,10 +35,6 @@ export default function Entry(props) {
       router.push("/dashboard"); // Redirect to dashboard if logged in
     }
   }, [status, router]);
-
-    if (status === "loading") {
-      return <div>Loading...</div>; // Display loading state while session is being checked
-    }
     
   const [isVisible, setIsVisible] = React.useState({
     loginPassword: false,
