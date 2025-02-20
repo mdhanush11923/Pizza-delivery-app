@@ -18,7 +18,11 @@ export function Providers({ children, themeProps }: ProvidersProps) {
   return (
     <SessionProvider>
       <NextUIProvider navigate={router.push}>
-        <NextThemesProvider {...themeProps}>{children}</NextThemesProvider>
+        <NextThemesProvider {...themeProps}>
+          <div className="transition-colors duration-500 select-none">
+            {children}
+          </div>
+        </NextThemesProvider>
       </NextUIProvider>
     </SessionProvider>
   );
